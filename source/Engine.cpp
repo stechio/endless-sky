@@ -642,9 +642,7 @@ void Engine::Step(bool isActive)
 	}
 	if(!target)
 		targetSwizzle = -1;
-	if(!target && !targetAsteroid)
-		info.SetString("target name", "no target");
-	else if(!target)
+	if(!target && targetAsteroid)
 	{
 		info.SetSprite("target sprite",
 			targetAsteroid->GetSprite(),
@@ -654,14 +652,10 @@ void Engine::Step(bool isActive)
 		
 		targetVector = targetAsteroid->Position() - center;
 		
-		if(flagship->Attributes().Get("tactical scan power"))
-		{
-			info.SetCondition("range display");
-			int targetRange = round(targetAsteroid->Position().Distance(flagship->Position()));
-			info.SetString("target range", to_string(targetRange));
-		}
+		double targetRange = targetAsteroid->Position().Distance(flagship->Position());
+		info.SetString("target range", FormatDistance(targetRange));
 	}
-	else
+	else if(target)
 	{
 		const Font &font = FontSet::Get(14);
 		if(target->GetSystem() == player.GetSystem() && target->Cloaking() < 1.)
@@ -675,7 +669,7 @@ void Engine::Step(bool isActive)
 			info.SetString("target government", target->GetGovernment()->GetName());
 		targetSwizzle = target->GetSwizzle();
 		info.SetString("mission target", target->GetPersonality().IsTarget() ? "(mission target)" : "");
-		
+
 		int targetType = RadarType(*target, step);
 		info.SetOutlineColor(Radar::GetColor(targetType));
 		if(target->GetSystem() == player.GetSystem() && target->IsTargetable())
@@ -696,16 +690,15 @@ void Engine::Step(bool isActive)
 			
 			targetVector = target->Position() - center;
 			
-			// Check if the target is close enough to show tactical information.
-			double tacticalRange = 100. * sqrt(flagship->Attributes().Get("tactical scan power"));
 			double targetRange = target->Position().Distance(flagship->Position());
-			if(tacticalRange)
-			{
-				info.SetCondition("range display");
-				info.SetString("target range", to_string(static_cast<int>(round(targetRange))));
-			}
-			// Actual tactical information requires a scrutable
-			// target that is within the tactical scanner range.
+			info.SetString("target range", FormatDistance(targetRange));
+
+			// Target close enough to show tactical information?
+			/*
+			 * NOTE: Actual tactical information requires a scrutable target
+			 * that is within the tactical scanner range.
+			 */
+			double tacticalRange = 100. * sqrt(flagship->Attributes().Get("tactical scan power"));
 			if((targetRange <= tacticalRange && !target->Attributes().Get("inscrutable"))
 					|| (tacticalRange && target->IsYours()))
 			{
@@ -795,8 +788,6 @@ void Engine::Step(bool isActive)
 				3});
 		}
 }
-
-
 
 // Begin the next step of calculations.
 void Engine::Go()
@@ -2092,7 +2083,11 @@ void Engine::DoGrudge(const shared_ptr<Ship> &target, const Government *attacker
 	SendMessage(target, message);
 }
 
-
+std::string Engine::FormatDistance(double value)
+{
+	double normValue = value * pow(1.1, min(75., value * .005));
+	return (normValue < 1000 ? Format::Number(normValue) + " m" : Format::Number(normValue / 1000) + " km");
+}
 
 // Constructor for the ship status display rings.
 Engine::Status::Status(const Point &position, double outer, double inner, double radius, int type, double angle)

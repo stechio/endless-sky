@@ -176,7 +176,7 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const Depreciation &dep
 			+ " (" + Format::Number(attributes.Get("cargo space") - ship.Cargo().Used()) + ") tons");
 	attributesHeight += 20;
 	attributeLabels.push_back("crew (min - max):");
-	attributeValues.push_back(Format::Number(ship.RequiredCrew())
+	attributeValues.push_back(ship.RequiredCrew() == 0 ? "(none)" : Format::Number(ship.RequiredCrew())
 		+ " - " + Format::Number(attributes.Get("bunks")));
 	attributesHeight += 20;
 	attributeLabels.push_back(isGeneric ? "fuel capacity:" : "fuel:");
@@ -194,27 +194,27 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const Depreciation &dep
 	attributeLabels.push_back(string());
 	attributeValues.push_back(string());
 	attributesHeight += 10;
-	attributeLabels.push_back(isGeneric ? "kinetics, max (min):" : "kinetics:");
+	attributeLabels.push_back(isGeneric ? "kinetics:" : "kinetics:");
 	attributeValues.push_back(string());
 	attributesHeight += 20;
 	attributeLabels.push_back("speed:");
-	attributeValues.push_back(Format::Number(600. * forwardThrust / attributes.Get("drag")) + " km/h");
+	attributeValues.push_back(Format::Number(60. * 50 * forwardThrust / attributes.Get("drag")) + " km/h");
 	attributesHeight += 20;
 	
 	attributeLabels.push_back("acceleration:");
 	if(!isGeneric)
-		attributeValues.push_back(Format::Number(3600. * forwardThrust / fullMass));
+		attributeValues.push_back(Format::Number(3600. / 36 * forwardThrust / fullMass));
 	else
-		attributeValues.push_back(Format::Number(3600. * forwardThrust / emptyMass)
-			+ " (" + Format::Number(3600. * forwardThrust / fullMass) + ")");
+		attributeValues.push_back(Format::Number(3600. / 36 * forwardThrust / fullMass)
+			+ " - " + Format::Number(3600. / 36 * forwardThrust / emptyMass));
 	attributesHeight += 20;
 	
 	attributeLabels.push_back("turning:");
 	if(!isGeneric)
-		attributeValues.push_back(Format::Number(60. * attributes.Get("turn") / fullMass));
+		attributeValues.push_back(Format::Number(60. * attributes.Get("turn") / fullMass / 360));
 	else
-		attributeValues.push_back(Format::Number(60. * attributes.Get("turn") / emptyMass)
-			+ " (" + Format::Number(60. * attributes.Get("turn") / fullMass) + ")");
+		attributeValues.push_back(Format::Number(60. * attributes.Get("turn") / fullMass / 360)
+			+ " - " + Format::Number(60. * attributes.Get("turn") / emptyMass  / 360));
 	attributesHeight += 20;
 	
 	// Find out how much outfit, engine, and weapon space the chassis has.
