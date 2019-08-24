@@ -2085,7 +2085,7 @@ void Engine::DoGrudge(const shared_ptr<Ship> &target, const Government *attacker
 
 std::string Engine::FormatDistance(double value)
 {
-	double normValue = value * pow(1.1, min(75., value * .005));
+	double normValue = value * pow(1.25, min(75., value * .005));
 	return (normValue < 1000 ? Format::Number(normValue) + " m" : Format::Number(normValue / 1000) + " km");
 }
 
