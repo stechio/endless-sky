@@ -171,7 +171,7 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const Depreciation &dep
 	attributesHeight += 20;
 	if(attributes.Get("hull repair rate"))
 	{
-		attributeLabels.push_back("hull (repair rate):");
+		attributeLabels.push_back("hull (repair):");
 		attributeValues.push_back(Format::Number(attributes.Get("hull"))
 			+ " (" + Format::Number(60. * attributes.Get("hull repair rate")) + "/s)");
 	}
@@ -215,16 +215,18 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const Depreciation &dep
 	double fullMass = emptyMass + (isGeneric ? attributes.Get("cargo space") : ship.Cargo().Used());
 	isGeneric &= (fullMass != emptyMass);
 	double forwardThrust = attributes.Get("thrust") ? attributes.Get("thrust") : attributes.Get("afterburner thrust");
+
 	attributeLabels.push_back(string());
 	attributeValues.push_back(string());
 	attributesHeight += 10;
-	attributeLabels.push_back(isGeneric ? "kinetics:" : "kinetics:");
+	attributeLabels.push_back("Performance");
 	attributeValues.push_back(string());
 	attributesHeight += 20;
+
 	attributeLabels.push_back("speed:");
 	attributeValues.push_back(Format::Number(60. * 50 * forwardThrust / attributes.Get("drag")) + " km/h");
 	attributesHeight += 20;
-	
+
 	attributeLabels.push_back("acceleration:");
 	if(!isGeneric)
 		attributeValues.push_back(Format::Number(3600. / 36 * forwardThrust / fullMass));
@@ -241,6 +243,13 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const Depreciation &dep
 			+ " - " + Format::Number(60. * attributes.Get("turn") / emptyMass  / 360));
 	attributesHeight += 20;
 	
+	attributeLabels.push_back(string());
+	attributeValues.push_back(string());
+	attributesHeight += 10;
+	attributeLabels.push_back("Chassis");
+	attributeValues.push_back(string());
+	attributesHeight += 20;
+
 	// Find out how much outfit, engine, and weapon space the chassis has.
 	map<string, double> chassis;
 	static const vector<string> NAMES = {
@@ -255,10 +264,6 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const Depreciation &dep
 	for(const auto &it : ship.Outfits())
 		for(auto &cit : chassis)
 			cit.second -= it.second * it.first->Get(cit.first);
-	
-	attributeLabels.push_back(string());
-	attributeValues.push_back(string());
-	attributesHeight += 10;
 	for(unsigned i = 0; i < NAMES.size(); i += 2)
 	{
 		attributeLabels.push_back(NAMES[i]);
