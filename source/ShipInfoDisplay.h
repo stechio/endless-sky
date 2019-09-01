@@ -60,9 +60,6 @@ private:
 	std::vector<std::string> attributeHeaderLabels;
 	std::vector<std::string> attributeHeaderValues;
 
-	std::vector<std::string> tableLabels;
-	std::vector<std::string> energyTable;
-	
 	std::vector<std::string> outfitLabels;
 	std::vector<std::string> outfitValues;
 	int outfitsHeight = 0;

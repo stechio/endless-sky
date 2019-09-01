@@ -32,10 +32,10 @@ tip "cargo scan power:"
 tip "cargo scan speed:"
 	`Determines how long it takes to perform a cargo scan. A value of 1 means one second, and the time decreases in proportion to the square root of this value, e.g. 4 means half a second.`
 
-tip "deadweight (free):"
+tip "Deadweight (free)"
 	`How much cargo (commodities, mission cargo, and plundered outfits) this ship can carry (along with its current availability).`
 
-tip "deadweight:"
+tip "Deadweight"
 	`How much cargo (commodities, mission cargo, and plundered outfits) this ship can carry.`
 
 tip "cloak:"
@@ -47,7 +47,7 @@ tip "cloaking energy:"
 tip "cloaking fuel:"
 	`Fuel per second required to maintain cloaking.`
 	
-tip "cost:"
+tip "Cost"
 	`Cost, in credits. If you have sold any used (depreciated) items today, you can buy them back for the same price you sold them for.`
 
 tip "disruption resistance:"
@@ -56,7 +56,7 @@ tip "disruption resistance:"
 tip "drag:"
 	`Limits the maximum speed of a ship.`
 
-tip "drone bays:"
+tip "Drone bays"
 	`The number of ships from the "Drone" category that this ship can carry.`
 
 tip "energy capacity:"
@@ -71,16 +71,16 @@ tip "energy generation:"
 tip "engine capacity needed:"
 	`Tons of engine space this outfit takes up.`
 
-tip "    engine capacity:"
+tip "    Engine capacity"
 	`How many tons of engines this ship can hold. (To install an engine, you must also have enough total outfit space available.)`
 
-tip "fighter bays:"
+tip "Fighter bays"
 	`The number of ships from the "Fighter" category that this ship can carry.`
 
-tip "fuel:"
+tip "Fuel"
 	`This ship's current fuel amount. An ordinary hyperdrive jump consumes 100 fuel.`
 
-tip "fuel capacity:"
+tip "Fuel capacity"
 	`An ordinary hyperdrive jump consumes 100 fuel. Fuel is replenished for free when you land on an inhabited planet.`
 
 tip "fuel consumption:"
@@ -95,13 +95,13 @@ tip "fuel generation:"
 tip "gun ports needed:"
 	`This weapon uses up a gun port. Guns always fire straight forward; turrets fire in the direction of your currently selected target.`
 
-tip "gun ports:"
+tip "Gun ports"
 	`How many guns this ship can hold. This includes most missiles and secondary weapons that fire straight forward.`
 
-tip "hull (repair):"
+tip "Hull (repair)"
 	`Total hull strength and repair rate (per second). Small ships are disabled when their hull strength drops below 45%; larger ships are disabled at 15%.`
 
-tip "hull:"
+tip "Hull"
 	`Total hull strength. Small ships are disabled when their hull strength drops below 45%; larger ships are disabled at 15%.`
 
 tip "hull energy:"
@@ -128,7 +128,7 @@ tip "jump fuel:"
 tip "map:"
 	`How many star systems are included in this map.`
 
-tip "displacement:"
+tip "Displacement"
 	`Mass, in tons. A ship's mass adversely affects how fast it turns and accelerates.`
 
 tip "Chassis"
@@ -146,7 +146,7 @@ tip "outfit scan speed:"
 tip "outfit space needed:"
 	`How much general-purpose space this outfit uses up. Some outfits also use up weapon space or engine space.`
 
-tip "outfit space:"
+tip "Outfit space"
 	`How much space this ship has for outfits (including weapons and engines).`
 
 tip "radar jamming:"
@@ -155,10 +155,10 @@ tip "radar jamming:"
 tip "ramscoop:"
 	`Replenishes fuel by harvesting the stellar wind. Ramscoops are more effective when closer to a star. If you add more than one ramscoop, each additional one is less effective: you need four ramscoops to achieve double the recharge rate that one ramscoop provides.`
 
-tip "crew:"
+tip "Crew"
 	`How many crew members are required to operate this ship. This ship has no spare bunks, but extra bunks can be installed for passengers or extra crew.`
 
-tip "crew (min - max):"
+tip "Crew (min - max)"
 	`How many crew members are required to operate this ship, and how many total bunks are available. Extra bunks can be used for passengers or extra crew.`
 
 tip "required crew:"
@@ -191,10 +191,10 @@ tip "shield fuel:"
 tip "shield generation:"
 	`Shield points recharged per second. Recharging shields usually consumes energy.`
 
-tip "shields (charge):"
+tip "Shields (charge)"
 	`Total shield strength and regeneration rate (per second).`
 
-tip "shields:"
+tip "Shields"
 	`Total shield strength. Most weapons cannot damage your hull until your shields are depleted. Some weapon effects become more severe once shields are down.`
 
 tip "slowing resistance:"
@@ -206,10 +206,10 @@ tip "solar collection:"
 tip "tactical scan power:"
 	`Tactical scanners allow you to view your current target's crew complement, fuel and energy levels when it is within range. The range is proportional to the square root of this value.`
 
-tip "speed:"
+tip "Speed"
 	`The fastest this ship can travel when using ordinary thrusters (that is, without afterburner).`
 
-tip "acceleration:"
+tip "Acceleration"
 	`How quickly this ship gains speed. The higher a ship's mass (including the mass of any cargo or fighters it is carrying), the slower it accelerates.`
 
 tip "thrust:"
@@ -218,7 +218,7 @@ tip "thrust:"
 tip "thrusting energy:"
 	`Energy consumed per second when firing thrusters.`
 
-tip "turning:"
+tip "Turning"
 	`Turn rate, per second. The higher a ship's mass (including the mass of any cargo or fighters it is carrying), the slower it turns.`
 
 tip "turn:"
@@ -230,13 +230,13 @@ tip "turning energy:"
 tip "turret mounts needed:"
 	`This weapon can fire in any direction, tracking your currently selected target. It uses up one of your ship's turret mounts.`
 
-tip "turret mounts:"
+tip "Turret mounts"
 	`How many turrets can be mounted on this ship. Turrets fire in the direction of the currently selected target, instead of firing straight forward like guns.`
 
 tip "weapon capacity needed:"
 	`Tons of weapon space this outfit takes up.`
 
-tip "    weapon capacity:"
+tip "    Weapon capacity"
 	`How many tons of weapons this ship can hold. (To install a weapon, you must also have enough total outfit space available.)`
 
 
@@ -251,55 +251,55 @@ tip "  + outfits:"
 
 
 # Ship energy summary fields:
-tip "idle:"
-	`Energy generated when this ship is idle, i.e. not firing weapons, turning, or thrusting.`
+tip "Generators "
+	`Energy generated.`
 
-tip "moving:"
-	`Energy consumed when this ship is turning and thrusting. This is in addition to the "idle" amount.`
+tip "Engines "
+	`Energy consumed when this ship is turning and thrusting.`
 
-tip "firing:"
-	`Energy consumed when this ship is firing all its weapons. This is in addition to the "idle" amount.`
+tip "Weapons "
+	`Energy consumed when this ship is firing all its weapons.`
 
-tip "shields / hull:"
-	`Energy consumed when this ship is recharging shields and repairing its hull at the same time. This is in addition to the "idle" amount.`
+tip "Shields + Hull"
+	`Energy consumed when this ship is recharging shields and repairing its hull at the same time.`
 
-tip "repairing hull:"
-	`Energy consumed when this ship is repairing its hull. This is in addition to the "idle" amount.`
+tip "Repairing hull"
+	`Energy consumed when this ship is repairing its hull.`
 
-tip "charging shields:"
-	`Energy consumed when this ship is recharging its shields. This is in addition to the "idle" amount.`
+tip "Charging shields"
+	`Energy consumed when this ship is recharging its shields.`
 
-tip "max:"
+tip "Batteries"
 	`Energy storage capacity. Energy capacity allows a ship to temporarily draw more energy than it produces.`
 
 
 
 # Outfit categories:
-tip "Guns:"
+tip "Guns"
 	`Weapons that are fixed in place (firing in the direction your ship is pointed) and that require no ammunition).`
 
-tip "Turrets:"
+tip "Turrets"
 	`Weapons that can fire in any direction and will track your currently selected target.`
 
-tip "Secondary Weapons:"
+tip "Secondary Weapons"
 	`Weapons that require ammunition (which must be purchased separately).`
 
-tip "Ammunition:"
+tip "Ammunition"
 	`Outfits that serve as ammunition for other weapons. To fire this ammunition, you need a launcher of the appropriate type.`
 
-tip "Systems:"
+tip "Systems"
 	`Outfits that occupy general space, not the space set aside for engines or weapons.`
 
-tip "Power:"
+tip "Power"
 	`Outfits that either supply energy, or store the energy that is generated.`
 
-tip "Engines:"
+tip "Engines"
 	`Thrusters and steering systems, which affect how quickly your ship moves.`
 
-tip "Hand to Hand:"
+tip "Hand to Hand"
 	`Weapons that your crew uses when trying to capture a ship.`
 
-tip "Special:"
+tip "Special"
 	`Items you can purchase or sell but that are not outfits that can be installed in a ship.`
 
 

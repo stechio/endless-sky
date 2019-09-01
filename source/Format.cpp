@@ -89,6 +89,15 @@ string Format::Credits(int64_t value)
 
 
 
+// Convert the given number to a string without decimal places (applies
+// rounding when needed).
+string Format::Integer(double value)
+{
+	return Number(round(value));
+}
+
+
+
 // Convert the given number to a string, with at most one decimal place.
 // This is primarily for displaying ship and outfit attributes.
 string Format::Number(double value)
