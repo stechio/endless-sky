@@ -313,8 +313,6 @@ outfit "Emergency Ramscoop"
 
 outfit "Quantum Key Stone"
 	category "Systems"
-	licenses
-		Remnant
 	cost 240000
 	thumbnail "outfit/keystone"
 	"mass" 1
