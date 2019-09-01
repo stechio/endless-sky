@@ -170,7 +170,7 @@ public:
 	// Move this ship. A ship may create effects as it moves, in particular if
 	// it is in the process of blowing up.
 	void Move(std::vector<Visual> &visuals, std::list<std::shared_ptr<Flotsam>> &flotsam);
-	// Generate energy, heat, etc. (This is called by Move().)
+	// Generate energy, etc. (This is called by Move().)
 	void DoGeneration();
 	// Launch any ships that are ready to launch.
 	void Launch(std::list<std::shared_ptr<Ship>> &ships, std::vector<Visual> &visuals);
@@ -200,7 +200,6 @@ public:
 	// Check the status of this ship.
 	bool IsCapturable() const;
 	bool IsTargetable() const;
-	bool IsOverheated() const;
 	bool IsDisabled() const;
 	bool IsBoarding() const;
 	bool IsLanding() const;
@@ -249,9 +248,6 @@ public:
 	double Hull() const;
 	double Fuel() const;
 	double Energy() const;
-	// A ship's heat is generally between 0 and 1, but if it receives
-	// heat damage the value can increase above 1.
-	double Heat() const;
 	// Get the ship's "health," where <=0 is disabled and 1 means full health.
 	double Health() const;
 	// Get the hull fraction at which this ship is disabled.
@@ -266,14 +262,6 @@ public:
 	double JumpDriveFuel() const;
 	// Get the amount of fuel missing for the next jump (smart refuelling)
 	double JumpFuelMissing() const;
-	// Get the heat level at idle.
-	double IdleHeat() const;
-	// Get the heat dissipation, in heat units per heat unit per frame.
-	double HeatDissipation() const;
-	// Get the maximum heat level, in heat units (not temperature).
-	double MaximumHeat() const;
-	// Calculate the multiplier for cooling efficiency.
-	double CoolingEfficiency() const;
 	
 	// Access how many crew members this ship has or needs.
 	int Crew() const;
@@ -346,8 +334,8 @@ public:
 	// Check if we are able to fire the given weapon (i.e. there is enough
 	// energy, ammo, and fuel to fire it).
 	bool CanFire(const Weapon *weapon) const;
-	// Fire the given weapon (i.e. deduct whatever energy, ammo, or fuel it uses
-	// and add whatever heat it generates. Assume that CanFire() is true.
+	// Fire the given weapon (i.e. deduct whatever energy, ammo, or fuel it uses).
+	// Assume that CanFire() is true.
 	void ExpendAmmo(const Weapon *weapon);
 	
 	// Each ship can have a target system (to travel to), a target planet (to
@@ -420,7 +408,6 @@ private:
 	bool isSpecial = false;
 	bool isYours = false;
 	bool isParked = false;
-	bool isOverheated = false;
 	bool isDisabled = false;
 	bool isBoarding = false;
 	bool hasBoarded = false;
@@ -467,7 +454,6 @@ private:
 	double hull = 0.;
 	double fuel = 0.;
 	double energy = 0.;
-	double heat = 0.;
 	double ionization = 0.;
 	double disruption = 0.;
 	double slowness = 0.;

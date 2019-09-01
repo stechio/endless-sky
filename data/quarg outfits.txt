@@ -24,7 +24,6 @@ outfit "Antimatter Core"
 	"mass" 80
 	"outfit space" -80
 	"energy generation" 80
-	"heat generation" 20
 	"unplunderable" 1
 	
 
@@ -50,7 +49,6 @@ outfit "Quarg Skylance"
 		"lifetime" 1
 		"reload" 1
 		"firing energy" 30
-		"firing heat" 10
 		"shield damage" 50
 		"hull damage" 40
 		"ion damage" .1
@@ -109,7 +107,6 @@ outfit "Medium Graviton Thruster"
 	"engine capacity" -70
 	"thrust" 80
 	"thrusting energy" 20
-	"thrusting heat" 10
 	"flare sprite" "effect/medium graviton flare"
 
 outfit "Medium Graviton Steering"
@@ -121,7 +118,6 @@ outfit "Medium Graviton Steering"
 	"engine capacity" -50
 	"turn" 1600
 	"turning energy" 10
-	"turning heat" 5
 
 outfit "Quantum Shield Generator"
 	category "Systems"

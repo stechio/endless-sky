@@ -774,8 +774,6 @@ string Ship::FlightCheck() const
 	double jumpDrive = attributes.Get("jump drive");
 	
 	// Error conditions:
-	if(IdleHeat() >= MaximumHeat())
-		return "overheating!";
 	if(energy <= 0.)
 		return "no energy!";
 	if((energy - burning <= 0.) && (fuel <= 0.))
@@ -840,7 +838,6 @@ void Ship::Place(Point position, Point velocity, Angle angle)
 	else
 		zoom = 1.;
 	// Make sure various special status values are reset.
-	heat = IdleHeat();
 	ionization = 0.;
 	disruption = 0.;
 	slowness = 0.;
@@ -1009,7 +1006,7 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 	// Adjust the error in the pilot's targeting.
 	personality.UpdateConfusion(commands.IsFiring());
 	
-	// Generate energy, heat, etc.
+	// Generate energy, etc.
 	DoGeneration();
 
 	// Handle ionization effects, etc.
@@ -1048,7 +1045,6 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 			cloak = min(1., cloak + cloakingSpeed);
 			fuel -= attributes.Get("cloaking fuel");
 			energy -= attributes.Get("cloaking energy");
-			heat += attributes.Get("cloaking heat");
 		}
 		else if(cloakingSpeed)
 		{
@@ -1111,7 +1107,6 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 						bay.ship->Destroy();
 			}
 			energy = 0.;
-			heat = 0.;
 			ionization = 0.;
 			fuel = 0.;
 			MarkForRemoval();
@@ -1371,10 +1366,9 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 			{
 				// If turning at a fraction of the full rate (either from lack of
 				// energy or because of tracking a target), only consume a fraction
-				// of the turning energy and produce a fraction of the heat.
+				// of the turning energy.
 				double scale = fabs(commands.Turn());
 				energy -= scale * cost;
-				heat += scale * attributes.Get("turning heat");
 				angle += commands.Turn() * TurnRate() * slowMultiplier;
 			}
 		}
@@ -1398,7 +1392,6 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 				{
 					double scale = fabs(thrustCommand);
 					energy -= scale * cost;
-					heat += scale * attributes.Get(isThrusting ? "thrusting heat" : "reverse thrusting heat");
 					acceleration += angle.Unit() * (thrustCommand * thrust / mass);
 				}
 			}
@@ -1412,7 +1405,6 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 			double energyCost = attributes.Get("afterburner energy");
 			if(thrust && fuel >= fuelCost && energy >= energyCost)
 			{
-				heat += attributes.Get("afterburner heat");
 				fuel -= fuelCost;
 				energy -= energyCost;
 				acceleration += angle.Unit() * thrust / mass;
@@ -1538,15 +1530,13 @@ void Ship::Move(vector<Visual> &visuals, list<shared_ptr<Flotsam>> &flotsam)
 
 
 
-// Generate energy, heat, etc. (This is called by Move().)
+// Generate energy, etc. (This is called by Move().)
 void Ship::DoGeneration()
 {
 	// First, allow any carried ships to do their own generation.
 	for(const Bay &bay : bays)
 		if(bay.ship)
 			bay.ship->DoGeneration();
-	
-	// TODO: Heat transfer between carried ships and the mothership?
 	
 	// Shield and hull recharge. This uses whatever energy is left over from the
 	// previous frame, so that it will not steal energy from movement, etc.
@@ -1562,14 +1552,12 @@ void Ship::DoGeneration()
 		const double hullAvailable = attributes.Get("hull repair rate");
 		const double hullEnergy = attributes.Get("hull energy") / hullAvailable;
 		const double hullFuel = attributes.Get("hull fuel") / hullAvailable;
-		const double hullHeat = attributes.Get("hull heat") / hullAvailable;
 		double hullRemaining = hullAvailable;
 		DoRepair(hull, hullRemaining, attributes.Get("hull"), energy, hullEnergy, fuel, hullFuel);
 		
 		const double shieldsAvailable = attributes.Get("shield generation");
 		const double shieldsEnergy = attributes.Get("shield energy") / shieldsAvailable;
 		const double shieldsFuel = attributes.Get("shield fuel") / shieldsAvailable;
-		const double shieldsHeat = attributes.Get("shield heat") / shieldsAvailable;
 		double shieldsRemaining = shieldsAvailable;
 		DoRepair(shields, shieldsRemaining, attributes.Get("shields"), energy, shieldsEnergy, fuel, shieldsFuel);
 		
@@ -1613,14 +1601,6 @@ void Ship::DoGeneration()
 				DoRepair(ship.fuel, fuelRemaining, ship.attributes.Get("fuel capacity"));
 			}
 		}
-		
-		// Add to this ship's heat based on how much repair was actually done.
-		// This can be done at the end of everything else because unlike energy,
-		// heat does not limit how much repair can actually be done.
-		if(hullAvailable)
-			heat += (hullAvailable - hullRemaining) * hullHeat;
-		if(shieldsAvailable)
-			heat += (shieldsAvailable - shieldsRemaining) * shieldsHeat;
 	}
 	// Handle ionization effects, etc.
 	if(ionization)
@@ -1637,18 +1617,12 @@ void Ship::DoGeneration()
 	energy = min(energy, attributes.Get("energy capacity"));
 	fuel = min(fuel, attributes.Get("fuel capacity"));
 	
-	heat -= heat * HeatDissipation();
-	if(heat > MaximumHeat())
-		isOverheated = true;
-	else if(heat < .9 * MaximumHeat())
-		isOverheated = false;
-	
 	double maxShields = attributes.Get("shields");
 	shields = min(shields, maxShields);
 	double maxHull = attributes.Get("hull");
 	hull = min(hull, maxHull);
 	
-	isDisabled = isOverheated || hull < MinimumHull() || (!crew && RequiredCrew());
+	isDisabled = hull < MinimumHull() || (!crew && RequiredCrew());
 	
 	// Whenever not actively scanning, the amount of scan information the ship
 	// has "decays" over time. For a scanner with a speed of 1, one second of
@@ -1675,44 +1649,21 @@ void Ship::DoGeneration()
 			energy += currentSystem->SolarPower() * scale * attributes.Get("solar collection");
 		}
 		
-		double coolingEfficiency = CoolingEfficiency();
 		energy += attributes.Get("energy generation") - attributes.Get("energy consumption");
 		energy -= ionization;
 		fuel += attributes.Get("fuel generation");
-		heat += attributes.Get("heat generation");
-		heat -= coolingEfficiency * attributes.Get("cooling");
 		
-		// Convert fuel into energy and heat only when the required amount of fuel is available.
+		// Convert fuel into energy only when the required amount of fuel is available.
 		if(attributes.Get("fuel consumption") <= fuel)
 		{	
 			fuel -= attributes.Get("fuel consumption");
 			energy += attributes.Get("fuel energy");
-			heat += attributes.Get("fuel heat");
-		}
-		
-		// Apply active cooling. The fraction of full cooling to apply equals
-		// your ship's current fraction of its maximum temperature.
-		double activeCooling = coolingEfficiency * attributes.Get("active cooling");
-		if(activeCooling > 0. && heat > 0.)
-		{
-			// Although it's a misuse of this feature, handle the case where
-			// "active cooling" does not require any energy.
-			double coolingEnergy = attributes.Get("cooling energy");
-			if(coolingEnergy)
-			{
-				double spentEnergy = min(energy, coolingEnergy * min(1., Heat()));
-				heat -= activeCooling * spentEnergy / coolingEnergy;
-				energy -= spentEnergy;
-			}
-			else
-				heat -= activeCooling;
 		}
 	}
 	
 	// Don't allow any levels to drop below zero.
 	fuel = max(0., fuel);
 	energy = max(0., energy);
-	heat = max(0., heat);
 }
 
 
@@ -2027,13 +1978,6 @@ bool Ship::IsTargetable() const
 
 
 
-bool Ship::IsOverheated() const
-{
-	return isOverheated;
-}
-
-
-
 bool Ship::IsDisabled() const
 {
 	if(!isDisabled)
@@ -2248,7 +2192,6 @@ void Ship::Recharge(bool atSpaceport)
 	if(atSpaceport || attributes.Get("energy generation"))
 		energy = attributes.Get("energy capacity");
 	
-	heat = IdleHeat();
 	ionization = 0.;
 	disruption = 0.;
 	slowness = 0.;
@@ -2369,16 +2312,6 @@ double Ship::Energy() const
 
 
 
-// Allow returning a heat value greater than 1 (i.e. conveying how overheated
-// this ship has become).
-double Ship::Heat() const
-{
-	double maximum = MaximumHeat();
-	return maximum ? heat / maximum : 1.;
-}
-
-
-
 // Get the ship's "health," where <=0 is disabled and 1 means full health.
 double Ship::Health() const
 {
@@ -2475,53 +2408,6 @@ double Ship::JumpFuelMissing() const
 		return 0.;
 	
 	return jumpFuel - fuel;
-}
-
-
-
-// Get the heat level at idle.
-double Ship::IdleHeat() const
-{
-	// This ship's cooling ability:
-	double coolingEfficiency = CoolingEfficiency();
-	double cooling = coolingEfficiency * attributes.Get("cooling");
-	double activeCooling = coolingEfficiency * attributes.Get("active cooling");
-	
-	// Idle heat is the heat level where:
-	// heat = heat * diss + heatGen - cool - activeCool * heat / (100 * mass)
-	// heat = heat * (diss - activeCool / (100 * mass)) + (heatGen - cool)
-	// heat * (1 - diss + activeCool / (100 * mass)) = (heatGen - cool)
-	double production = max(0., attributes.Get("heat generation") - cooling);
-	double dissipation = HeatDissipation() + activeCooling / MaximumHeat();
-	return production / dissipation;
-}
-
-
-
-// Get the heat dissipation, in heat units per heat unit per frame.
-double Ship::HeatDissipation() const
-{
-	return .001 * attributes.Get("heat dissipation");
-}
-
-
-
-// Get the maximum heat level, in heat units (not temperature).
-double Ship::MaximumHeat() const
-{
-	return MAXIMUM_TEMPERATURE * (cargo.Used() + attributes.Mass());
-}
-
-
-
-// Calculate the multiplier for cooling efficiency.
-double Ship::CoolingEfficiency() const
-{
-	// This is an S-curve where the efficiency is 100% if you have no outfits
-	// that create "cooling inefficiency", and as that value increases the
-	// efficiency stays high for a while, then drops off, then approaches 0.
-	double x = attributes.Get("cooling inefficiency");
-	return 2. + 2. / (1. + exp(x / -2.)) - 4. / (1. + exp(x / -4.));
 }
 
 
@@ -2626,7 +2512,6 @@ int Ship::TakeDamage(const Projectile &projectile, bool isBlast)
 	double hullDamage = weapon.HullDamage() * damageScaling;
 	double hitForce = weapon.HitForce() * damageScaling;
 	double fuelDamage = weapon.FuelDamage() * damageScaling;
-	double heatDamage = weapon.HeatDamage() * damageScaling;
 	double ionDamage = weapon.IonDamage() * damageScaling;
 	double disruptionDamage = weapon.DisruptionDamage() * damageScaling;
 	double slowingDamage = weapon.SlowingDamage() * damageScaling;
@@ -2647,7 +2532,6 @@ int Ship::TakeDamage(const Projectile &projectile, bool isBlast)
 	// Code in Ship::Move() will handle making sure the fuel amount stays in the
 	// allowable range.
 	fuel -= fuelDamage * leakage;
-	heat += heatDamage * leakage;
 	ionization += ionDamage * leakage;
 	disruption += disruptionDamage * leakage;
 	slowness += slowingDamage * leakage;
@@ -2837,10 +2721,6 @@ void Ship::Jettison(const string &commodity, int tons)
 {
 	cargo.Remove(commodity, tons);
 	
-	// Jettisoned cargo must carry some of the ship's heat with it. Otherwise
-	// jettisoning cargo would increase the ship's temperature.
-	heat -= tons * MAXIMUM_TEMPERATURE * Heat();
-	
 	for( ; tons > 0; tons -= Flotsam::TONS_PER_BOX)
 		jettisoned.emplace_back(new Flotsam(commodity, (Flotsam::TONS_PER_BOX < tons) ? Flotsam::TONS_PER_BOX : tons));
 }
@@ -2854,11 +2734,7 @@ void Ship::Jettison(const Outfit *outfit, int count)
 
 	cargo.Remove(outfit, count);
 	
-	// Jettisoned cargo must carry some of the ship's heat with it. Otherwise
-	// jettisoning cargo would increase the ship's temperature.
-	double mass = outfit->Mass();
-	heat -= count * mass * MAXIMUM_TEMPERATURE * Heat();
-	
+	double mass = outfit->Mass();	
 	const int perBox = (mass <= 0.) ? count : (mass > Flotsam::TONS_PER_BOX) ? 1 : static_cast<int>(Flotsam::TONS_PER_BOX / mass);
 	while(count > 0)
 	{
@@ -2959,18 +2835,14 @@ bool Ship::CanFire(const Weapon *weapon) const
 		return false;
 	if(fuel < weapon->FiringFuel())
 		return false;
-	// If a weapon requires heat to fire, (rather than generating heat), we must
-	// have enough heat to spare.
-	if(heat < -(weapon->FiringHeat()))
-		return false;
 	
 	return true;
 }
 
 
 
-// Fire the given weapon (i.e. deduct whatever energy, ammo, or fuel it uses
-// and add whatever heat it generates. Assume that CanFire() is true.
+// Fire the given weapon (i.e. deduct whatever energy, ammo, or fuel it uses).
+// Assume that CanFire() is true.
 void Ship::ExpendAmmo(const Weapon *weapon)
 {
 	if(!weapon)
@@ -2980,7 +2852,6 @@ void Ship::ExpendAmmo(const Weapon *weapon)
 	
 	energy -= weapon->FiringEnergy();
 	fuel -= weapon->FiringFuel();
-	heat += weapon->FiringHeat();
 }
 
 

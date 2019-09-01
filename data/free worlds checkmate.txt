@@ -256,7 +256,7 @@ mission "FWC Cebalrai 1B"
 			variant
 				"Dreadnought"
 				"Bastion"
-				"Fury (Flamethrower)" 4
+				"Fury (Gatling)" 4
 		fleet
 			names "free worlds capital"
 			variant
@@ -626,7 +626,7 @@ mission "FWC Checkmate 1"
 				"Dreadnought"
 				"Skein"
 				"Finch" 6
-				"Fury (Flamethrower)" 4
+				"Fury (Gatling)" 4
 		fleet
 			names "free worlds capital"
 			variant

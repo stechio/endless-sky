@@ -84,7 +84,6 @@ public:
 	double FiringEnergy() const;
 	double FiringForce() const;
 	double FiringFuel() const;
-	double FiringHeat() const;
 	
 	double SplitRange() const;
 	double TriggerRadius() const;
@@ -104,7 +103,6 @@ public:
 	double ShieldDamage() const;
 	double HullDamage() const;
 	double FuelDamage() const;
-	double HeatDamage() const;
 	double IonDamage() const;
 	double DisruptionDamage() const;
 	double SlowingDamage() const;
@@ -180,7 +178,6 @@ private:
 	double firingEnergy = 0.;
 	double firingForce = 0.;
 	double firingFuel = 0.;
-	double firingHeat = 0.;
 	
 	double splitRange = 0.;
 	double triggerRadius = 0.;
@@ -190,7 +187,6 @@ private:
 	static const int SHIELD_DAMAGE = 0;
 	static const int HULL_DAMAGE = 1;
 	static const int FUEL_DAMAGE = 2;
-	static const int HEAT_DAMAGE = 3;
 	static const int ION_DAMAGE = 4;
 	static const int DISRUPTION_DAMAGE = 5;
 	static const int SLOWING_DAMAGE = 6;
@@ -237,7 +233,6 @@ inline double Weapon::RadarTracking() const { return radarTracking; }
 inline double Weapon::FiringEnergy() const { return firingEnergy; }
 inline double Weapon::FiringForce() const { return firingForce; }
 inline double Weapon::FiringFuel() const { return firingFuel; }
-inline double Weapon::FiringHeat() const { return firingHeat; }
 
 inline double Weapon::Piercing() const { return piercing; }
 
@@ -253,7 +248,6 @@ inline bool Weapon::IsDamageScaled() const { return isDamageScaled; }
 inline double Weapon::ShieldDamage() const { return TotalDamage(SHIELD_DAMAGE); }
 inline double Weapon::HullDamage() const { return TotalDamage(HULL_DAMAGE); }
 inline double Weapon::FuelDamage() const { return TotalDamage(FUEL_DAMAGE); }
-inline double Weapon::HeatDamage() const { return TotalDamage(HEAT_DAMAGE); }
 inline double Weapon::IonDamage() const { return TotalDamage(ION_DAMAGE); }
 inline double Weapon::DisruptionDamage() const { return TotalDamage(DISRUPTION_DAMAGE); }
 inline double Weapon::SlowingDamage() const { return TotalDamage(SLOWING_DAMAGE); }

@@ -21,7 +21,6 @@ ship "Void Sprite"
 		"bunks" 4
 		"mass" 480
 		"drag" 8.2
-		"heat dissipation" .8
 		"cargo space" 40
 		"thrust" 20
 		"turn" 900
@@ -69,7 +68,6 @@ ship "Void Sprite" "Void Sprite (Infant)"
 		"bunks" 2
 		"mass" 200
 		"drag" 5.4
-		"heat dissipation" .9
 		"cargo space" 20
 		"thrust" 18
 		"turn" 450

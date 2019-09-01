@@ -918,7 +918,6 @@ event "wanderers: derecho mass production"
 		"Derecho"
 	outfitter "Wanderer Advanced"
 		"Blue Sun Reactor"
-		"Wanderer Heat Sink"
 
 event "wanderers: spera anatrusk colony"
 	system Ap'arak

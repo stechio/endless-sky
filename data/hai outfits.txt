@@ -25,7 +25,6 @@ outfit "Pulse Cannon"
 		"lifetime" 30
 		"reload" 20
 		"firing energy" 24
-		"firing heat" 70
 		"shield damage" 45
 		"hull damage" 34
 	description "Like most examples of Hai engineering that you have seen, the Pulse Cannon does not stand out as a particularly advanced or elegant technology, but it has a reputation for being efficient, reliable, and well-balanced."
@@ -51,7 +50,6 @@ outfit "Pulse Turret"
 		"lifetime" 30
 		"reload" 10
 		"firing energy" 24
-		"firing heat" 70
 		"shield damage" 45
 		"hull damage" 34
 	description "Pulse Cannons are the primary offensive weapon used by Hai ships. This turret mounts two pulse cannons side by side and allows them to track even the fastest-moving of targets."
@@ -86,7 +84,6 @@ outfit "Ion Cannon"
 		"reload" 60
 		"firing energy" 120
 		"firing force" 10
-		"firing heat" 150
 		"hit force" 120
 		"shield damage" 168
 		"hull damage" 60
@@ -136,7 +133,6 @@ outfit "Railgun"
 		"lifetime" 1
 		"reload" 120
 		"firing energy" 92
-		"firing heat" 39
 		"hit force" 44
 		"stream"
 		"submunition" "rslug" 1
@@ -222,7 +218,6 @@ outfit "Hai Tracker Pod"
 		"lifetime" 600
 		"reload" 60
 		"firing energy" 45
-		"firing heat" 5
 		"acceleration" .7
 		"drag" .05
 		"turn" 1.2
@@ -283,7 +278,6 @@ outfit "Bullfrog Anti-Missile"
 		"lifetime" 1
 		"reload" 20
 		"firing energy" 12
-		"firing heat" 5
 		"stream"
 	description "Centuries ago, the Hai fought with more rudimentary versions of the Tracker, and this was the primary defense against them. In spite of the dated design, it is still effective against small numbers of their latest missile weapons."
 
@@ -305,7 +299,6 @@ outfit "Chameleon Anti-Missile"
 		"lifetime" 1
 		"reload" 15
 		"firing energy" 23
-		"firing heat" 6
 		"stream"
 	description "The Chameleon Anti-Missile turret has a longer range, higher power, and shorter reload time than the Bullfrog."
 
@@ -320,8 +313,7 @@ outfit "Hai Corundum Regenerator"
 	"shield generation" .7
 	"shield energy" .7
 	"energy consumption" .3
-	"shield heat" 3
-	description "Hai shield regenerators work by subtly modifying the geometry and harmonics of your shield matrix in order to make your shields more malleable and therefore much easier to recharge. Unfortunately, this system requires a constant power source, and generates a fair bit of heat while regenerating."
+	description "Hai shield regenerators work by subtly modifying the geometry and harmonics of your shield matrix in order to make your shields more malleable and therefore much easier to recharge. Unfortunately, this system requires a constant power source."
 
 outfit "Hai Diamond Regenerator"
 	category "Systems"
@@ -331,19 +323,8 @@ outfit "Hai Diamond Regenerator"
 	"outfit space" -49
 	"shield generation" 2.5
 	"shield energy" 2.5
-	"shield heat" 9
 	"energy consumption" .9
-	description "The Hai Diamond Shield Regenerator is an advanced type of shield recharging technology. Unfortunately, its power needs are quite high, and the shifts it makes to your shield matrix causes intense heat at the regenerator when your shields are charging. The Hai usually employ Williwaw Cooling when they use this regenerator."
-
-outfit "Hai Williwaw Cooling"
-	category "Systems"
-	cost 15000
-	thumbnail "outfit/cooling ducts hai"
-	"mass" 8
-	"outfit space" -8
-	"cooling" 9.5
-	description "While Hai technology is fairly heat efficient, occasionally they outfit their ships such that they sporadically overheat and shut down. When that happens, they install these."
-
+	description "The Hai Diamond Shield Regenerator is an advanced type of shield recharging technology. Unfortunately, its power needs are quite high."
 
 outfit "Quantum Keystone"
 	category "Systems"
@@ -383,7 +364,7 @@ outfit "Hai Gorge Batteries"
 	"mass" 30
 	"outfit space" -30
 	"energy capacity" 3761
-	description "This medium-sized battery pack is ideal for most of the Hai power needs, allowing for medium length combat engagements, but could also be used keep a ship's heat footprint low with a small power generator and oversized engines."
+	description "This medium-sized battery pack is ideal for most of the Hai power needs, allowing for medium length combat engagements."
 
 outfit "Hai Ravine Batteries"
 	plural "Hai Ravine Batteries"
@@ -403,7 +384,7 @@ outfit "Hai Valley Batteries"
 	"mass" 120
 	"outfit space" -120
 	"energy capacity" 17777
-	description "While most Hai ships do not employ their largest battery model, a few very powerful warships are occasionally equipped with one, keeping their heat footprint low, and allowing them to survive longer in a fight against opponents carrying Ion Cannons."
+	description "While most Hai ships do not employ their largest battery model, a few very powerful warships are occasionally equipped with one, allowing them to survive longer in a fight against opponents carrying Ion Cannons."
 
 
 outfit "Boulder Reactor"
@@ -413,7 +394,6 @@ outfit "Boulder Reactor"
 	"mass" 90
 	"outfit space" -90
 	"energy generation" 17.3
-	"heat generation" 34
 	description "The Hai designed these miniaturized fusion generators back when their territory was being raided by the Korath. In these relatively peaceful times, they have seen no need to update the design."
 
 outfit "Geode Reactor"
@@ -423,7 +403,6 @@ outfit "Geode Reactor"
 	"mass" 58
 	"outfit space" -58
 	"energy generation" 8.9
-	"heat generation" 21.2
 	description "Fission reactors are considered a rudimentary technology among interstellar species. Nonetheless, it remains a proven and safe technology that even the Hai use fairly regularly."
 
 outfit "Pebble Core"
@@ -433,7 +412,6 @@ outfit "Pebble Core"
 	"mass" 32
 	"outfit space" -32
 	"energy generation" 4.5
-	"heat generation" 11.9
 	description "A Pebble Core is a miniaturized nuclear reactor, small enough to be installed in any ship larger than a fighter. The Hai developed this model for their smaller ships."
 
 outfit "Sand Cell"
@@ -443,7 +421,6 @@ outfit "Sand Cell"
 	"mass" 24
 	"outfit space" -24
 	"energy generation" 1.55
-	"heat generation" 2.4
 	description "The Sand Cell is the smallest Hai generator. It was designed to fit their drones, and it clearly resembles human fuel cells."
 
 
@@ -457,10 +434,8 @@ outfit `"Baellie" Atomic Engines`
 	"engine capacity" -24
 	"turn" 250
 	"turning energy" .6
-	"turning heat" 1.3
 	"thrust" 10.1
 	"thrusting energy" 1.2
-	"thrusting heat" 2.4
 	"flare sprite" "effect/atomic flare/tiny"
 		"frame rate" 14
 	"flare sound" "atomic tiny"
@@ -475,7 +450,6 @@ outfit `"Basrem" Atomic Thruster`
 	"engine capacity" -18
 	"thrust" 13.2
 	"thrusting energy" 1.5
-	"thrusting heat" 2.9
 	"flare sprite" "effect/atomic flare/tiny"
 		"frame rate" 14
 	"flare sound" "atomic tiny"
@@ -490,7 +464,6 @@ outfit `"Benga" Atomic Thruster`
 	"engine capacity" -28
 	"thrust" 23.6
 	"thrusting energy" 2.6
-	"thrusting heat" 5.0
 	"flare sprite" "effect/atomic flare/tiny"
 		"frame rate" 14
 	"flare sound" "atomic tiny"
@@ -505,7 +478,6 @@ outfit `"Biroo" Atomic Thruster`
 	"engine capacity" -44
 	"thrust" 41.5
 	"thrusting energy" 4.2
-	"thrusting heat" 8.6
 	"flare sprite" "effect/atomic flare/small"
 		"frame rate" 13
 	"flare sound" "atomic small"
@@ -520,11 +492,10 @@ outfit `"Bondir" Atomic Thruster`
 	"engine capacity" -63
 	"thrust" 66.1
 	"thrusting energy" 6.4
-	"thrusting heat" 13.4
 	"flare sprite" "effect/atomic flare/medium"
 		"frame rate" 12
 	"flare sound" "atomic medium"
-	description "While Deep Sky was busy developing the combat atomic engines, the Hai were working on making theirs even better. Because of this, Hai atomic engines are highly efficient compared to their human variants, requiring less energy to fire and producing less heat in the process."
+	description "While Deep Sky was busy developing the combat atomic engines, the Hai were working on making theirs even better. Because of this, Hai atomic engines are highly efficient compared to their human variants, requiring less energy to fire."
 
 outfit `"Bufaer" Atomic Thruster`
 	category "Engines"
@@ -535,7 +506,6 @@ outfit `"Bufaer" Atomic Thruster`
 	"engine capacity" -104
 	"thrust" 120.1
 	"thrusting energy" 10.9
-	"thrusting heat" 23.8
 	"flare sprite" "effect/atomic flare/large"
 		"frame rate" 11
 	"flare sound" "atomic large"
@@ -550,7 +520,6 @@ outfit `"Basrem" Atomic Steering`
 	"engine capacity" -12
 	"turn" 309
 	"turning energy" .7
-	"turning heat" 1.6
 	description "Hai atomic engines are too expensive to buy for most humans. All but the smallest of the engines are worth more than many of the most common ships flown in human space."
 
 outfit `"Benga" Atomic Steering`
@@ -562,7 +531,6 @@ outfit `"Benga" Atomic Steering`
 	"engine capacity" -20
 	"turn" 577
 	"turning energy" 1.1
-	"turning heat" 2.8
 	description "Hai atomic engines allow for some of the most customizable ships in known space due to their size and efficiency. The few humans that are able to save up enough money to buy a set of Hai engines usually astound others in human space with the efficiency of their ship."
 
 outfit `"Biroo" Atomic Steering`
@@ -574,7 +542,6 @@ outfit `"Biroo" Atomic Steering`
 	"engine capacity" -32
 	"turn" 1054
 	"turning energy" 2.0
-	"turning heat" 5.1
 	description "Having such powerful engines is a double-edged sword for the Hai, as the Unfettered Hai too own these powerful wonders. These engines allow most Hai ships to turn at amazing speeds, making them extremely deadly in combat."
 
 outfit `"Bondir" Atomic Steering`
@@ -586,7 +553,6 @@ outfit `"Bondir" Atomic Steering`
 	"engine capacity" -49
 	"turn" 1758
 	"turning energy" 3.2
-	"turning heat" 8.2
 	description "Reserved for special use on only a small number of Hai ships, these engines are one of the most expensive outfits that one could buy. Considerably more efficient than any other engine of the same size, Hai atomic engines are a go-to choice for anyone in need of a high turn speed."
 
 outfit `"Bufaer" Atomic Steering`
@@ -598,7 +564,6 @@ outfit `"Bufaer" Atomic Steering`
 	"engine capacity" -76
 	"turn" 3043
 	"turning energy" 5.2
-	"turning heat" 13.8
 	description "Nine out of ten human captains interviewed in Hai space say that they would choose Hai atomic engines over those of Deep Sky any day... that is, if they could afford such expensive engines."
 
 outfit "Pulse Rifle"

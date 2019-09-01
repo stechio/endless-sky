@@ -70,7 +70,7 @@ namespace {
 			if(count == 0 || count == 2)
 				return Radar::BLINK;
 		}
-		if(ship.IsDisabled() || (ship.IsOverheated() && ((step / 20) % 2)))
+		if(ship.IsDisabled())
 			return Radar::INACTIVE;
 		if(ship.IsYours() || (ship.GetPersonality().IsEscort() && !ship.GetGovernment()->IsEnemy()))
 			return Radar::PLAYER;
@@ -560,17 +560,11 @@ void Engine::Step(bool isActive)
 		}
 	}
 	
-	if(flagship && flagship->IsOverheated())
-		Messages::Add("Your ship has overheated.");
-	
 	// Clear the HUD information from the previous frame.
 	info = Information();
 	if(flagship && flagship->Hull())
 	{
-		Point shipFacingUnit(0., -1.);
-		if(Preferences::Has("Rotate flagship in HUD"))
-			shipFacingUnit = flagship->Facing().Unit();
-		
+		Point shipFacingUnit = flagship->Facing().Unit();
 		info.SetSprite("player sprite", flagship->GetSprite(), shipFacingUnit, flagship->GetFrame(step));
 	}
 	if(currentSystem)
@@ -581,17 +575,13 @@ void Engine::Step(bool isActive)
 		info.SetBar("fuel", flagship->Fuel(),
 			flagship->Attributes().Get("fuel capacity") * .01);
 		info.SetBar("energy", flagship->Energy());
-		double heat = flagship->Heat();
-		info.SetBar("heat", min(1., heat));
-		// If heat is above 100%, draw a second overlaid bar to indicate the
-		// total heat level.
-		if(heat > 1.)
-			info.SetBar("overheat", min(1., heat - 1.));
-		if(flagship->IsOverheated() && (step / 20) % 2)
-			info.SetBar("overheat blink", min(1., heat));
 		info.SetBar("shields", flagship->Shields());
 		info.SetBar("hull", flagship->Hull(), 20.);
 		info.SetBar("disabled hull", min(flagship->Hull(), flagship->DisabledHull()), 20.);
+		if(flagshipHit)
+		{
+			info.SetBar("hit", --flagshipHit > 0 ?  1. : 0, 1.);
+		}
 	}
 	info.SetString("credits",
 		Format::Credits(player.Accounts().Credits()) + " credits");
@@ -677,7 +667,11 @@ void Engine::Step(bool isActive)
 			info.SetBar("target shields", target->Shields());
 			info.SetBar("target hull", target->Hull(), 20.);
 			info.SetBar("target disabled hull", min(target->Hull(), target->DisabledHull()), 20.);
-		
+			if(targetHit)
+			{
+				info.SetBar("target hit", --targetHit > 0 ?  1. : 0, 1.);
+			}
+
 			// The target area will be a square, with sides proportional to the average
 			// of the width and the height of the sprite.
 			double size = (target->Width() + target->Height()) * .35;
@@ -708,8 +702,6 @@ void Engine::Step(bool isActive)
 				info.SetString("target fuel", to_string(fuel));
 				int energy = round(target->Energy() * target->Attributes().Get("energy capacity"));
 				info.SetString("target energy", to_string(energy));
-				int heat = round(100. * target->Heat());
-				info.SetString("target heat", to_string(heat) + "%");
 			}
 		}
 	}
@@ -904,6 +896,12 @@ void Engine::Draw() const
 	{
 		Point center = interface->GetPoint("target");
 		double radius = interface->GetValue("target radius");
+		PointerShader::Draw(center, targetVector.Unit(), 10.f, 10.f, radius, Color(1.f));
+	}
+	if(interface->HasPoint("player target") && targetVector.Length() > 20.)
+	{
+		Point center = interface->GetPoint("player target");
+		double radius = interface->GetValue("player target radius");
 		PointerShader::Draw(center, targetVector.Unit(), 10.f, 10.f, radius, Color(1.f));
 	}
 	
@@ -1753,6 +1751,19 @@ void Engine::DoCollisions(Projectile &projectile)
 			int eventType = hit->TakeDamage(projectile);
 			if(eventType)
 				eventQueue.emplace_back(gov, hit, eventType);
+
+			shared_ptr<const Ship> flagship = player.FlagshipPtr();
+			if(flagship)
+			{
+				if(flagship == hit)
+				{
+					flagshipHit = 60 / 5;
+				}
+				else if(flagship->GetTargetShip() == hit)
+				{
+					targetHit = 60 / 5;
+				}
+			}
 		}
 		
 		if(hit)

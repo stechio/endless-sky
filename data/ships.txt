@@ -20,7 +20,6 @@ ship "Aerie"
 		"bunks" 28
 		"mass" 130
 		"drag" 4.1
-		"heat dissipation" .7
 		"fuel capacity" 500
 		"cargo space" 50
 		"outfit space" 390
@@ -82,7 +81,6 @@ ship "Argosy"
 		"bunks" 14
 		"mass" 330
 		"drag" 5.9
-		"heat dissipation" .7
 		"fuel capacity" 400
 		"cargo space" 120
 		"outfit space" 270
@@ -142,7 +140,6 @@ ship "Arrow"
 		"bunks" 5
 		"mass" 130
 		"drag" 2.7
-		"heat dissipation" .85
 		"fuel capacity" 400
 		"cargo space" 10
 		"outfit space" 180
@@ -196,7 +193,6 @@ ship "Bactrian"
 		"bunks" 245
 		"mass" 940
 		"drag" 16.1
-		"heat dissipation" .4
 		"fuel capacity" 700
 		"cargo space" 530
 		"outfit space" 740
@@ -266,7 +262,6 @@ ship "Barb"
 		"bunks" 2
 		"mass" 20
 		"drag" .8
-		"heat dissipation" .78
 		"outfit space" 85
 		"weapon capacity" 24
 		"engine capacity" 22
@@ -308,7 +303,6 @@ ship "Barb" "Barb (Proton)"
 		"bunks" 1
 		"mass" 20
 		"drag" .8
-		"heat dissipation" .78
 		"outfit space" 85
 		"weapon capacity" 28
 		"engine capacity" 22
@@ -348,7 +342,6 @@ ship "Bastion"
 		"bunks" 40
 		"mass" 580
 		"drag" 10.3
-		"heat dissipation" .5
 		"fuel capacity" 500
 		"cargo space" 110
 		"outfit space" 470
@@ -371,7 +364,6 @@ ship "Bastion"
 		"LP144a Battery Pack"
 		"nGVF-BB Fuel Cell"
 		"D67-TM Shield Generator"
-		"Water Coolant System"
 		"Tactical Scanner"
 		"Laser Rifle" 7
 		
@@ -412,7 +404,6 @@ ship "Behemoth"
 		"bunks" 30
 		"mass" 540
 		"drag" 11.7
-		"heat dissipation" .4
 		"fuel capacity" 600
 		"cargo space" 490
 		"outfit space" 510
@@ -471,7 +462,6 @@ ship "Berserker"
 		"bunks" 2
 		"mass" 110
 		"drag" 2.2
-		"heat dissipation" .85
 		"fuel capacity" 400
 		"cargo space" 10
 		"outfit space" 200
@@ -522,7 +512,6 @@ ship "Blackbird"
 		"bunks" 28
 		"mass" 220
 		"drag" 5.0
-		"heat dissipation" .7
 		"fuel capacity" 700
 		"cargo space" 60
 		"outfit space" 350
@@ -574,7 +563,6 @@ ship "Bounder"
 		"bunks" 17
 		"mass" 130
 		"drag" 3.7
-		"heat dissipation" .8
 		"fuel capacity" 900
 		"cargo space" 40
 		"outfit space" 220
@@ -621,7 +609,6 @@ ship "Boxwing"
 		"bunks" 1
 		"mass" 45
 		"drag" .59
-		"heat dissipation" .27
 		"outfit space" 45
 		"engine capacity" 28
 		"cargo space" 80
@@ -643,7 +630,7 @@ ship "Boxwing"
 	leak "flame" 50 80
 	explode "tiny explosion" 15
 	explode "small explosion" 5
-	description `After introducing the "Type F" cargo pod for the Hauler, it became apparent to merchant captains that the new carriers could offer more flexibility within their fleet, if there were a cargo box they could attach to the fighter arms. Enter the "F6-C: Boxwing", the Fighter that doesn't fight, but carries cargo instead. Cargo preservation equipment gives the Boxwing much more mass and very poor heat dissipation characteristics compared to other fighters. That it cannot carry any weapons is only part of the reason jocks call it "Flying Coffin" amongst themselves; besides the ship resembling one and being very sluggish, the pilot "seat" doubles as a bunk, and is cramped beyond the comfort level of most. The interactive panoramic window H.U.D. is the only thing that keeps claustrophobic episodes from becoming a major problem.`
+	description `After introducing the "Type F" cargo pod for the Hauler, it became apparent to merchant captains that the new carriers could offer more flexibility within their fleet, if there were a cargo box they could attach to the fighter arms. Enter the "F6-C: Boxwing", the Fighter that doesn't fight, but carries cargo instead. Cargo preservation equipment gives the Boxwing much more mass compared to other fighters. That it cannot carry any weapons is only part of the reason jocks call it "Flying Coffin" amongst themselves; besides the ship resembling one and being very sluggish, the pilot "seat" doubles as a bunk, and is cramped beyond the comfort level of most. The interactive panoramic window H.U.D. is the only thing that keeps claustrophobic episodes from becoming a major problem.`
 
 
 ship "Bulk Freighter"
@@ -658,7 +645,6 @@ ship "Bulk Freighter"
 		"bunks" 18
 		"mass" 870
 		"drag" 15.8
-		"heat dissipation" .5
 		"fuel capacity" 600
 		"cargo space" 600
 		"outfit space" 410
@@ -720,7 +706,6 @@ ship "Carrier"
 		"bunks" 184
 		"mass" 910
 		"drag" 17.7
-		"heat dissipation" .45
 		"fuel capacity" 700
 		"cargo space" 100
 		"outfit space" 820
@@ -743,7 +728,6 @@ ship "Carrier"
 		"LP288a Battery Pack"
 		"D94-YV Shield Generator"
 		"Large Radar Jammer" 2
-		"Water Coolant System"
 		"Brig"
 		"Laser Rifle" 40
 		"Fragmentation Grenades" 40
@@ -803,7 +787,6 @@ ship "Class C Freighter"
 		"bunks" 43
 		"mass" 810
 		"drag" 16.4
-		"heat dissipation" .5
 		"fuel capacity" 600
 		"cargo space" 20
 		"outfit space" 400
@@ -869,7 +852,6 @@ ship "Clipper"
 		"bunks" 9
 		"mass" 150
 		"drag" 3.7
-		"heat dissipation" .8
 		"fuel capacity" 500
 		"cargo space" 70
 		"outfit space" 260
@@ -921,7 +903,6 @@ ship "Combat Drone"
 		"automaton" 1
 		"mass" 20
 		"drag" .59
-		"heat dissipation" .9
 		"outfit space" 58
 		"weapon capacity" 8
 		"engine capacity" 28
@@ -959,7 +940,6 @@ ship "Corvette"
 		"bunks" 32
 		"mass" 150
 		"drag" 3.5
-		"heat dissipation" .7
 		"fuel capacity" 500
 		"cargo space" 40
 		"outfit space" 420
@@ -1022,7 +1002,6 @@ ship "Cruiser"
 		"bunks" 136
 		"mass" 680
 		"drag" 10.1
-		"heat dissipation" .45
 		"fuel capacity" 600
 		"cargo space" 60
 		"outfit space" 760
@@ -1044,7 +1023,6 @@ ship "Cruiser"
 		"LP288a Battery Pack"
 		"D67-TM Shield Generator"
 		"Large Radar Jammer" 2
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 20
 		"Fragmentation Grenades" 20
 		"Security Station"
@@ -1095,7 +1073,6 @@ ship "Dagger"
 		"bunks" 1
 		"mass" 20
 		"drag" .63
-		"heat dissipation" .9
 		"outfit space" 90
 		"weapon capacity" 20
 		"engine capacity" 30
@@ -1140,7 +1117,6 @@ ship "Dreadnought"
 		"bunks" 147
 		"mass" 630
 		"drag" 10.1
-		"heat dissipation" .65
 		"fuel capacity" 600
 		"cargo space" 100
 		"outfit space" 790
@@ -1162,7 +1138,6 @@ ship "Dreadnought"
 		"LP144a Battery Pack"
 		"D41-HY Shield Generator"
 		"Small Radar Jammer"
-		"Liquid Helium Cooler"
 		"Tactical Scanner"
 		"Laser Rifle" 25
 		
@@ -1206,7 +1181,6 @@ ship "Falcon"
 		"bunks" 75
 		"mass" 510
 		"drag" 6.7
-		"heat dissipation" .7
 		"fuel capacity" 600
 		"cargo space" 90
 		"outfit space" 540
@@ -1228,7 +1202,6 @@ ship "Falcon"
 		"LP144a Battery Pack"
 		"D41-HY Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 15
 		
 		"Impala Plasma Thruster"
@@ -1270,7 +1243,6 @@ ship "Finch"
 		"bunks" 1
 		"mass" 40
 		"drag" .83
-		"heat dissipation" .85
 		"outfit space" 110
 		"weapon capacity" 20
 		"engine capacity" 40
@@ -1314,7 +1286,6 @@ ship "Firebird"
 		"bunks" 22
 		"mass" 290
 		"drag" 4.5
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 50
 		"outfit space" 400
@@ -1373,7 +1344,6 @@ ship "Flivver"
 		"bunks" 3
 		"mass" 40
 		"drag" 1.0
-		"heat dissipation" .9
 		"fuel capacity" 500
 		"cargo space" 5
 		"outfit space" 130
@@ -1419,7 +1389,6 @@ ship "Freighter"
 		"bunks" 7
 		"mass" 240
 		"drag" 5.6
-		"heat dissipation" .6
 		"fuel capacity" 600
 		"cargo space" 150
 		"outfit space" 250
@@ -1472,7 +1441,6 @@ ship "Frigate"
 		"bunks" 44
 		"mass" 310
 		"drag" 5.2
-		"heat dissipation" .7
 		"fuel capacity" 500
 		"cargo space" 35
 		"outfit space" 410
@@ -1536,7 +1504,6 @@ ship "Fury"
 		"bunks" 3
 		"mass" 70
 		"drag" 1.6
-		"heat dissipation" .9
 		"fuel capacity" 600
 		"cargo space" 15
 		"outfit space" 160
@@ -1588,7 +1555,6 @@ ship "Gunboat"
 		"bunks" 12
 		"mass" 150
 		"drag" 3.1
-		"heat dissipation" .8
 		"fuel capacity" 600
 		"cargo space" 50
 		"outfit space" 270
@@ -1643,7 +1609,6 @@ ship "Hauler"
 		"bunks" 12
 		"mass" 250
 		"drag" 10.5
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 130
 		"outfit space" 350
@@ -1701,7 +1666,6 @@ ship "Hauler II"
 		"bunks" 12
 		"mass" 360
 		"drag" 11.5
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 260
 		"outfit space" 350
@@ -1760,7 +1724,6 @@ ship "Hauler III"
 		"bunks" 12
 		"mass" 470
 		"drag" 12.5
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 390
 		"outfit space" 350
@@ -1819,7 +1782,6 @@ ship "Hawk"
 		"bunks" 4
 		"mass" 150
 		"drag" 2.1
-		"heat dissipation" .8
 		"fuel capacity" 300
 		"cargo space" 20
 		"outfit space" 200
@@ -1866,7 +1828,6 @@ ship "Headhunter"
 		"bunks" 4
 		"mass" 120
 		"drag" 2.6
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 50
 		"outfit space" 250
@@ -1918,7 +1879,6 @@ ship "Heavy Shuttle"
 		"bunks" 8
 		"mass" 110
 		"drag" 2.1
-		"heat dissipation" .8
 		"fuel capacity" 500
 		"cargo space" 35
 		"outfit space" 120
@@ -1961,7 +1921,6 @@ ship "Lance"
 		"bunks" 1
 		"mass" 30
 		"drag" .7
-		"heat dissipation" .8
 		"outfit space" 100
 		"weapon capacity" 20
 		"engine capacity" 30
@@ -2005,7 +1964,6 @@ ship "Leviathan"
 		"bunks" 64
 		"mass" 480
 		"drag" 7.6
-		"heat dissipation" .5
 		"fuel capacity" 500
 		"cargo space" 80
 		"outfit space" 620
@@ -2024,7 +1982,6 @@ ship "Leviathan"
 		"Fusion Reactor"
 		"LP144a Battery Pack"
 		"D67-TM Shield Generator"
-		"Liquid Helium Cooler"
 		"Laser Rifle" 15
 		
 		"X3700 Ion Thruster"
@@ -2065,7 +2022,6 @@ ship "Manta"
 		"bunks" 10
 		"mass" 170
 		"drag" 4.7
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 20
 		"outfit space" 350
@@ -2122,7 +2078,6 @@ ship "Modified Argosy"
 		"bunks" 12
 		"mass" 250
 		"drag" 6.2
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 60
 		"outfit space" 340
@@ -2184,7 +2139,6 @@ ship "Mule"
 		"bunks" 43
 		"mass" 320
 		"drag" 5.7
-		"heat dissipation" .5
 		"fuel capacity" 600
 		"cargo space" 270
 		"outfit space" 450
@@ -2245,7 +2199,6 @@ ship "Nest"
 		"bunks" 14
 		"mass" 250
 		"drag" 10.5
-		"heat dissipation" .67
 		"fuel capacity" 500
 		"cargo space" 40
 		"outfit space" 400
@@ -2306,7 +2259,6 @@ ship "Osprey"
 		"bunks" 24
 		"mass" 270
 		"drag" 6.1
-		"heat dissipation" .8
 		"fuel capacity" 600
 		"cargo space" 40
 		"outfit space" 450
@@ -2326,7 +2278,6 @@ ship "Osprey"
 		"LP036a Battery Pack"
 		"D41-HY Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
 		"Laser Rifle" 3
 		
 		"Impala Plasma Thruster"
@@ -2365,7 +2316,6 @@ ship "Protector"
 		"bunks" 69
 		"mass" 500
 		"drag" 10.3
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 50
 		"outfit space" 570
@@ -2386,7 +2336,6 @@ ship "Protector"
 		"LP288a Battery Pack"
 		"D67-TM Shield Generator"
 		"Small Radar Jammer" 3
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 6
 		
 		"X3700 Ion Thruster"
@@ -2426,7 +2375,6 @@ ship "Quicksilver"
 		"bunks" 6
 		"mass" 120
 		"drag" 2.7
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 10
 		"outfit space" 240
@@ -2443,7 +2391,6 @@ ship "Quicksilver"
 		"RT-I Radiothermal"
 		"LP036a Battery Pack"
 		"D23-QP Shield Generator"
-		"Cooling Ducts"
 		
 		"Greyhound Plasma Thruster"
 		"Greyhound Plasma Steering"
@@ -2475,7 +2422,6 @@ ship "Rainmaker"
 		"bunks" 14
 		"mass" 180
 		"drag" 3.8
-		"heat dissipation" .6
 		"fuel capacity" 500
 		"cargo space" 25
 		"outfit space" 230
@@ -2531,7 +2477,6 @@ ship "Raven"
 		"bunks" 13
 		"mass" 130
 		"drag" 3.7
-		"heat dissipation" .8
 		"fuel capacity" 500
 		"cargo space" 30
 		"outfit space" 280
@@ -2585,7 +2530,6 @@ ship "Roost"
 		"bunks" 16
 		"mass" 360
 		"drag" 11.5
-		"heat dissipation" .67
 		"fuel capacity" 600
 		"cargo space" 80
 		"outfit space" 450
@@ -2649,7 +2593,6 @@ ship "Scout"
 		"bunks" 12
 		"mass" 110
 		"drag" 3.4
-		"heat dissipation" .7
 		"fuel capacity" 800
 		"cargo space" 55
 		"outfit space" 220
@@ -2704,7 +2647,6 @@ ship "Shuttle"
 		"bunks" 6
 		"mass" 70
 		"drag" 1.7
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 20
 		"outfit space" 120
@@ -2749,7 +2691,6 @@ ship "Skein"
 		"bunks" 18
 		"mass" 470
 		"drag" 12.5
-		"heat dissipation" .71
 		"fuel capacity" 700
 		"cargo space" 120
 		"outfit space" 500
@@ -2815,7 +2756,6 @@ ship "Sparrow"
 		"bunks" 2
 		"mass" 50
 		"drag" .9
-		"heat dissipation" .8
 		"fuel capacity" 300
 		"cargo space" 15
 		"outfit space" 130
@@ -2861,7 +2801,6 @@ ship "Splinter"
 		"bunks" 21
 		"mass" 250
 		"drag" 4.0
-		"heat dissipation" .7
 		"fuel capacity" 600
 		"cargo space" 75
 		"outfit space" 400
@@ -2881,7 +2820,6 @@ ship "Splinter"
 		"LP144a Battery Pack"
 		"D67-TM Shield Generator"
 		"Small Radar Jammer" 2
-		"Water Coolant System"
 		"Laser Rifle"
 		
 		"X3700 Ion Thruster"
@@ -2919,7 +2857,6 @@ ship "Star Barge"
 		"bunks" 3
 		"mass" 70
 		"drag" 2.1
-		"heat dissipation" .8
 		"fuel capacity" 300
 		"cargo space" 50
 		"outfit space" 130
@@ -2964,7 +2901,6 @@ ship "Star Queen"
 		"bunks" 112
 		"mass" 230
 		"drag" 5.5
-		"heat dissipation" .65
 		"fuel capacity" 500
 		"cargo space" 60
 		"outfit space" 360
@@ -3020,7 +2956,6 @@ ship "Surveillance Drone"
 		"automaton" 1
 		"mass" 15
 		"drag" .53
-		"heat dissipation" .9
 		"outfit space" 53
 		"weapon capacity" 0
 		"engine capacity" 28
@@ -3055,7 +2990,6 @@ ship "Vanguard"
 		"bunks" 45
 		"mass" 500
 		"drag" 8
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 50
 		"outfit space" 560
@@ -3073,7 +3007,6 @@ ship "Vanguard"
 		"Fusion Reactor"
 		"LP072a Battery Pack"
 		"D67-TM Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 4
 		
 		"X3700 Ion Thruster"
@@ -3113,7 +3046,6 @@ ship "Wasp"
 		"bunks" 2
 		"mass" 60
 		"drag" 1.2
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 10
 		"outfit space" 150

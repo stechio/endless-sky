@@ -131,16 +131,16 @@ void EscortDisplay::Draw(const Rectangle &bounds) const
 		}
 		
 		// Draw the status bars.
-		static const Color fullColor[5] = {
+		static const Color fullColor[4] = {
 			colors.Get("shields")->Additive(1.), colors.Get("hull")->Additive(1.),
-			colors.Get("energy")->Additive(1.), colors.Get("heat")->Additive(1.), colors.Get("fuel")->Additive(1.)
+			colors.Get("energy")->Additive(1.), colors.Get("fuel")->Additive(1.)
 		};
-		static const Color halfColor[5] = {
+		static const Color halfColor[4] = {
 			fullColor[0].Additive(.5), fullColor[1].Additive(.5),
-			fullColor[2].Additive(.5), fullColor[3].Additive(.5), fullColor[4].Additive(.5),
+			fullColor[2].Additive(.5), fullColor[3].Additive(.5)
 		};
 		Point from(pos.X() + .5 * ICON_SIZE + BAR_PAD, pos.Y() - 8.5);
-		for(int i = 0; i < 5; ++i)
+		for(int i = 0; i < 4; ++i)
 		{
 			// If the low and high levels are different, draw a fully opaque bar up
 			// to the low limit, and half-transparent up to the high limit.
@@ -193,7 +193,7 @@ EscortDisplay::Icon::Icon(const Ship &ship, bool isHere, bool fleetIsJumping, bo
 	isSelected(isSelected),
 	cost(ship.Cost()),
 	system((!isHere && ship.GetSystem()) ? ship.GetSystem()->Name() : ""),
-	low{ship.Shields(), ship.Hull(), ship.Energy(), ship.Heat(), ship.Fuel()},
+	low{ship.Shields(), ship.Hull(), ship.Energy(), ship.Fuel()},
 	high(low),
 	ships(1, &ship)
 {

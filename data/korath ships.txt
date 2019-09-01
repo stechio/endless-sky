@@ -20,7 +20,6 @@ ship "Korath Raider"
 		"bunks" 250
 		"mass" 720
 		"drag" 12
-		"heat dissipation" .5
 		"fuel capacity" 600
 		"cargo space" 175
 		"outfit space" 721
@@ -38,8 +37,6 @@ ship "Korath Raider"
 		
 		"Triple Plasma Core"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 2
-		"Small Heat Shunt"
 		"Fuel Processor"
 		"Korath Repeater Rifle" 196
 		
@@ -74,8 +71,6 @@ ship "Korath Raider" "Korath Raider (Ember)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 2
-		"Small Heat Shunt"
 		"Fuel Processor"
 		"Korath Repeater Rifle" 196
 		"Outfits Expansion"
@@ -101,8 +96,6 @@ ship "Korath Raider" "Korath Raider (Hyperdrive)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 2
-		"Small Heat Shunt"
 		"Fuel Processor"
 		"Korath Repeater Rifle" 196
 		"Outfits Expansion"
@@ -127,8 +120,6 @@ ship "Korath Raider" "Korath Raider (Crippled)"
 		"Korath Warder"
 		
 		"Triple Plasma Core"
-		"Large Heat Shunt" 2
-		"Small Heat Shunt"
 		"Korath Repeater Rifle" 196
 		"Outfits Expansion"
 		
@@ -156,7 +147,6 @@ ship "Korath Chaser"
 		"bunks" 1
 		"mass" 40
 		"drag" .9
-		"heat dissipation" .9
 		"outfit space" 92
 		"weapon capacity" 25
 		"engine capacity" 30
@@ -169,7 +159,6 @@ ship "Korath Chaser"
 		"Korath Fire-Lance"
 		
 		"Generator (Furnace Class)"
-		"Small Heat Shunt"
 		"Korath Repeater Rifle" 
 		
 		"Thruster (Asteroid Class)"
@@ -195,7 +184,6 @@ ship "Korath World-Ship"
 		"bunks" 1492
 		"mass" 1735
 		"drag" 21
-		"heat dissipation" .4
 		"fuel capacity" 1000
 		"cargo space" 264
 		"outfit space" 779
@@ -213,7 +201,6 @@ ship "Korath World-Ship"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 2
 		"Fuel Processor"
 		"Korath Repeater Rifle" 150
 		
@@ -272,7 +259,6 @@ ship "Korath World-Ship" "Korath World-Ship A (Jump)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 2
 		"Fuel Processor"
 		"Korath Repeater Rifle" 150
 		
@@ -298,7 +284,6 @@ ship "Korath World-Ship" "Korath World-Ship B (Jump)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 2
 		"Fuel Processor"
 		"Korath Repeater Rifle" 150
 		
@@ -324,7 +309,6 @@ ship "Korath World-Ship" "Korath World-Ship C (Jump)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 2
 		"Fuel Processor"
 		"Korath Repeater Rifle" 150
 		
@@ -350,7 +334,6 @@ ship "Korath World-Ship" "Korath World-Ship B (Ember)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 2
 		"Fuel Processor"
 		"Korath Repeater Rifle" 150
 		"Outfits Expansion"
@@ -376,7 +359,6 @@ ship "Korath World-Ship" "Korath World-Ship B (Crippled)"
 		"Korath Warder" 1
 		
 		"Triple Plasma Core"
-		"Large Heat Shunt" 2
 		"Korath Repeater Rifle" 150
 		"Outfits Expansion"
 		
@@ -407,7 +389,6 @@ ship "Kar Ik Vot 349"
 		"automaton" 1
 		"mass" 1350
 		"drag" 16.8
-		"heat dissipation" .5
 		"fuel capacity" 400
 		"cargo space" 87
 		"outfit space" 1054
@@ -431,8 +412,6 @@ ship "Kar Ik Vot 349"
 		"Triple Plasma Core"
 		"Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 4
-		"Small Heat Shunt" 2
 		"Control Transceiver"
 		
 		"Thruster (Planetary Class)"
@@ -472,7 +451,6 @@ ship "Kar Ik Vot 349" "Kar Ik Vot 349 (Offense)"
 		"Plasma Core"
 		"Systems Core (Large)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 5
 		"Outfits Expansion"
 		"Control Transceiver"
 		
@@ -503,7 +481,6 @@ ship "Kar Ik Vot 349" "Kar Ik Vot 349 (Defense)"
 		"Plasma Core"
 		"Systems Core (Large)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 3
 		"Outfits Expansion"
 		"Control Transceiver"
 		
@@ -530,8 +507,6 @@ ship "Kar Ik Vot 349" "Kar Ik Vot 349 (Trapper)"
 		"Double Plasma Core"
 		"Systems Core (Large)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 3
-		"Small Heat Shunt"
 		"Outfits Expansion" 4
 		"Control Transceiver"
 		
@@ -564,7 +539,6 @@ ship "Tek Far 71 - Lek"
 		"automaton" 1
 		"mass" 610
 		"drag" 9.6
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 36
 		"outfit space" 533
@@ -587,7 +561,6 @@ ship "Tek Far 71 - Lek"
 		"Double Plasma Core"
 		"Generator (Furnace Class)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt"
 		"Control Transceiver"
 		
 		"Thruster (Lunar Class)"
@@ -631,8 +604,6 @@ ship "Tek Far 71 - Lek" "Tek Far 71 - Lek (Close Quarters)"
 		"Double Plasma Core"
 		"Generator (Furnace Class)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 2
-		"Small Heat Shunt"
 		"Outfits Expansion"
 		"Control Transceiver"
 		
@@ -657,7 +628,6 @@ ship "Tek Far 78 - Osk"
 		"automaton" 1
 		"mass" 690
 		"drag" 10.2
-		"heat dissipation" .55
 		"fuel capacity" 400
 		"cargo space" 43
 		"outfit space" 611
@@ -680,7 +650,6 @@ ship "Tek Far 78 - Osk"
 		"Double Plasma Core"
 		"Generator (Inferno Class)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt"
 		"Control Transceiver"
 		
 		"Thruster (Lunar Class)"
@@ -723,7 +692,6 @@ ship "Tek Far 78 - Osk" "Tek Far 78 - Osk (Close Quarters)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 3
 		"Outfits Expansion"
 		"Control Transceiver"
 		
@@ -749,7 +717,6 @@ ship "Tek Far 109"
 		"automaton" 1
 		"mass" 540
 		"drag" 9.1
-		"heat dissipation" .65
 		"fuel capacity" 400
 		"cargo space" 31
 		"outfit space" 491
@@ -770,7 +737,6 @@ ship "Tek Far 109"
 		
 		"Double Plasma Core"
 		"Systems Core (Medium)"
-		"Small Heat Shunt" 2
 		"Control Transceiver"
 		
 		"Thruster (Lunar Class)"
@@ -820,7 +786,6 @@ ship "Met Par Tek 53"
 		"automaton" 1
 		"mass" 420
 		"drag" 5.7
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 26
 		"outfit space" 610
@@ -840,7 +805,6 @@ ship "Met Par Tek 53"
 		"Double Plasma Core"
 		"Generator (Inferno Class)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt" 3
 		"Control Transceiver"
 		
 		"Thruster (Lunar Class)"
@@ -879,7 +843,6 @@ ship "Met Par Tek 53" "Met Par Tek 53 (Sniper)"
 		"Generator (Inferno Class)"
 		"Generator (Candle Class)"
 		"Systems Core (Medium)"
-		"Large Heat Shunt"
 		"Control Transceiver"
 		
 		"Thruster (Lunar Class)"
@@ -909,7 +872,6 @@ ship "Far Lek 14"
 		"automaton" 1
 		"mass" 26
 		"drag" .8
-		"heat dissipation" 1.1
 		"outfit space" 65
 		"weapon capacity" 11
 		"engine capacity" 24
@@ -923,7 +885,6 @@ ship "Far Lek 14"
 		"Korath Repeater"
 		
 		"Generator (Candle Class)"
-		"Small Heat Shunt"
 		
 		"Thruster (Asteroid Class)"
 		"Steering (Asteroid Class)"
@@ -947,7 +908,6 @@ ship "Far Osk 27"
 		"automaton" 1
 		"mass" 34
 		"drag" 1.1
-		"heat dissipation" 1.0
 		"outfit space" 99
 		"weapon capacity" 22
 		"engine capacity" 24
@@ -961,7 +921,6 @@ ship "Far Osk 27"
 		"Korath Repeater" 2
 		
 		"Generator (Furnace Class)"
-		"Small Heat Shunt" 2
 		
 		"Thruster (Asteroid Class)"
 		"Steering (Asteroid Class)"
@@ -987,7 +946,6 @@ ship "Model 8"
 		"automaton" 1
 		"mass" 110
 		"drag" 3.2
-		"heat dissipation" 1.5
 		"fuel capacity" 200
 		"cargo space" 29
 		"outfit space" 220
@@ -1033,7 +991,6 @@ ship "Model 16"
 		"automaton" 1
 		"mass" 250
 		"drag" 6.9
-		"heat dissipation" 1.3
 		"fuel capacity" 400
 		"cargo space" 7
 		"outfit space" 426
@@ -1055,7 +1012,6 @@ ship "Model 16"
 		"Plasma Core"
 		"Generator (Inferno Class)"
 		"Systems Core (Small)"
-		"Small Heat Shunt"
 		"Reasoning Node"
 		
 		"Thruster (Planetary Class)"
@@ -1086,7 +1042,6 @@ ship "Model 32"
 		"automaton" 1
 		"mass" 370
 		"drag" 9.0
-		"heat dissipation" 1.3
 		"fuel capacity" 400
 		"cargo space" 16
 		"outfit space" 481
@@ -1108,7 +1063,6 @@ ship "Model 32"
 		"Double Plasma Core"
 		"Generator (Candle Class)"
 		"Systems Core (Small)"
-		"Small Heat Shunt"
 		"Reasoning Node"
 		
 		"Thruster (Planetary Class)"
@@ -1140,7 +1094,6 @@ ship "Model 64"
 		"automaton" 1
 		"mass" 580
 		"drag" 11.1
-		"heat dissipation" 1.1
 		"fuel capacity" 400
 		"cargo space" 34
 		"outfit space" 567
@@ -1196,7 +1149,6 @@ ship "Model 128"
 		"automaton" 1
 		"mass" 780
 		"drag" 13.2
-		"heat dissipation" 1.0
 		"fuel capacity" 400
 		"cargo space" 53
 		"outfit space" 713
@@ -1253,7 +1205,6 @@ ship "Model 256"
 		"automaton" 1
 		"mass" 970
 		"drag" 15.3
-		"heat dissipation" .9
 		"fuel capacity" 400
 		"cargo space" 78
 		"outfit space" 857
@@ -1275,7 +1226,6 @@ ship "Model 256"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt"
 		"Reasoning Node" 3
 		
 		"Thruster (Planetary Class)"
@@ -1312,7 +1262,6 @@ ship "Model 512"
 		"automaton" 1
 		"mass" 1150
 		"drag" 17.4
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 107
 		"outfit space" 994
@@ -1335,8 +1284,6 @@ ship "Model 512"
 		"Triple Plasma Core"
 		"Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt"
-		"Small Heat Shunt" 2
 		"Reasoning Node" 3
 		
 		"Thruster (Planetary Class)"

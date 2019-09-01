@@ -18,7 +18,6 @@ outfit "Korath Tek'far Reactor"
 	"mass" 25
 	"outfit space" -25
 	"energy generation" 3.9
-	"heat generation" 7.3
 	description "This is a miniature nuclear reactor, used by the Korath to power their fighters."
 
 outfit "Korath Tek'nel Reactor"
@@ -28,7 +27,6 @@ outfit "Korath Tek'nel Reactor"
 	"mass" 140
 	"outfit space" -140
 	"energy generation" 27.1
-	"heat generation" 80
 	description "This massive reactor was designed by the Korath to meet the power needs of their largest ships."
 
 
@@ -42,15 +40,6 @@ outfit "Korath Shield Generator"
 	"shield energy" 2.4
 	description "Korath fighters are not able to recharge their shields, but their larger ships are equipped with one of these."
 
-outfit "Korath Heat Shunt"
-	category "Systems"
-	cost 450000
-	thumbnail "outfit/unknown"
-	"mass" 34
-	"outfit space" -34
-	"cooling" 78
-	description "Korath weapons generate extreme amounts of heat, and the cooling systems they require are massive."
-
 outfit "Korath Ark'torbal Thruster"
 	category "Engines"
 	"cost" 40000
@@ -60,7 +49,6 @@ outfit "Korath Ark'torbal Thruster"
 	"engine capacity" -17
 	"thrust" 8.9
 	"thrusting energy" 1.1
-	"thrusting heat" 1.0
 	"flare sprite" "effect/plasma flare/tiny"
 		"frame rate" 5
 	"flare sound" "plasma tiny"
@@ -75,7 +63,6 @@ outfit "Korath Ark'parat Steering"
 	"engine capacity" -12
 	"turn" 240
 	"turning energy" .6
-	"turning heat" .7
 	description "This engine is used by Korath fighters."
 
 outfit "Korath Jak'torbal Thruster"
@@ -87,7 +74,6 @@ outfit "Korath Jak'torbal Thruster"
 	"engine capacity" -89
 	"thrust" 63.1
 	"thrusting energy" 5.9
-	"thrusting heat" 14.3
 	"flare sprite" "effect/plasma flare/large"
 		"frame rate" 8
 	"flare sound" "plasma large"
@@ -102,12 +88,10 @@ outfit "Korath Jak'parat Steering"
 	"engine capacity" -67
 	"turn" 1680
 	"turning energy" 3.1
-	"turning heat" 7.9
 	description "This engine is used in the Korath capital ships."
 
 
-# Deprecated in favor of the Outfits Expansion, which has a cooling penalty that
-# stacks up and limits how many you can install.
+# Deprecated in favor of the Outfits Expansion.
 outfit "Mass Expansion"
 	category "Systems"
 	cost 50000
@@ -128,7 +112,6 @@ outfit "Reverse Thruster"
 	"weapon capacity" -22
 	"reverse thrust" 15.4
 	"reverse thrusting energy" 1.8
-	"reverse thrusting heat" 3.5
 
 # Deprecated because it unbalances the capture dynamics, among other things.
 outfit "NDR-114 Android"
@@ -155,7 +138,6 @@ outfit "Bullfrog Anti-Missile Turret"
 		"lifetime" 1
 		"reload" 20
 		"firing energy" 12
-		"firing heat" 5
 		"stream"
 	description ""
 
@@ -174,7 +156,6 @@ outfit "Chameleon Anti-Missile Turret"
 		"lifetime" 1
 		"reload" 15
 		"firing energy" 23
-		"firing heat" 6
 		"stream"
 	description ""
 

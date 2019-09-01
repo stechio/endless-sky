@@ -28,7 +28,6 @@ outfit "Pug Zapper"
 		"lifetime" 1
 		"reload" 1
 		"firing energy" 2.7
-		"firing heat" 1.4
 		"shield damage" 3.7
 		"hull damage" 2.9
 	description "This is a formidable beam weapon, more damaging than even the most advanced energy beams that humanity has developed. Pug ships have integrated power plants that produce the considerable amount of energy that is needed to drive weapons like this one."
@@ -56,7 +55,6 @@ outfit "Pug Zapper Turret"
 		"lifetime" 1
 		"reload" 1
 		"firing energy" 5.4
-		"firing heat" 2.8
 		"shield damage" 7.4
 		"hull damage" 5.8
 	description "Mounted on a turret, this Pug weapon becomes even more devastatingly powerful. However, its energy requirements are higher than most human ships can support."
@@ -82,7 +80,6 @@ outfit "Pug Seeker"
 		"lifetime" 200
 		"reload" 10
 		"firing energy" 25
-		"firing heat" 20
 		"acceleration" 1.3
 		"drag" .1
 		"turn" 4
@@ -121,7 +118,6 @@ outfit "Pug Anti-Missile"
 		"lifetime" 1
 		"reload" 2
 		"firing energy" 8
-		"firing heat" 2
 	description "This anti-missile system designed by the Pug draws a lot of energy, but its fast firing rate makes it twice as effective as anything that Lovelace Labs has been able to come up with. A ship with one of these turrets will be very difficult to hit with missiles."
 
 effect "pug anti-missile"
@@ -150,7 +146,6 @@ outfit "Tier 3 Anti-Missile"
 		"lifetime" 1
 		"reload" 6
 		"firing energy" 80
-		"firing heat" 10
 	description "This powerful anti-missile turret is capable of destroying even the strongest of missiles."
 
 effect "tier 3 anti-missile fire"
@@ -189,7 +184,6 @@ outfit "Pug Gridfire Turret"
 		"reload" 20
 		"turret turn" 20
 		"firing energy" 800
-		"firing heat" 400
 		"firing force" 150
 		"shield damage" 600
 		"hull damage" 600
@@ -234,7 +228,6 @@ outfit "Pug Akfar Thruster"
 	"engine capacity" -43
 	"thrust" 28.0
 	"thrusting energy" 2.2
-	"thrusting heat" 3.1
 	"flare sprite" "effect/ion flare/medium"
 		"frame rate" 8
 	"flare sound" "ion medium"
@@ -249,7 +242,6 @@ outfit "Pug Akfar Steering"
 	"engine capacity" -33
 	"turn" 750
 	"turning energy" 1.3
-	"turning heat" 2.1
 	description "This is a small steering system designed by the Pug. It is not quite as powerful as a similarly sized atomic engine, but it makes up for that by being almost as energy efficient as ion engines."
 
 outfit "Pug Cormet Thruster"
@@ -261,7 +253,6 @@ outfit "Pug Cormet Thruster"
 	"engine capacity" -60
 	"thrust" 44.0
 	"thrusting energy" 3.3
-	"thrusting heat" 4.6
 	"flare sprite" "effect/ion flare/large"
 		"frame rate" 9
 	"flare sound" "ion large"
@@ -276,7 +267,6 @@ outfit "Pug Cormet Steering"
 	"engine capacity" -46
 	"turn" 1130
 	"turning energy" 1.9
-	"turning heat" 3.1
 	description "This is a medium-sized steering system designed by the Pug. It is not quite as powerful as a similarly sized atomic engine, but it makes up for that by being almost as energy efficient as ion engines."
 
 outfit "Pug Lohmar Thruster"
@@ -288,7 +278,6 @@ outfit "Pug Lohmar Thruster"
 	"engine capacity" -84
 	"thrust" 66.0
 	"thrusting energy" 4.9
-	"thrusting heat" 6.9
 	"flare sprite" "effect/ion flare/huge"
 		"frame rate" 9
 	"flare sound" "ion huge"
@@ -303,7 +292,6 @@ outfit "Pug Lohmar Steering"
 	"engine capacity" -64
 	"turn" 1700
 	"turning energy" 2.8
-	"turning heat" 4.7
 	description "This is a large steering system designed by the Pug. It is not quite as powerful as a similarly sized atomic engine, but it makes up for that by being almost as energy efficient as ion engines."
 
 
@@ -331,7 +319,6 @@ ship "Pug Zibruka"
 		"bunks" 6
 		"mass" 240
 		"drag" 3.1
-		"heat dissipation" .8
 		"fuel capacity" 600
 		"cargo space" 20
 		"outfit space" 180
@@ -339,7 +326,6 @@ ship "Pug Zibruka"
 		"engine capacity" 76
 		"energy capacity" 1000
 		"energy generation" 10
-		"heat generation" 20
 		"shield generation" 6
 		"shield energy" 6
 		weapon
@@ -380,7 +366,6 @@ ship "Pug Enfolta"
 		"bunks" 27
 		"mass" 410
 		"drag" 5.9
-		"heat dissipation" .7
 		"fuel capacity" 600
 		"cargo space" 40
 		"outfit space" 360
@@ -388,7 +373,6 @@ ship "Pug Enfolta"
 		"engine capacity" 106
 		"energy capacity" 2000
 		"energy generation" 22
-		"heat generation" 32
 		"shield generation" 8
 		"shield energy" 8
 		weapon
@@ -434,7 +418,6 @@ ship "Pug Maboro"
 		"bunks" 87
 		"mass" 940
 		"drag" 9.8
-		"heat dissipation" .6
 		"fuel capacity" 600
 		"cargo space" 70
 		"outfit space" 560
@@ -442,7 +425,6 @@ ship "Pug Maboro"
 		"engine capacity" 148
 		"energy capacity" 4000
 		"energy generation" 32
-		"heat generation" 48
 		"shield generation" 10
 		"shield energy" 10
 		weapon
@@ -490,7 +472,6 @@ ship "Pug Arfecta"
 		"bunks" 46
 		"mass" 670
 		"drag" 7.5
-		"heat dissipation" .8
 		"fuel capacity" 1200
 		"cargo space" 64
 		"outfit space" 640
@@ -498,7 +479,6 @@ ship "Pug Arfecta"
 		"engine capacity" 220
 		"energy capacity" 10000
 		"energy generation" 200
-		"heat generation" 10
 		"shield generation" 32
 		"shield energy" 32
 		"hull repair rate" 5
@@ -506,7 +486,6 @@ ship "Pug Arfecta"
 		"cloaking fuel" -.2
 		"reverse thrust" 66
 		"reverse thrusting energy" 4.9
-		"reverse thrusting heat" 6.9
 		weapon
 			"blast radius" 320
 			"shield damage" 9000

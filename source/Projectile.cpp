@@ -304,10 +304,9 @@ void Projectile::CheckLock(const Ship &target)
 		hasLock |= Check(probability, base);
 	}
 	
-	// Infrared tracking is 10% when heat is zero and 100% when heat is full.
 	if(weapon->InfraredTracking())
 	{
-		double probability = weapon->InfraredTracking() * min(1., target.Heat() + .1);
+		double probability = .5;
 		hasLock |= Check(probability, base);
 	}
 	

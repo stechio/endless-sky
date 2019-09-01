@@ -27,41 +27,28 @@ using namespace std;
 
 namespace {
 	const map<string, double> SCALE = {
-		{"active cooling", 60.},
 		{"afterburner energy", 60.},
 		{"afterburner fuel", 60.},
-		{"afterburner heat", 60.},
 		{"cloak", 60.},
 		{"cloaking energy", 60.},
 		{"cloaking fuel", 60.},
-		{"cloaking heat", 60.},
-		{"cooling", 60.},
-		{"cooling energy", 60.},
 		{"energy consumption", 60.},
 		{"energy generation", 60.},
 		{"fuel consumption", 60.},
 		{"fuel energy", 60.},
 		{"fuel generation", 60.},
-		{"fuel heat", 60.},
-		{"heat generation", 60.},
-		{"heat dissipation", 60.},
 		{"hull repair rate", 60.},
 		{"hull energy", 60.},
 		{"hull fuel", 60.},
-		{"hull heat", 60.},
 		{"jump speed", 60.},
 		{"reverse thrusting energy", 60.},
-		{"reverse thrusting heat", 60.},
 		{"shield generation", 60.},
 		{"shield energy", 60.},
 		{"shield fuel", 60.},
-		{"shield heat", 60.},
 		{"solar collection", 60.},
 		{"thrusting energy", 60.},
-		{"thrusting heat", 60.},
 		{"turn", 60.},
 		{"turning energy", 60.},
-		{"turning heat", 60.},
 		
 		{"thrust", 60. * 60.},
 		{"reverse thrust", 60. * 60.},
@@ -249,12 +236,10 @@ void OutfitInfoDisplay::UpdateAttributes(const Outfit &outfit)
 		"shield damage",
 		"hull damage",
 		"fuel damage",
-		"heat damage",
 		"ion damage",
 		"slowing damage",
 		"disruption damage",
 		"firing energy",
-		"firing heat",
 		"firing fuel"
 	};
 	
@@ -262,12 +247,10 @@ void OutfitInfoDisplay::UpdateAttributes(const Outfit &outfit)
 		outfit.ShieldDamage(),
 		outfit.HullDamage(),
 		outfit.FuelDamage(),
-		outfit.HeatDamage(),
 		outfit.IonDamage() * 100.,
 		outfit.SlowingDamage() * 100.,
 		outfit.DisruptionDamage() * 100.,
 		outfit.FiringEnergy(),
-		outfit.FiringHeat(),
 		outfit.FiringFuel()
 	};
 	

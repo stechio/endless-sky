@@ -20,7 +20,6 @@ ship "Aphid"
 		"bunks" 5
 		"mass" 100
 		"drag" 1.9
-		"heat dissipation" .90
 		"fuel capacity" 400
 		"cargo space" 51
 		"outfit space" 185
@@ -36,7 +35,6 @@ ship "Aphid"
 		"Pebble Core"
 		"Hai Fissure Batteries"
 		"Hai Corundum Regenerator"
-		"Hai Williwaw Cooling"
 		`"Basrem" Atomic Thruster`
 		`"Basrem" Atomic Steering`
 		"Hyperdrive"
@@ -55,7 +53,6 @@ ship "Aphid" "Aphid (Anti-Missile)"
 		"Pebble Core"
 		"Hai Fissure Batteries"
 		"Hai Corundum Regenerator"
-		"Hai Williwaw Cooling"
 		"Quantum Keystone"
 		"Pulse Rifle"
 		`"Benga" Atomic Thruster`
@@ -76,7 +73,6 @@ ship "Centipede"
 		"bunks" 131
 		"mass" 168
 		"drag" 4
-		"heat dissipation" .75
 		"fuel capacity" 600
 		"cargo space" 38
 		"outfit space" 375
@@ -94,7 +90,6 @@ ship "Centipede"
 		"Geode Reactor"
 		"Hai Corundum Regenerator"
 		"Hai Ravine Batteries"
-		"Hai Williwaw Cooling" 3
 		"Luxury Accommodations"
 		"Quantum Keystone"
 		`"Biroo" Atomic Thruster`
@@ -127,7 +122,6 @@ ship "Centipede" "Centipede (Pulse)"
 		"Hai Fissure Batteries"
 		"Hai Chasm Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 5
 		"Luxury Accommodations"
 		"Quantum Keystone"
 		"Pulse Rifle" 24
@@ -148,7 +142,6 @@ ship "Flea"
 		"hull" 700
 		"mass" 21
 		"drag" .55
-		"heat dissipation" .75
 		"outfit space" 60
 		"weapon capacity" 9
 		"engine capacity" 29
@@ -185,7 +178,6 @@ ship "Geocoris"
 		"bunks" 56
 		"mass" 810
 		"drag" 17.1
-		"heat dissipation" 0.45
 		"fuel capacity" 800
 		"cargo space" 761
 		"outfit space" 582
@@ -203,7 +195,6 @@ ship "Geocoris"
 		"Geode Reactor" 2
 		"Hai Valley Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 5
 		`"Biroo" Atomic Thruster`
 		`"Bondir" Atomic Steering`
 		Hyperdrive
@@ -239,7 +230,6 @@ ship "Geocoris" "Geocoris (Tracker)"
 		"Pebble Core"
 		"Hai Ravine Batteries"
 		"Hai Corundum Regenerator" 2
-		"Hai Williwaw Cooling" 7
 		"Tracker Storage Pod" 3
 		"Quantum Keystone"
 		"Pulse Rifle" 14
@@ -261,7 +251,6 @@ ship "Grasshopper"
 		"bunks" 5
 		"mass" 95
 		"drag" 1.5
-		"heat dissipation" .85
 		"fuel capacity" 300
 		"cargo space"  29
 		"outfit space" 169
@@ -277,7 +266,6 @@ ship "Grasshopper"
 		"Pebble Core"
 		"Hai Chasm Batteries" 2
 		"Hai Corundum Regenerator"
-		"Hai Williwaw Cooling" 2
 		"Quantum Keystone"
 		`"Benga" Atomic Thruster`
 		`"Benga" Atomic Steering`
@@ -300,7 +288,6 @@ ship "Grasshopper" "Grasshopper (Tracker)"
 		"Pebble Core"
 		"Hai Fissure Batteries"
 		"Hai Corundum Regenerator"
-		"Hai Williwaw Cooling" 2
 		"Quantum Keystone"
 		"Pulse Rifle"
 		`"Basrem" Atomic Thruster`
@@ -321,7 +308,6 @@ ship "Lightning Bug"
 		"bunks" 10
 		"mass" 220
 		"drag" 3.8
-		"heat dissipation" .85
 		"fuel capacity" 600
 		"cargo space" 73
 		"outfit space" 278
@@ -338,7 +324,6 @@ ship "Lightning Bug"
 		"Geode Reactor"
 		"Hai Gorge Batteries"
 		"Hai Corundum Regenerator"
-		"Hai Williwaw Cooling"
 		"Quantum Keystone"
 		`"Benga" Atomic Thruster`
 		`"Biroo" Atomic Steering`
@@ -384,7 +369,6 @@ ship "Pond Strider"
 		"bunks" 18
 		"mass" 132
 		"drag" 3.6
-		"heat dissipation" .65
 		"fuel capacity" 300
 		"cargo space" 71
 		"outfit space" 354
@@ -407,7 +391,6 @@ ship "Pond Strider"
 		"Geode Reactor"
 		`"Benga" Atomic Thruster`
 		`"Biroo" Atomic Steering`
-		"Hai Williwaw Cooling" 3
 		"Hyperdrive"
 		
 	engine -23 80
@@ -451,7 +434,6 @@ ship "Shield Beetle"
 		"bunks" 95
 		"mass" 650
 		"drag" 8.8
-		"heat dissipation" .60
 		"fuel capacity" 500
 		"cargo space" 142
 		"outfit space" 798
@@ -473,7 +455,6 @@ ship "Shield Beetle"
 		"Hai Gorge Batteries"
 		"Hai Ravine Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 2
 		"Quantum Keystone"
 		`"Bondir" Atomic Thruster`
 		`"Bufaer" Atomic Steering`
@@ -516,7 +497,6 @@ ship "Shield Beetle" "Shield Beetle (Jump)"
 		"Outfits Expansion" 4
 		"Hai Diamond Regenerator" 2
 		"Fuel Pod" 3
-		"Hai Williwaw Cooling" 4
 		"Pulse Rifle" 55
 		`"Bondir" Atomic Thruster`
 		`"Bufaer" Atomic Steering`
@@ -544,7 +524,6 @@ ship "Shield Beetle" "Shield Beetle (Jump, Tracker)"
 		"Outfits Expansion" 4
 		"Hai Diamond Regenerator" 2
 		"Fuel Pod" 3
-		"Hai Williwaw Cooling" 6
 		"Pulse Rifle" 47
 		`"Bondir" Atomic Thruster`
 		`"Bufaer" Atomic Steering`
@@ -559,7 +538,6 @@ ship "Shield Beetle" "Shield Beetle (Pulse)"
 		"Geode Reactor"
 		"Hai Ravine Batteries"
 		"Hai Diamond Regenerator" 2
-		"Hai Williwaw Cooling" 3
 		"Pulse Rifle" 27
 		`"Bondir" Atomic Thruster`
 		`"Bufaer" Atomic Steering`
@@ -583,7 +561,6 @@ ship "Shield Beetle" "Shield Beetle (Tracker)"
 		"Geode Reactor"
 		"Hai Valley Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 2
 		"Quantum Keystone"
 		"Pulse Rifle" 32
 		`"Bondir" Atomic Thruster`
@@ -606,7 +583,6 @@ ship "Solifuge"
 		"bunks" 118
 		"mass" 925
 		"drag" 15.4
-		"heat dissipation" .42
 		"fuel capacity" 600
 		"cargo space" 142
 		"outfit space" 828
@@ -627,7 +603,6 @@ ship "Solifuge"
 		"Boulder Reactor" 2
 		"Hai Gorge Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 6
 		"Quantum Keystone"
 		`"Benga" Atomic Steering`
 		`"Bufaer" Atomic Steering`
@@ -676,7 +651,6 @@ ship "Solifuge" "Solifuge (Jump)"
 		"Boulder Reactor" 2
 		"Hai Gorge Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 6
 		"Pulse Rifle" 86
 		`"Benga" Atomic Steering`
 		`"Bufaer" Atomic Steering`
@@ -693,7 +667,6 @@ ship "Solifuge" "Solifuge (Jump, Pulse)"
 		"Hai Fissure Batteries"
 		"Hai Corundum Regenerator"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 8
 		"Pulse Rifle" 71
 		`"Benga" Atomic Steering`
 		`"Bufaer" Atomic Steering`
@@ -716,7 +689,6 @@ ship "Solifuge" "Solifuge (Jump, Tracker)"
 		"Hai Gorge Batteries"
 		"Hai Corundum Regenerator"
 		"Hai Diamond Regenerator" 2
-		"Hai Williwaw Cooling" 6
 		"Pulse Rifle" 68
 		`"Benga" Atomic Steering`
 		`"Bufaer" Atomic Steering`
@@ -733,7 +705,6 @@ ship "Solifuge" "Solifuge (Pulse)"
 		"Hai Fissure Batteries"
 		"Hai Corundum Regenerator"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling" 8
 		"Pulse Rifle" 62
 		`"Benga" Atomic Steering`
 		`"Bufaer" Atomic Steering`
@@ -756,7 +727,6 @@ ship "Solifuge" "Solifuge (Tracker)"
 		"Hai Gorge Batteries"
 		"Hai Corundum Regenerator"
 		"Hai Diamond Regenerator" 2
-		"Hai Williwaw Cooling" 6
 		"Pulse Rifle" 59
 		`"Benga" Atomic Steering`
 		`"Bufaer" Atomic Steering`
@@ -777,7 +747,6 @@ ship "Violin Spider"
 		"bunks" 1
 		"mass" 31
 		"drag" 0.9
-		"heat dissipation" .7
 		"outfit space" 92
 		"weapon capacity" 19
 		"engine capacity" 30
@@ -791,7 +760,6 @@ ship "Violin Spider"
 		"Hai Tracker" 56
 		"Pebble Core"
 		Supercapacitor
-		"Hai Williwaw Cooling"
 		"Pulse Rifle"
 		`"Basrem" Atomic Steering`
 		`"Basrem" Atomic Thruster`
@@ -810,7 +778,6 @@ ship "Violin Spider" "Violin Spider (Pulse)"
 		"Pulse Cannon"
 		"Pebble Core"
 		"Hai Chasm Batteries"
-		"Hai Williwaw Cooling"
 		"Quantum Keystone"
 		"Pulse Rifle"
 		`"Basrem" Atomic Steering`
@@ -830,7 +797,6 @@ ship "Water Bug"
 		"bunks" 29
 		"mass" 270
 		"drag" 5.9
-		"heat dissipation" .75
 		"fuel capacity" 600
 		"cargo space" 197
 		"outfit space" 368
@@ -851,7 +817,6 @@ ship "Water Bug"
 		"Hai Gorge Batteries"
 		"Hai Chasm Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling"
 		"Quantum Keystone"
 		`"Benga" Atomic Thruster`
 		`"Benga" Atomic Steering`
@@ -883,7 +848,6 @@ ship "Water Bug" "Water Bug (Jump)"
 		"Hai Gorge Batteries"
 		"Hai Chasm Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling"
 		"Quantum Keystone"
 		"Pulse Rifle" 8
 		`"Benga" Atomic Thruster`
@@ -899,7 +863,6 @@ ship "Water Bug" "Water Bug (Pulse)"
 		"Hai Gorge Batteries"
 		"Hai Chasm Batteries"
 		"Hai Diamond Regenerator"
-		"Hai Williwaw Cooling"
 		"Pulse Rifle" 3
 		`"Benga" Atomic Thruster`
 		`"Benga" Atomic Steering`

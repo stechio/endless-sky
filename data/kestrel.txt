@@ -223,7 +223,6 @@ ship "Unknown Ship Type"
 		"bunks" 128
 		"mass" 740
 		"drag" 11
-		"heat dissipation" .6
 		"fuel capacity" 500
 		"cargo space" 120
 		"outfit space" 810
@@ -243,7 +242,6 @@ ship "Unknown Ship Type"
 		"Fusion Reactor"
 		"LP144a Battery Pack"
 		"D94-YV Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Tactical Scanner" 2
 		
 		"Orca Plasma Thruster"
@@ -280,7 +278,6 @@ ship "Kestrel"
 		"bunks" 128
 		"mass" 740
 		"drag" 11
-		"heat dissipation" .6
 		"fuel capacity" 500
 		"cargo space" 120
 		"outfit space" 810
@@ -300,7 +297,6 @@ ship "Kestrel"
 		"Fusion Reactor"
 		"LP144a Battery Pack"
 		"D94-YV Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Tactical Scanner" 2
 		
 		"Orca Plasma Thruster"

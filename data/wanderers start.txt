@@ -979,8 +979,6 @@ ship "Carrier" "Carrier (Alpha)"
 		
 		"Triple Plasma Core"
 		"Systems Core (Large)"
-		"Large Heat Shunt" 3
-		"Small Heat Shunt"
 		"Wanderer Ramscoop"
 		"Outfits Expansion" 4
 		"Laser Rifle" 120

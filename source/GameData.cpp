@@ -1074,21 +1074,14 @@ void GameData::PrintShipTable()
 		
 		double energy = attributes.Get("thrusting energy")
 			+ attributes.Get("turning energy");
-		double heat = attributes.Get("heat generation") - attributes.Get("cooling")
-			+ attributes.Get("thrusting heat") + attributes.Get("turning heat");
 		for(const auto &oit : ship.Outfits())
 			if(oit.first->IsWeapon() && oit.first->Reload())
 			{
 				double reload = oit.first->Reload();
 				energy += oit.second * oit.first->FiringEnergy() / reload;
-				heat += oit.second * oit.first->FiringHeat() / reload;
 			}
 		cout << 60. * attributes.Get("energy generation") << '\t';
-		cout << 60. * energy << '\t';
-		cout << 60. * heat << '\t';
-		// Maximum heat is 100 degrees per ton. Bleed off rate is 1/1000
-		// per 60th of a second, so:
-		cout << 60. * ship.HeatDissipation() * ship.MaximumHeat() << '\n';
+		cout << 60. * energy << '\n';
 	}
 	cout.flush();
 }
@@ -1098,7 +1091,7 @@ void GameData::PrintShipTable()
 void GameData::PrintWeaponTable()
 {
 	cout << "name" << '\t' << "cost" << '\t' << "space" << '\t' << "range" << '\t'
-		<< "energy/s" << '\t' << "heat/s" << '\t' << "shield/s" << '\t' << "hull/s" << '\t'
+		<< "energy/s" << '\t' << "shield/s" << '\t' << "hull/s" << '\t'
 		<< "homing" << '\t' << "strength" << '\n';
 	for(auto &it : outfits)
 	{
@@ -1115,8 +1108,6 @@ void GameData::PrintWeaponTable()
 		
 		double energy = outfit.FiringEnergy() * 60. / outfit.Reload();
 		cout << energy << '\t';
-		double heat = outfit.FiringHeat() * 60. / outfit.Reload();
-		cout << heat << '\t';
 		
 		double shield = outfit.ShieldDamage() * 60. / outfit.Reload();
 		cout << shield << '\t';

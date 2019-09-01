@@ -23,7 +23,6 @@ outfit "Drak Distancer"
 		"lifetime" 1
 		"reload" 1
 		"firing energy" 15
-		"firing heat" 10
 		"firing force" 60
 	description "This is a thruster that can produce force in any direction, allowing a Drak ship to keep a safe distance away from its target."
 
@@ -47,7 +46,6 @@ outfit "Drak Draining Field"
 		"lifetime" 1
 		"reload" 1
 		"firing energy" 20
-		"firing heat" 5
 		"firing force" 30
 		"hit force" 60
 		"shield damage" 50
@@ -67,7 +65,6 @@ outfit "Drak Anti-Missile Field"
 		"lifetime" 1
 		"reload" 1
 		"firing energy" 10
-		"firing heat" 1
 		"anti-missile" 100
 	description "This device produces a field that destroys any missiles that come within it."
 
@@ -90,7 +87,6 @@ outfit "Drak Turret"
 		"lifetime" 30
 		"reload" 16
 		"firing energy" 160
-		"firing heat" 160
 		"shield damage" 256
 		"hull damage" 256
 		"hit force" 120
@@ -125,7 +121,6 @@ outfit "Drak Antimatter Cannon"
 		"safe"
 		"reload" 187
 		"firing energy" 5610
-		"firing heat" 1870
 		"blast radius" 100
 		"hit force" 1000
 	description "This is the Drak's ultimate weapon."
@@ -183,7 +178,6 @@ ship "Archon"
 		"bunks" 1
 		"mass" 1000
 		"drag" 27
-		"heat dissipation" 40
 		"fuel capacity" 800
 		"cargo space" 0
 		"outfit space" 800
@@ -191,7 +185,6 @@ ship "Archon"
 		"engine capacity" 200
 		"energy capacity" 10000
 		"energy generation" 500
-		"heat generation" 17
 		"shield generation" 100
 		"shield energy" 100
 		"hull repair rate" 100

@@ -503,9 +503,6 @@ void AI::Step(const PlayerInfo &player)
 				continue;
 			}
 		}
-		// Overheated ships are effectively disabled, and cannot fire, cloak, etc.
-		if(it->IsOverheated())
-			continue;
 		
 		// Special case: if the player's flagship tries to board a ship to
 		// refuel it, that escort should hold position for boarding.
@@ -894,8 +891,8 @@ void AI::AskForHelp(Ship &ship, bool &isStranded, const Ship *flagship)
 			const System *system = ship.GetSystem();
 			if(helper->GetGovernment()->IsEnemy(gov) && flagship && system == flagship->GetSystem())
 			{
-				// Disabled, overheated, or otherwise untargetable ships pose no threat.
-				bool harmless = helper->IsDisabled() || (helper->IsOverheated() && helper->Heat() >= 1.1) || !helper->IsTargetable();
+				// Disabled or otherwise untargetable ships pose no threat.
+				bool harmless = helper->IsDisabled() || !helper->IsTargetable();
 				hasEnemy |= (system == helper->GetSystem() && !harmless);
 				if(hasEnemy)
 					break;
@@ -945,7 +942,7 @@ bool AI::CanHelp(const Ship &ship, const Ship &helper, const bool needsFuel)
 	// Fighters, drones, and disabled / absent ships can't offer assistance.
 	if(helper.CanBeCarried() || helper.GetSystem() != ship.GetSystem()
 			|| (helper.Cloaking() == 1. && helper.GetGovernment() != ship.GetGovernment())
-			|| helper.IsDisabled() || helper.IsOverheated() || helper.IsHyperspacing())
+			|| helper.IsDisabled() || helper.IsHyperspacing())
 		return false;
 	
 	// An enemy cannot provide assistance, and only ships of the same government will repair disabled ships.
@@ -1085,9 +1082,6 @@ shared_ptr<Ship> AI::FindTarget(const Ship &ship) const
 		range -= 1000 * Has(*foe, gov, ShipEvent::BOARD);
 		// Focus on nearly dead ships.
 		range += 500. * (foe->Shields() + foe->Hull());
-		// If a target is extremely overheated, focus on ships that can attack back.
-		if(foe->IsOverheated())
-			range += 3000. * (foe->Heat() - .9);
 		if((isPotentialNemesis && !hasNemesis) || range < closest)
 		{
 			closest = range;
@@ -2039,7 +2033,7 @@ void AI::PickUp(Ship &ship, Command &command, const Body &target)
 
 
 // Determine if using an afterburner does not use up reserve fuel, cause undue
-// energy strain, or undue thermal loads if almost overheated.
+// energy strain.
 bool AI::ShouldUseAfterburner(Ship &ship)
 {
 	if(!ship.Attributes().Get("afterburner thrust"))
@@ -2053,10 +2047,8 @@ bool AI::ShouldUseAfterburner(Ship &ship)
 		energy = ship.Attributes().Get("energy generation")
 				+ 0.2 * ship.Attributes().Get("solar collection")
 				- ship.Attributes().Get("energy consumption");
-	double outputHeat = ship.Attributes().Get("afterburner heat") / (100 * ship.Mass());
 	if((!neededFuel || fuel - neededFuel > ship.JumpFuel())
-			&& (!neededEnergy || neededEnergy / energy < 0.25)
-			&& (!outputHeat || ship.Heat() + outputHeat < .9))
+			&& (!neededEnergy || neededEnergy / energy < 0.25))
 		return true;
 	
 	return false;

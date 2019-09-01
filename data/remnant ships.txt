@@ -26,7 +26,6 @@ ship "Albatross"
 		"cargo space" 124
 		"mass" 610
 		"drag" 8.6
-		"heat dissipation" 0.6
 		"fuel capacity" 600
 		"ramscoop" 2
 		"outfit space" 658
@@ -52,7 +51,6 @@ ship "Albatross"
 		"Aeon Cell"
 		"Epoch Cell"
 		"Crystal Capacitor"
-		"Thermoelectric Cooler" 2
 		"Quantum Key Stone"
 
 		"Smelter-Class Thruster"
@@ -91,7 +89,6 @@ ship "Albatross" "Albatross (Sniper)"
 		"Aeon Cell"
 		"Epoch Cell"
 		"Crystal Capacitor"
-		"Thermoelectric Cooler" 2
 		"Quantum Key Stone"
 		"Salvage Scanner"
 		"Outfits Expansion"
@@ -126,7 +123,6 @@ ship "Albatross" "Albatross (Turret)"
 		"Epoch Cell"
 		"Millennium Cell"
 		"Crystal Capacitor"
-		"Thermoelectric Cooler"
 		"Outfits Expansion" 2
 		"Tuning Rifle" 49
 
@@ -150,7 +146,6 @@ ship "Albatross" "Albatross (Heavy)"
 		"Epoch Cell"
 		"Millennium Cell"
 		"Crystal Capacitor" 2
-		"Thermoelectric Cooler" 2
 		"Outfits Expansion" 4
 		"Tuning Rifle" 65
 
@@ -188,7 +183,6 @@ ship "Gascraft"
 		"bunks" 2
 		"mass" 80
 		"drag" 1.7
-		"heat dissipation" 0.9
 		"fuel capacity" 700
 		"energy capacity" 150
 		"ramscoop" 0.5
@@ -234,7 +228,6 @@ ship "Gull"
 		"bunks" 20
 		"mass" 270
 		"drag" 6
-		"heat dissipation" 0.7
 		"fuel capacity" 600
 		"ramscoop" 1
 		"cargo space" 175
@@ -363,7 +356,6 @@ ship "Pelican"
 		"cargo space" 302
 		"mass" 320
 		"drag" 7.2
-		"heat dissipation" 0.7
 		"fuel capacity" 600
 		"ramscoop" 2
 		"outfit space" 438
@@ -388,7 +380,6 @@ ship "Pelican"
 
 		"Aeon Cell"
 		"Crystal Capacitor"
-		"Thermoelectric Cooler" 2
 		"Emergency Ramscoop"
 		"Quantum Key Stone"
 		"Tuning Rifle" 15
@@ -428,7 +419,6 @@ ship "Starling"
 		"bunks" 15
 		"mass" 270
 		"drag" 3.8
-		"heat dissipation" 0.7
 		"fuel capacity" 900
 		"ramscoop" 1
 		"cargo space" 36

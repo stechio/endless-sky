@@ -33,7 +33,6 @@ outfit "Inhibitor Cannon"
 		"reload" 13
 		"cluster"
 		"firing energy" 26
-		"firing heat" 45.5
 		"firing force" 13
 		"shield damage" 26
 		"hull damage" 19.5
@@ -74,7 +73,6 @@ outfit "Thrasher Cannon"
 		"lifetime" 36
 		"reload" 20
 		"firing energy" 36
-		"firing heat" 27
 		"shield damage" 38
 		"hull damage" 46
 	description "This weapon was originally developed in an attempt to reverse engineer a long-range energy projectile favored by an alien species that the Remnant encountered nearby. In the process they discovered that by adding more energy to the projectiles they could do a lot more damage in exchange for shorter range, and the Thrasher Cannon was born."
@@ -116,7 +114,6 @@ outfit "Thrasher Turret"
 		"lifetime" 36
 		"reload" 5
 		"firing energy" 36
-		"firing heat" 27
 		"shield damage" 38
 		"hull damage" 46
 	description "This turret mounts four Thrasher Cannons on a single rotating base. The resulting weapon deals a very satisfying amount of damage when fired from close range, especially against a slow-moving target."
@@ -142,7 +139,6 @@ outfit "Point Defense Turret"
 		"lifetime" 1
 		"reload" 10
 		"firing energy" 62
-		"firing heat" 18
 	description "Not long after the Remnant settled on Aventine, they began to discover caches of alien technology in vaults deep under the mountains, guarded by ancient but still-functioning point-defense systems. The Remnant learned how to duplicate those defense systems, and they are now considered to be much more useful than most of the items that they were guarding."
 
 effect "point defense fire"
@@ -206,7 +202,6 @@ outfit "EMP Torpedo Bay"
 		stream
 		"reload" 330
 		"firing energy" 400
-		"firing heat" 18
 		"inaccuracy" 5
 		"lifetime" 300
 		"velocity" 7
@@ -269,9 +264,8 @@ outfit "Crystal Capacitor"
 	"outfit space" -12
 	"energy capacity" 3400
 	"energy consumption" .4
-	"heat generation" .4
 	description "These crystals, mined on the Remnant planet Viminal, can store a surprising amount of power in a compact form. Crystals pure enough to be used in such a manner are hard to find, however."
-	description "	Also, the capacitors tend to leak small amounts of energy, in the form of excess heat."
+	description "	Also, the capacitors tend to leak small amounts of energy."
 
 outfit "Millennium Cell"
 	category "Power"
@@ -282,7 +276,6 @@ outfit "Millennium Cell"
 	"mass" 29
 	"outfit space" -29
 	"energy generation" 3.6
-	"heat generation" 6.0
 	description "This quite compact radiothermal generator uses isotopes so radioactive, and so tightly packed together, that it could almost be classified as a nuclear reactor."
 
 outfit "Epoch Cell"
@@ -294,7 +287,6 @@ outfit "Epoch Cell"
 	"mass" 98
 	"outfit space" -98
 	"energy generation" 12.7
-	"heat generation" 19.8
 	description "Efficient Remnant technology ensures that nearly all the heat produced by this generator's radioisotopes is converted into electricity instead of becoming waste heat."
 
 outfit "Aeon Cell"
@@ -306,20 +298,7 @@ outfit "Aeon Cell"
 	"mass" 160
 	"outfit space" -160
 	"energy generation" 21.9
-	"heat generation" 31.5
 	description "The early Remnant engineers did not trust the finicky and unpredictable nuclear reactors that were then in use in human space, so they instead focused on perfecting the art of radioisotope thermoelectric power."
-
-outfit "Thermoelectric Cooler"
-	category "Systems"
-	licenses
-		Remnant
-	cost 100000
-	thumbnail "outfit/thermoelectric cooler"
-	"mass" 4
-	"outfit space" -4
-	"active cooling" 7
-	"cooling energy" .4
-	description "This cooler is actually just one of the power-generating elements of a Millennium Cell, but wired so it can run in reverse: consuming electricity in order to transfer heat from a ship's systems to its exterior."
 
 outfit "Emergency Ramscoop"
 	category "Systems"
@@ -372,7 +351,6 @@ outfit "Crucible-Class Thruster"
 	"engine capacity" -20
 	"thrust" 18.0
 	"thrusting energy" 2.65
-	"thrusting heat" 2.5
 	"flare sprite" "effect/remnant flare/small"
 		"frame rate" 5
 	"flare sound" "plasma tiny"
@@ -389,7 +367,6 @@ outfit "Forge-Class Thruster"
 	"engine capacity" -39
 	"thrust" 37.0
 	"thrusting energy" 5.15
-	"thrusting heat" 5.0
 	"flare sprite" "effect/remnant flare/medium"
 		"frame rate" 4
 	"flare sound" "plasma small"
@@ -406,7 +383,6 @@ outfit "Smelter-Class Thruster"
 	"engine capacity" -76
 	"thrust" 76.8
 	"thrusting energy" 10.10
-	"thrusting heat" 10.2
 	"flare sprite" "effect/remnant flare/large"
 		"frame rate" 3
 	"flare sound" "plasma medium"
@@ -423,7 +399,6 @@ outfit "Crucible-Class Steering"
 	"engine capacity" -14
 	"turn" 448.0
 	"turning energy" 1.32
-	"turning heat" 1.4
 	description "This steering system is tiny enough to fit in even an interceptor, but the Remnant mostly use them to provide an extra bit of maneuverability for their larger ships."
 
 outfit "Forge-Class Steering"
@@ -437,7 +412,6 @@ outfit "Forge-Class Steering"
 	"engine capacity" -28
 	"turn" 952.0
 	"turning energy" 2.64
-	"turning heat" 3.0
 	description "This unusually power-hungry steering system packs a lot of power into a relatively small space. It seems that engine technology has progressed more rapidly for the Remnant than it has for the rest of humanity."
 
 outfit "Smelter-Class Steering"
@@ -451,7 +425,6 @@ outfit "Smelter-Class Steering"
 	"engine capacity" -55
 	"turn" 1980.0
 	"turning energy" 5.21
-	"turning heat" 6.2
 	description "It's unclear whether the Remnant's powerful engine systems are purely their own invention, or whether they are partly inspired by alien technology."
 
 outfit "Tuning Rifle"

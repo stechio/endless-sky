@@ -1717,7 +1717,7 @@ mission "Deep: Remnant: Generators"
 		payment 417000
 		conversation
 			`An unloading crew quickly removes the engines from your ship and transports them to Ivan's research lab. You are escorted into a lobby where one of the administrative staff pays you <payment> in exchange for the engines. He asks you to wait, indicating that Ivan or one of the other scientists should be out to meet you shortly. After about three hours of waiting, Ivan enters the room.`
-			`	"These engines, they are fantastic! The scans made them seem similar to human ion engines, but surprisingly they can outperform even atomic engines! The thrust-to-mass ratio is great, and they have somehow avoided the immense heat generation that our engines emit. They do have some downsides, but it's still amazing that such an isolated group of humans could make technological leaps beyond even what the Deep has accomplished.`
+			`	"These engines, they are fantastic! The scans made them seem similar to human ion engines, but surprisingly they can outperform even atomic engines! The thrust-to-mass ratio is great. They do have some downsides, but it's still amazing that such an isolated group of humans could make technological leaps beyond even what the Deep has accomplished.`
 			`	"We've decided that the next Remnant technology we'd like to examine is their power generation. Could you bring us one of their Millennium Cells?"`
 			choice
 				`	"Sure. I'll be back in no time at all."`
@@ -1748,7 +1748,7 @@ mission "Deep: Remnant: Inhibitor Cannon"
 		payment 276500
 		conversation
 			`Again, the Remnant technology is removed from your ship and transported to the research lab. You wander into the waiting area and are paid <payment>. After several hours, the scientists come to you with their initial findings.`
-			`	"This Millennium Cell is little more than a radiothermal generator. Not exactly the best kind of generator if you're looking for lots of power - our fusion reactors are far better at that - but for a radiothermal generator, it produces remarkably little heat. We'll have to take it apart to find out how they are manipulating the decay heat so effectively, but preparing for that will take some time.`
+			`	"This Millennium Cell is little more than a radiothermal generator. Not exactly the best kind of generator if you're looking for lots of power - our fusion reactors are far better at that.`
 			`	"I suppose by now you've seen the Remnant ships in combat more than a few times. The outfit scans showed one of their primary weapons is a modified particle cannon, but we'd need to see the actual weapon in order to understand how the modification works. Would you retrieve an Inhibitor Cannon for us?"`
 			choice
 				`	"I'd be glad to."`
@@ -2217,7 +2217,6 @@ ship "Bactrian" "Bactrian (Cosmic Devil)"
 		"Hai Ravine Batteries"
 		"Hai Chasm Batteries"
 		"Hai Diamond Regenerator"
-		"Liquid Helium Cooler"
 		"Outfits Expansion" 4
 		"Quantum Keystone"
 		"Ramscoop"

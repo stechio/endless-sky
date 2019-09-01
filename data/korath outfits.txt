@@ -16,7 +16,6 @@ outfit "Generator (Candle Class)"
 	"mass" 23
 	"outfit space" -23
 	"energy generation" 3.1
-	"heat generation" 7.0
 	description "This tiny generator produces a significant amount of energy using the heat produced by the radioactive decay of some particularly unstable nuclear isotopes."
 
 outfit "Generator (Furnace Class)"
@@ -27,7 +26,6 @@ outfit "Generator (Furnace Class)"
 	"mass" 39
 	"outfit space" -39
 	"energy generation" 5.5
-	"heat generation" 13.0
 	description "Because Korath equipment is so power-hungry, they use radiothermal generators even in their fighters and interceptors, rather than relying on fuel cells or other comparable technology."
 
 outfit "Generator (Inferno Class)"
@@ -38,8 +36,7 @@ outfit "Generator (Inferno Class)"
 	"mass" 71
 	"outfit space" -71
 	"energy generation" 10.4
-	"heat generation" 27.0
-	description "With their typical disregard for the environmental impacts of their technology, the Korath put some rather alarming isotopes into this radiothermal generator. Its considerable energy output is offset by the heat it produces."
+	description "With their typical disregard for the environmental impacts of their technology, the Korath put some rather alarming isotopes into this radiothermal generator."
 
 outfit "Plasma Core"
 	category "Power"
@@ -48,7 +45,6 @@ outfit "Plasma Core"
 	"mass" 54
 	"outfit space" -54
 	"energy generation" 11.9
-	"heat generation" 36.0
 	description "This compact fusion reactor is an ancient Korath design, and served as the mainstay of their war fleets until larger ships and more powerful weapons created a need for bigger and more powerful generators."
 
 outfit "Double Plasma Core"
@@ -58,7 +54,6 @@ outfit "Double Plasma Core"
 	"mass" 93
 	"outfit space" -93
 	"energy generation" 22.0
-	"heat generation" 72.0
 	description "This reactor core combines a pair of the ancient and robust Korath plasma cores into a single package."
 
 outfit "Triple Plasma Core"
@@ -68,28 +63,8 @@ outfit "Triple Plasma Core"
 	"mass" 169
 	"outfit space" -169
 	"energy generation" 43.6
-	"heat generation" 154.0
 	description "For the largest of their capital ships, the Korath designed a fusion reactor far more powerful than any comparable human technology."
 
-
-
-outfit "Small Heat Shunt"
-	category "Systems"
-	cost 180000
-	thumbnail "outfit/small heat shunt"
-	"mass" 7
-	"outfit space" -7
-	"cooling" 13.5
-	description "The sheer inefficiency of most Korath equipment has forced them to become exceptionally good at one thing: dealing with large amounts of waste heat."
-
-outfit "Large Heat Shunt"
-	category "Systems"
-	cost 790000
-	thumbnail "outfit/large heat shunt"
-	"mass" 24
-	"outfit space" -24
-	"cooling" 54
-	description "Without these powerful cooling systems, most Korath warships would overheat within seconds as soon as they began to fire their weapons."
 
 
 outfit "Systems Core (Small)"
@@ -104,7 +79,6 @@ outfit "Systems Core (Small)"
 	"shield energy" 2.4
 	"hull repair rate" 0.2
 	"hull energy" 0.2
-	"hull heat" 0.3
 	description `The heart of any Korath ship is the Systems Core, which houses the ship's central computer, shield generators, and a small number of "hull-walking" welding robots that can make minor repairs to the ship's outer armor while in flight.`
 
 outfit "Systems Core (Medium)"
@@ -119,7 +93,6 @@ outfit "Systems Core (Medium)"
 	"shield energy" 4.6
 	"hull repair rate" 0.4
 	"hull energy" 0.4
-	"hull heat" 0.6
 	description `This "systems core" houses a powerful computer, shield generators, and a control center for small repair robots that can walk across a ship's exterior on magnetic feet and slowly repair damage to the hull.`
 
 outfit "Systems Core (Large)"
@@ -134,7 +107,6 @@ outfit "Systems Core (Large)"
 	"shield energy" 8.8
 	"hull repair rate" 0.8
 	"hull energy" 0.8
-	"hull heat" 1.2
 	description `This massive bank of computers, shield generators, and repair stations holds everything needed to keep the very largest of Korath ships in working condition.`
 
 
@@ -189,7 +161,6 @@ outfit "Thruster (Asteroid Class)"
 	"engine capacity" -14
 	"thrust" 11.2
 	"thrusting energy" 1.5
-	"thrusting heat" 3.4
 	"flare sprite" "effect/korath flare/tiny"
 		"frame rate" 8
 	"flare sound" "plasma tiny"
@@ -205,11 +176,10 @@ outfit "Thruster (Comet Class)"
 	"engine capacity" -24
 	"thrust" 21.8
 	"thrusting energy" 2.8
-	"thrusting heat" 6.5
 	"flare sprite" "effect/korath flare/small"
 		"frame rate" 7.5
 	"flare sound" "plasma small"
-	description "Like most Korath technology, this thruster's power is offset by its energy requirements and heat output."
+	description "Like most Korath technology, this thruster's power is offset by its energy requirements."
 
 outfit "Thruster (Lunar Class)"
 	plural "Thrusters (Lunar Class)"
@@ -221,11 +191,10 @@ outfit "Thruster (Lunar Class)"
 	"engine capacity" -40
 	"thrust" 41.2
 	"thrusting energy" 4.9
-	"thrusting heat" 11.9
 	"flare sprite" "effect/korath flare/medium"
 		"frame rate" 7
 	"flare sound" "plasma medium"
-	description "The Korath have the dubious distinction of relying on propulsion systems that produce more waste heat than the weapon systems of most other species."
+	description "Like most Korath technology, this thruster's power is offset by its energy requirements."
 
 outfit "Thruster (Planetary Class)"
 	plural "Thrusters (Planetary Class)"
@@ -237,7 +206,6 @@ outfit "Thruster (Planetary Class)"
 	"engine capacity" -69
 	"thrust" 80.0
 	"thrusting energy" 8.9
-	"thrusting heat" 22.7
 	"flare sprite" "effect/korath flare/large"
 		"frame rate" 6.5
 	"flare sound" "plasma large"
@@ -253,7 +221,6 @@ outfit "Thruster (Stellar Class)"
 	"engine capacity" -118
 	"thrust" 153.4
 	"thrusting energy" 15.8
-	"thrusting heat" 42.6
 	"flare sprite" "effect/korath flare/huge"
 		"frame rate" 6
 	"flare sound" "plasma huge"
@@ -269,7 +236,6 @@ outfit "Steering (Asteroid Class)"
 	"engine capacity" -10
 	"turn" 280.0
 	"turning energy" 0.7
-	"turning heat" 2.1
 	description "The Korath use these steering systems only in the very smallest of their ships."
 
 outfit "Steering (Comet Class)"
@@ -282,7 +248,6 @@ outfit "Steering (Comet Class)"
 	"engine capacity" -18
 	"turn" 568.8
 	"turning energy" 1.4
-	"turning heat" 4.1
 	description "This compact steering system is a classic example of Korath technology: small, powerful, and woefully inefficient."
 
 outfit "Steering (Lunar Class)"
@@ -295,8 +260,7 @@ outfit "Steering (Lunar Class)"
 	"engine capacity" -30
 	"turn" 1056.0
 	"turning energy" 2.5
-	"turning heat" 7.4
-	description "Korath engines can be fitted into just about any ship, but unless accompanied by some Korath cooling systems as well, their heat output will often be more than the ship can handle."
+	description "Korath engines can be fitted into just about any ship."
 
 outfit "Steering (Planetary Class)"
 	plural "Steerings (Planetary Class)"
@@ -308,7 +272,6 @@ outfit "Steering (Planetary Class)"
 	"engine capacity" -52
 	"turn" 2069.6
 	"turning energy" 4.6
-	"turning heat" 14.2
 	description "Where other species might focus on converting energy into thrust as efficiently as possible, the Korath instead strive to pack as much power as possible into the smallest area. This steering system is a classic example of their work."
 
 outfit "Steering (Stellar Class)"
@@ -321,7 +284,6 @@ outfit "Steering (Stellar Class)"
 	"engine capacity" -89
 	"turn" 4005.0
 	"turning energy" 8.2
-	"turning heat" 26.7
 	description "After millennia of war, the Korath have developed some truly enormous warships. These steering systems give even their largest warships a reasonable amount of agility in combat."
 	
 outfit "Korath Repeater Rifle"

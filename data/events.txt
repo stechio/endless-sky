@@ -1020,12 +1020,6 @@ event "fw abandoned Greenrock"
 
 
 
-event "flamethrower available"
-	outfitter "Kraz Advanced"
-		"Flamethrower"
-
-
-
 event "navy occupying the south"
 	system "Rastaban"
 		fleet "Small Southern Merchants" 1200

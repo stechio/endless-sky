@@ -22,7 +22,6 @@ ship "Arach Courier"
 		"bunks" 1
 		"mass" 100
 		"drag" 2.9
-		"heat dissipation" .65
 		"fuel capacity" 300
 		"cargo space" 78
 		"outfit space" 148
@@ -67,7 +66,6 @@ ship "Arach Freighter"
 		"bunks" 10
 		"mass" 380
 		"drag" 10.6
-		"heat dissipation" .55
 		"fuel capacity" 500
 		"cargo space" 310
 		"outfit space" 349
@@ -117,7 +115,6 @@ ship "Arach Hulk"
 		"bunks" 14
 		"mass" 670
 		"drag" 18.9
-		"heat dissipation" .50
 		"fuel capacity" 500
 		"cargo space" 541
 		"outfit space" 520
@@ -171,7 +168,6 @@ ship "Arach Spindle"
 		"bunks" 14
 		"mass" 340
 		"drag" 10.8
-		"heat dissipation" .55
 		"fuel capacity" 500
 		"cargo space" 280
 		"outfit space" 434
@@ -188,7 +184,6 @@ ship "Arach Spindle"
 		"Small Battery Module"
 		"Small Shield Module" 2
 		"Small Repair Module" 3
-		"Cooling Module"
 		
 		"Large Thrust Module" 2
 		"Small Thrust Module" 3
@@ -223,7 +218,6 @@ ship "Arach Transport"
 		"bunks" 5
 		"mass" 280
 		"drag" 7.2
-		"heat dissipation" .60
 		"fuel capacity" 400
 		"cargo space" 190
 		"outfit space" 281
@@ -273,7 +267,6 @@ ship "Heliarch Interdictor"
 		"bunks" 70
 		"mass" 520
 		"drag" 7.4
-		"heat dissipation" .70
 		"fuel capacity" 800
 		"cargo space" 79
 		"outfit space" 544
@@ -294,7 +287,6 @@ ship "Heliarch Interdictor"
 		"Large Battery Module"
 		"Large Shield Module" 2
 		"Large Repair Module"
-		"Cooling Module"
 		"Scanning Module" 3
 		
 		"Large Thrust Module" 2
@@ -327,7 +319,6 @@ ship "Heliarch Interdictor" "Heliarch Interdictor (Bombardment)"
 		"Large Shield Module" 2
 		"Small Shield Module"
 		"Large Repair Module"
-		"Cooling Module"
 		"Scanning Module" 3
 		"Outfits Expansion"
 		
@@ -352,7 +343,6 @@ ship "Heliarch Neutralizer"
 		"bunks" 24
 		"mass" 270
 		"drag" 4.1
-		"heat dissipation" .75
 		"fuel capacity" 1000
 		"cargo space" 36
 		"outfit space" 367
@@ -370,7 +360,6 @@ ship "Heliarch Neutralizer"
 		"Large Battery Module"
 		"Large Shield Module"
 		"Large Repair Module"
-		"Cooling Module"
 		"Scanning Module" 2
 		
 		"Large Thrust Module"
@@ -401,7 +390,6 @@ ship "Heliarch Neutralizer" "Heliarch Neutralizer (Missile)"
 		"Large Battery Module"
 		"Large Shield Module"
 		"Large Repair Module"
-		"Cooling Module"
 		"Scanning Module" 2
 		
 		"Large Thrust Module"
@@ -423,7 +411,6 @@ ship "Heliarch Neutralizer" "Heliarch Neutralizer (Nimble)"
 		"Large Battery Module"
 		"Large Shield Module"
 		"Large Repair Module"
-		"Cooling Module"
 		"Scanning Module" 2
 		
 		"Large Thrust Module"
@@ -441,7 +428,6 @@ ship "Heliarch Neutralizer" "Heliarch Neutralizer (Scrappy)"
 		"Large Shield Module" 2
 		"Small Shield Module"
 		"Large Repair Module"
-		"Cooling Module" 2
 		"Scanning Module" 2
 		"Outfits Expansion"
 		
@@ -465,7 +451,6 @@ ship "Heliarch Punisher"
 		"bunks" 145
 		"mass" 780
 		"drag" 12.2
-		"heat dissipation" .60
 		"fuel capacity" 600
 		"cargo space" 94
 		"outfit space" 885
@@ -486,7 +471,6 @@ ship "Heliarch Punisher"
 		"Large Battery Module"
 		"Large Shield Module" 3
 		"Large Repair Module" 2
-		"Cooling Module" 3
 		"Scanning Module" 4
 		
 		"Large Thrust Module" 2
@@ -528,7 +512,6 @@ ship "Heliarch Punisher" "Heliarch Punisher (Interdicting)"
 		"Large Battery Module"
 		"Large Shield Module" 3
 		"Large Repair Module" 2
-		"Cooling Module" 3
 		"Scanning Module" 4
 		
 		"Large Thrust Module" 2
@@ -559,7 +542,6 @@ ship "Heliarch Punisher" "Heliarch Punisher (Missile)"
 		"Large Battery Module"
 		"Large Shield Module" 5
 		"Large Repair Module" 2
-		"Cooling Module" 2
 		"Scanning Module" 4
 		"Outfits Expansion"
 		
@@ -584,7 +566,6 @@ ship "Heliarch Punisher" "Heliarch Punisher (Scrappy)"
 		"Large Shield Module" 3
 		"Small Shield Module" 2
 		"Large Repair Module" 2
-		"Cooling Module" 5
 		"Scanning Module" 4
 		"Outfits Expansion" 3
 		
@@ -609,7 +590,6 @@ ship "Kimek Briar"
 		"bunks" 25
 		"mass" 180
 		"drag" 3.8
-		"heat dissipation" .75
 		"fuel capacity" 700
 		"cargo space" 21
 		"outfit space" 245
@@ -655,7 +635,6 @@ ship "Kimek Spire"
 		"bunks" 197
 		"mass" 570
 		"drag" 8.4
-		"heat dissipation" .60
 		"fuel capacity" 800
 		"cargo space" 64
 		"outfit space" 489
@@ -709,7 +688,6 @@ ship "Kimek Thistle"
 		"bunks" 52
 		"mass" 270
 		"drag" 5.8
-		"heat dissipation" .70
 		"fuel capacity" 700
 		"cargo space" 29
 		"outfit space" 321
@@ -758,7 +736,6 @@ ship "Kimek Thorn"
 		"bunks" 7
 		"mass" 80
 		"drag" 1.8
-		"heat dissipation" .80
 		"fuel capacity" 600
 		"cargo space" 12
 		"outfit space" 133
@@ -803,7 +780,6 @@ ship "Saryd Runabout"
 		"bunks" 13
 		"mass" 140
 		"drag" 2.8
-		"heat dissipation" .70
 		"fuel capacity" 400
 		"cargo space" 42
 		"outfit space" 172
@@ -846,7 +822,6 @@ ship "Saryd Sojourner"
 		"bunks" 84
 		"mass" 640
 		"drag" 12.9
-		"heat dissipation" .50
 		"fuel capacity" 800
 		"cargo space" 260
 		"outfit space" 568
@@ -901,7 +876,6 @@ ship "Saryd Traveler"
 		"bunks" 45
 		"mass" 350
 		"drag" 5.5
-		"heat dissipation" .60
 		"fuel capacity" 600
 		"cargo space" 137
 		"outfit space" 466
@@ -954,7 +928,6 @@ ship "Saryd Visitor"
 		"bunks" 29
 		"mass" 270
 		"drag" 4.4
-		"heat dissipation" .65
 		"fuel capacity" 400
 		"cargo space" 98
 		"outfit space" 320

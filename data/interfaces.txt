@@ -36,10 +36,9 @@ color "logbook line" .2 .2 .2 1.
 color "shields" .43 .55 .70 .75
 color "hull" .70 .62 .43 .75
 color "disabled hull" .3 0 0 .3
-color "heat" .70 .43 .43 .75
-color "overheat" .70 .61 .43 .75
 color "energy" .6 .6 .6 .75
 color "fuel" .70 .62 .43 .75
+color "hit" 5. .2 .2 1.
 
 color "flagship highlight" .5 .8 .2 0.
 
@@ -318,6 +317,10 @@ interface "hud"
 		color "medium"
 		align right
 	
+	point "player target"
+		center -75 155
+		dimensions 140 140
+	value "player target radius" 70
 	outline "player sprite"
 		center -75 155
 		dimensions 70 70
@@ -336,30 +339,20 @@ interface "hud"
 		dimensions 110 110
 		color "disabled hull"
 		size 1.5
+	ring "hit"
+		center -75 155
+		dimensions 100 100
+		color "hit"
+		size 3
 	bar "fuel"
-		from -53.5 425
-		dimensions 0 -192
+		from -33.5 425
+		dimensions 0 -202
 		color "fuel"
 		size 2
 	bar "energy"
-		from -33.5 415
-		dimensions 0 -192
+		from -13.5 415
+		dimensions 0 -205
 		color "energy"
-		size 2
-	bar "heat"
-		from -13.5 403
-		dimensions 0 -192
-		color "heat"
-		size 2
-	bar "overheat"
-		from -13.5 403
-		dimensions 0 -192
-		color "overheat"
-		size 2
-	bar "overheat blink"
-		from -13.5 403
-		dimensions 0 -192
-		color "dim"
 		size 2
 
 	# Targets.
@@ -410,6 +403,11 @@ interface "hud"
 		dimensions 110 110
 		color "disabled hull"
 		size 1.5
+	ring "target hit"
+		center 75 315
+		dimensions 100 100
+		color "hit"
+		size 3
 	
 	visible if "tactical display"
 	sprite "ui/tactical"
@@ -423,9 +421,6 @@ interface "hud"
 		align top left
 	string "target energy"
 		from 157 338
-		align top left
-	string "target heat"
-		from 147 358
 		align top left
 	visible
 	

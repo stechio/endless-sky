@@ -20,7 +20,6 @@ ship "Marauder Arrow"
 		"bunks" 5
 		"mass" 145
 		"drag" 2.7
-		"heat dissipation" .85
 		"fuel capacity" 400
 		"cargo space" 5
 		"outfit space" 210
@@ -39,7 +38,6 @@ ship "Marauder Arrow"
 		"Dwarf Core"
 		"LP072a Battery Pack"
 		"D14-RN Shield Generator"
-		"Cooling Ducts"
 		"Laser Rifle" 5
 		
 		"A250 Atomic Thruster"
@@ -93,7 +91,6 @@ ship "Marauder Arrow" "Marauder Arrow (Weapons)"
 		"Dwarf Core"
 		"LP036a Battery Pack"
 		"D14-RN Shield Generator"
-		"Water Coolant System"
 		"Laser Rifle" 5
 		
 		"A250 Atomic Thruster"
@@ -121,7 +118,6 @@ ship "Marauder Bounder"
 		"bunks" 18
 		"mass" 145
 		"drag" 3.7
-		"heat dissipation" .8
 		"fuel capacity" 900
 		"cargo space" 20
 		"outfit space" 240
@@ -141,7 +137,6 @@ ship "Marauder Bounder"
 		"LP072a Battery Pack"
 		"S-270 Regenerator"
 		"Outfits Expansion"
-		"Water Coolant System"
 		"Security Station"
 		"Laser Rifle" 18
 		
@@ -174,7 +169,6 @@ ship "Marauder Bounder" "Marauder Bounder (Engines)"
 		"Dwarf Core"
 		"LP072a Battery Pack"
 		"S-270 Regenerator"
-		"Water Coolant System"
 		"Outfits Expansion"
 		"Laser Rifle" 18
 		
@@ -200,7 +194,6 @@ ship "Marauder Bounder" "Marauder Bounder (Weapons)"
 		"Dwarf Core"
 		"LP072a Battery Pack"
 		"S-270 Regenerator"
-		"Water Coolant System"
 		"Outfits Expansion"
 		"Security Station"
 		"Laser Rifle" 18
@@ -231,7 +224,6 @@ ship "Marauder Falcon"
 		"bunks" 80
 		"mass" 560
 		"drag" 6.7
-		"heat dissipation" .8
 		"fuel capacity" 600
 		"cargo space" 60
 		"outfit space" 580
@@ -251,7 +243,6 @@ ship "Marauder Falcon"
 		"LP288a Battery Pack"
 		"D67-TM Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
 		"Outfits Expansion" 3
 		"Laser Rifle" 80
 		
@@ -291,7 +282,6 @@ ship "Marauder Falcon" "Marauder Falcon (Engines)"
 		"LP144a Battery Pack"
 		"D41-HY Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
 		"Outfits Expansion" 3
 		"Laser Rifle" 80
 		
@@ -326,7 +316,6 @@ ship "Marauder Falcon" "Marauder Falcon (Weapons)"
 		"LP144a Battery Pack"
 		"D41-HY Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
 		"Outfits Expansion" 3
 		"Laser Rifle" 80
 		
@@ -362,7 +351,6 @@ ship "Marauder Firebird"
 		"bunks" 25
 		"mass" 350
 		"drag" 4.5
-		"heat dissipation" .6
 		"fuel capacity" 400
 		"cargo space" 20
 		"outfit space" 450
@@ -382,7 +370,6 @@ ship "Marauder Firebird"
 		"Fusion Reactor"
 		"Supercapacitor"
 		"S-970 Regenerator"
-		"Liquid Helium Cooler"
 		"Outfits Expansion"
 		"Laser Rifle" 25
 		
@@ -420,7 +407,6 @@ ship "Marauder Firebird" "Marauder Firebird (Engines)"
 		"LP036a Battery Pack"
 		"Supercapacitor"
 		"S-970 Regenerator"
-		"Liquid Helium Cooler"
 		"Outfits Expansion"
 		"Security Station"
 		"Laser Rifle" 24
@@ -453,7 +439,6 @@ ship "Marauder Firebird" "Marauder Firebird (Weapons)"
 		"Fusion Reactor"
 		"Supercapacitor"
 		"S-970 Regenerator"
-		"Liquid Helium Cooler"
 		"Outfits Expansion"
 		"Security Station"
 		"Laser Rifle" 24
@@ -478,7 +463,6 @@ ship "Marauder Leviathan"
 		"bunks" 69
 		"mass" 640
 		"drag" 7.6
-		"heat dissipation" .5
 		"fuel capacity" 500
 		"cargo space" 40
 		"outfit space" 680
@@ -499,7 +483,6 @@ ship "Marauder Leviathan"
 		"LP144a Battery Pack"
 		"D94-YV Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
 		"Outfits Expansion" 2
 		"Laser Rifle" 69
 		
@@ -539,8 +522,6 @@ ship "Marauder Leviathan" "Marauder Leviathan (Engines)"
 		"LP144a Battery Pack"
 		"D94-YV Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
-		"Liquid Nitrogen Cooler"
 		"Outfits Expansion" 2
 		"Laser Rifle" 69
 		
@@ -566,7 +547,6 @@ ship "Marauder Leviathan" "Marauder Leviathan (Weapons)"
 		"LP144a Battery Pack"
 		"D94-YV Shield Generator"
 		"Large Radar Jammer"
-		"Liquid Helium Cooler"
 		"Outfits Expansion" 2
 		"Laser Rifle" 69
 
@@ -599,7 +579,6 @@ ship "Marauder Manta"
 		"bunks" 11
 		"mass" 195
 		"drag" 4.7
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 10
 		"outfit space" 390
@@ -621,7 +600,6 @@ ship "Marauder Manta"
 		"Dwarf Core"
 		"LP144a Battery Pack"
 		"D14-RN Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Security Station" 3
 		"Laser Rifle" 8
 		
@@ -659,7 +637,6 @@ ship "Marauder Manta" "Marauder Manta (Engines)"
 		"Dwarf Core"
 		"LP144a Battery Pack"
 		"D14-RN Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 11
 		
 		"A370 Atomic Thruster"
@@ -696,7 +673,6 @@ ship "Marauder Manta" "Marauder Manta (Weapons)"
 		"LP036a Battery Pack"
 		"Supercapacitor"
 		"D14-RN Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 11
 		
 		"A250 Atomic Thruster"
@@ -728,7 +704,6 @@ ship "Marauder Quicksilver"
 		"bunks" 7
 		"mass" 140
 		"drag" 2.7
-		"heat dissipation" .8
 		"fuel capacity" 400
 		"cargo space" 5
 		"outfit space" 265
@@ -747,7 +722,6 @@ ship "Marauder Quicksilver"
 		"Fission Reactor"
 		"LP036a Battery Pack"
 		"S-270 Regenerator"
-		"Liquid Nitrogen Cooler"
 		"Security Station" 3
 		"Laser Rifle"
 		
@@ -778,7 +752,6 @@ ship "Marauder Quicksilver" "Marauder Quicksilver (Engines)"
 		"Fission Reactor"
 		"S-270 Regenerator"
 		"LP036a Battery Pack"
-		"Liquid Nitrogen Cooler"
 		"Security Station" 2
 		"Laser Rifle" 5
 		
@@ -804,7 +777,6 @@ ship "Marauder Quicksilver" "Marauder Quicksilver (Weapons)"
 		"Fission Reactor"
 		"LP036a Battery Pack"
 		"S-270 Regenerator"
-		"Liquid Nitrogen Cooler"
 		"Security Station" 4
 		"Laser Rifle"
 		
@@ -830,7 +802,6 @@ ship "Marauder Raven"
 		"bunks" 14
 		"mass" 145
 		"drag" 3.7
-		"heat dissipation" .8
 		"fuel capacity" 500
 		"cargo space" 20
 		"outfit space" 310
@@ -849,7 +820,6 @@ ship "Marauder Raven"
 		"Breeder Reactor"
 		"Supercapacitor" 3
 		"S-270 Regenerator"
-		"Liquid Nitrogen Cooler"
 		"Outfits Expansion"
 		
 		"A250 Atomic Thruster"
@@ -884,7 +854,6 @@ ship "Marauder Raven" "Marauder Raven (Engines)"
 		"Breeder Reactor"
 		"Supercapacitor"
 		"S-270 Regenerator"
-		"Liquid Nitrogen Cooler"
 		"Outfits Expansion"
 		
 		"A370 Atomic Thruster"
@@ -910,7 +879,6 @@ ship "Marauder Raven" "Marauder Raven (Weapons)"
 		"Breeder Reactor"
 		"Supercapacitor" 2
 		"S-270 Regenerator"
-		"Liquid Nitrogen Cooler"
 		"Outfits Expansion"
 		
 		"A250 Atomic Thruster"
@@ -938,7 +906,6 @@ ship "Marauder Splinter"
 		"bunks" 22
 		"mass" 275
 		"drag" 4.0
-		"heat dissipation" .7
 		"fuel capacity" 600
 		"cargo space" 40
 		"outfit space" 450
@@ -958,7 +925,6 @@ ship "Marauder Splinter"
 		"Fusion Reactor"
 		"LP036a Battery Pack"
 		"D67-TM Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Laser Rifle" 22
 		
 		"A250 Atomic Thruster"
@@ -993,8 +959,6 @@ ship "Marauder Splinter" "Marauder Splinter (Engines)"
 		"Fusion Reactor"
 		"LP036a Battery Pack"
 		"D67-TM Shield Generator"
-		"Liquid Nitrogen Cooler"
-		"Water Coolant System"
 		"Security Station"
 		"Laser Rifle" 21
 		
@@ -1024,7 +988,6 @@ ship "Marauder Splinter" "Marauder Splinter (Weapons)"
 		"Fusion Reactor"
 		"LP036a Battery Pack"
 		"D23-QP Shield Generator"
-		"Liquid Nitrogen Cooler"
 		"Security Station" 2
 		"Laser Rifle" 20
 		
