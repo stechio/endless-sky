@@ -344,6 +344,7 @@ interface "hud"
 		dimensions 100 100
 		color "hit"
 		size 3
+		mode "alpha"
 	bar "fuel"
 		from -33.5 425
 		dimensions 0 -202
@@ -408,6 +409,7 @@ interface "hud"
 		dimensions 100 100
 		color "hit"
 		size 3
+		mode "alpha"
 	
 	visible if "tactical display"
 	sprite "ui/tactical"
