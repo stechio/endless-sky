@@ -2125,13 +2125,14 @@ double Engine::HitDetection::Pop(std::shared_ptr<const Ship> ship)
 	}
 	else
 	{
+		repetitiveDamage += repetitiveFrameDamages[step];
+
 		// Damage on current frame?
 		if(currentHealth < health)
 		{
 			damage = (health - currentHealth
 					+ (min(repetitiveFrameDamages[step] * 60, repetitiveDamage) - repetitiveFrameDamages[step]))
 							/ health * DAMAGE_SCALE;
-
 			// Keep the last damage for 200 milliseconds!
 			retention = 60 / 5;
 		}
@@ -2155,6 +2156,5 @@ double Engine::HitDetection::Pop(std::shared_ptr<const Ship> ship)
 
 void Engine::HitDetection::OnRepetitiveHit(double damage)
 {
-	repetitiveDamage += damage;
 	repetitiveFrameDamages[step] += damage;
 }
