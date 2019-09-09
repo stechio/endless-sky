@@ -38,12 +38,13 @@ public:
 protected:
 	virtual int TileSize() const override;
 	virtual int DrawPlayerShipInfo(const Point &point) override;
-	virtual bool HasItem(const std::string &name) const override;
-	virtual void DrawItem(const std::string &name, const Point &point, int scrollY) override;
+	virtual ItemStatus GetItemStatus(const std::string &name) const override;
+	virtual void DrawItem(const std::string &name, const Point &point, int scrollY, bool isEnabled) override;
 	virtual int DividerOffset() const override;
 	virtual int DetailWidth() const override;
 	virtual int DrawDetails(const Point &center) override;
 	virtual bool CanBuy() const override;
+	virtual bool CanBuy(const Ship *ship) const;
 	virtual void Buy(bool fromCargo = false) override;
 	virtual void FailBuy() const override;
 	virtual bool CanSell(bool toCargo = false) const override;

@@ -66,6 +66,8 @@ OutfitterPanel::OutfitterPanel(PlayerInfo &player)
 	
 	if(player.GetPlanet())
 		outfitter = player.GetPlanet()->Outfitter();
+
+	SetViewMode(INSTALLABLE);
 }
 
 
@@ -96,28 +98,34 @@ int OutfitterPanel::DrawPlayerShipInfo(const Point &point)
 
 
 
-bool OutfitterPanel::HasItem(const string &name) const
+ShopPanel::ItemStatus OutfitterPanel::GetItemStatus(const string &name) const
 {
 	const Outfit *outfit = GameData::Outfits().Get(name);
-	if((outfitter.Has(outfit) || player.Stock(outfit) > 0) && showForSale)
-		return true;
-	
-	if(player.Cargo().Get(outfit) && (!playerShip || showForSale))
-		return true;
-	
-	for(const Ship *ship : playerShips)
-		if(ship->OutfitCount(outfit))
-			return true;
-	
-	if(showForSale && HasLicense(name))
-		return true;
-	
-	return false;
+	switch(viewMode)
+	{
+	case CARGO:
+		if(player.Cargo().Get(outfit))
+			return ENABLED;
+		break;
+	case INSTALLED:
+		for(const Ship *ship : playerShips)
+			if(ship->OutfitCount(outfit))
+				return ENABLED;
+		break;
+	case PURCHASABLE:
+	case INSTALLABLE:
+		if(CanBuy(outfit))
+			return ENABLED;
+		else if(outfitter.Has(outfit) || player.Stock(outfit) || player.Cargo().Get(outfit) || HasLicense(name))
+			return DISABLED;
+		break;
+	}
+	return UNAVAILABLE;
 }
 
 
 
-void OutfitterPanel::DrawItem(const string &name, const Point &point, int scrollY)
+void OutfitterPanel::DrawItem(const string &name, const Point &point, int scrollY, bool isEnabled)
 {
 	const Outfit *outfit = GameData::Outfits().Get(name);
 	zones.emplace_back(point, Point(OUTFIT_SIZE, OUTFIT_SIZE), outfit, scrollY);
@@ -126,7 +134,7 @@ void OutfitterPanel::DrawItem(const string &name, const Point &point, int scroll
 	
 	bool isSelected = (outfit == selectedOutfit);
 	bool isOwned = playerShip && playerShip->OutfitCount(outfit);
-	DrawOutfit(*outfit, point, isSelected, isOwned);
+	DrawOutfit(*outfit, point, isSelected, isOwned, isEnabled);
 	
 	// Check if this outfit is a "license".
 	bool isLicense = IsLicense(name);
@@ -222,21 +230,28 @@ int OutfitterPanel::DrawDetails(const Point &center)
 
 bool OutfitterPanel::CanBuy() const
 {
-	if(!planet || !selectedOutfit)
+	return CanBuy(selectedOutfit);
+}
+
+
+
+bool OutfitterPanel::CanBuy(const Outfit *outfit) const
+{
+	if(!planet || !outfit)
 		return false;
 	
-	bool isInCargo = player.Cargo().Get(selectedOutfit) && playerShip;
-	if(!(outfitter.Has(selectedOutfit) || player.Stock(selectedOutfit) > 0 || isInCargo))
+	bool isInCargo = player.Cargo().Get(outfit) && playerShip;
+	if(!(outfitter.Has(outfit) || player.Stock(outfit) > 0 || isInCargo))
 		return false;
 	
-	int mapSize = selectedOutfit->Get("map");
+	int mapSize = outfit->Get("map");
 	if(mapSize > 0 && HasMapped(mapSize))
 		return false;
 	
 	// Determine what you will have to pay to buy this outfit.
-	int64_t cost = player.StockDepreciation().Value(selectedOutfit, day);
+	int64_t cost = player.StockDepreciation().Value(outfit, day);
 	// Check that the player has any necessary licenses.
-	int64_t licenseCost = LicenseCost(selectedOutfit);
+	int64_t licenseCost = LicenseCost(outfit);
 	if(licenseCost < 0)
 		return false;
 	cost += licenseCost;
@@ -244,17 +259,17 @@ bool OutfitterPanel::CanBuy() const
 	if(cost > player.Accounts().Credits() && !isInCargo)
 		return false;
 	
-	if(HasLicense(selectedOutfit->Name()))
+	if(HasLicense(outfit->Name()))
 		return false;
 	
 	if(!playerShip)
 	{
-		double mass = selectedOutfit->Mass();
+		double mass = outfit->Mass();
 		return (!mass || player.Cargo().Free() >= mass);
 	}
 	
 	for(const Ship *ship : playerShips)
-		if(ShipCanBuy(ship, selectedOutfit))
+		if(ShipCanBuy(ship, outfit))
 			return true;
 	
 	return false;
@@ -620,33 +635,49 @@ bool OutfitterPanel::ShouldHighlight(const Ship *ship)
 
 void OutfitterPanel::DrawKey()
 {
-	const Sprite *back = SpriteSet::Get("ui/outfitter key");
-	SpriteShader::Draw(back, Screen::BottomLeft() + .5 * Point(back->Width(), -back->Height()));
+	static const ViewMode VIEW_MODES[] = { INSTALLABLE, PURCHASABLE, INSTALLED, CARGO };
+	static const int VIEW_MODES_COUNT = sizeof(VIEW_MODES) / sizeof(VIEW_MODES[0]);
+	static const double OPTION_HEIGHT = 20;
+	static const double OPTION_MARGIN = 20;
+	static const double CAPTION_MARGIN = 3;
+
+	const Sprite *background = SpriteSet::Get("ui/outfitter key");
+	SpriteShader::Draw(background, Screen::BottomLeft() + .5 * Point(background->Width(), -background->Height()));
 	
 	Font font = FontSet::Get(14);
 	Color color[2] = {*GameData::Colors().Get("medium"), *GameData::Colors().Get("bright")};
-	const Sprite *box[2] = {SpriteSet::Get("ui/unchecked"), SpriteSet::Get("ui/checked")};
-	
-	Point pos = Screen::BottomLeft() + Point(10., -30.);
-	Point off = Point(10., -.5 * font.Height());
-	SpriteShader::Draw(box[showForSale], pos);
-	font.Draw("Show outfits for sale", pos + off, color[showForSale]);
-	AddZone(Rectangle(pos + Point(80., 0.), Point(180., 20.)), [this](){ ToggleForSale(); });
-	
-	bool showCargo = !playerShip;
-	pos.Y() += 20.;
-	SpriteShader::Draw(box[showCargo], pos);
-	font.Draw("Show outfits in cargo", pos + off, color[showCargo]);
-	AddZone(Rectangle(pos + Point(80., 0.), Point(180., 20.)), [this](){ ToggleCargo(); });
-}
+	const Sprite *box[2] = {SpriteSet::Get("ui/unchecked"), SpriteSet::Get("ui/opted")};
+	double boxWidth = box[0]->Width();
+	Point optionPosition = Screen::BottomLeft() + Point(OPTION_MARGIN,
+			-(OPTION_MARGIN + OPTION_HEIGHT * VIEW_MODES_COUNT));
+	Point captionOffset = Point(boxWidth / 2. + CAPTION_MARGIN, -font.Height() / 2.);
+	for(int i = 0; i < VIEW_MODES_COUNT; i++)
+	{
+		ViewMode viewMode = VIEW_MODES[i];
+		string caption;
+		switch(viewMode)
+		{
+		case PURCHASABLE:
+			caption = "buy to cargo";
+			break;
+		case CARGO:
+			caption = "in cargo";
+			break;
+		case INSTALLED:
+			caption = "installed";
+			break;
+		case INSTALLABLE:
+			caption = "install to ship";
+			break;
+		}
 
-
-
-void OutfitterPanel::ToggleForSale()
-{
-	showForSale = !showForSale;
-	
-	ShopPanel::ToggleForSale();
+		optionPosition.Y() += OPTION_HEIGHT;
+		SpriteShader::Draw(box[this->viewMode == viewMode], optionPosition);
+		font.Draw(caption, optionPosition + captionOffset, color[this->viewMode == viewMode]);
+		AddZone(Rectangle::FromCorner(optionPosition - Point(boxWidth / 2., OPTION_HEIGHT / 2.),
+				Point(boxWidth + CAPTION_MARGIN + font.Width(caption), OPTION_HEIGHT)),
+				[this, viewMode](){ SetViewMode(viewMode); });
+	}
 }
 
 
@@ -673,6 +704,46 @@ void OutfitterPanel::ToggleCargo()
 	}
 	
 	ShopPanel::ToggleCargo();
+}
+
+
+
+void OutfitterPanel::SelectShip(Ship *ship)
+{
+	ShopPanel::SelectShip(ship);
+	switch(viewMode)
+	{
+	case PURCHASABLE:
+		SetViewMode(INSTALLABLE);
+		break;
+	case CARGO:
+		SetViewMode(INSTALLED);
+		break;
+	case INSTALLED:
+	case INSTALLABLE:
+		// NOOP.
+		break;
+	}
+}
+
+
+
+void OutfitterPanel::SetViewMode(OutfitterPanel::ViewMode value)
+{
+	switch(viewMode = value)
+	{
+	case PURCHASABLE:
+	case CARGO:
+		if(playerShip)
+			ToggleCargo();
+		break;
+	case INSTALLED:
+	case INSTALLABLE:
+		if(!playerShip)
+			ToggleCargo();
+		break;
+	}
+	sameSelectedTopY = true;
 }
 
 
@@ -705,13 +776,13 @@ bool OutfitterPanel::ShipCanSell(const Ship *ship, const Outfit *outfit)
 
 
 
-void OutfitterPanel::DrawOutfit(const Outfit &outfit, const Point &center, bool isSelected, bool isOwned)
+void OutfitterPanel::DrawOutfit(const Outfit &outfit, const Point &center, bool isSelected, bool isOwned, bool isEnabled)
 {
 	const Sprite *thumbnail = outfit.Thumbnail();
 	const Sprite *back = SpriteSet::Get(
 		isSelected ? "ui/outfitter selected" : "ui/outfitter unselected");
 	SpriteShader::Draw(back, center);
-	SpriteShader::Draw(thumbnail, center);
+	SpriteShader::Draw(thumbnail, center, 1, 0, 0, GetItemOpacity(isSelected, isEnabled));
 	
 	// Draw the outfit name.
 	const string &name = outfit.Name();

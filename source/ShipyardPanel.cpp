@@ -101,22 +101,22 @@ int ShipyardPanel::DrawPlayerShipInfo(const Point &point)
 
 
 
-bool ShipyardPanel::HasItem(const string &name) const
+ShopPanel::ItemStatus ShipyardPanel::GetItemStatus(const string &name) const
 {
 	const Ship *ship = GameData::Ships().Get(name);
-	return shipyard.Has(ship);
+	return shipyard.Has(ship) ? (CanBuy(ship) ? ENABLED : DISABLED) : UNAVAILABLE;
 }
 
 
 
-void ShipyardPanel::DrawItem(const string &name, const Point &point, int scrollY)
+void ShipyardPanel::DrawItem(const string &name, const Point &point, int scrollY, bool isEnabled)
 {
 	const Ship *ship = GameData::Ships().Get(name);
 	zones.emplace_back(point, Point(SHIP_SIZE, SHIP_SIZE), ship, scrollY);
 	if(point.Y() + SHIP_SIZE / 2 < Screen::Top() || point.Y() - SHIP_SIZE / 2 > Screen::Bottom())
 		return;
 	
-	DrawShip(*ship, point, ship == selectedShip);
+	DrawShip(*ship, point, ship == selectedShip, isEnabled);
 }
 
 
@@ -151,13 +151,20 @@ int ShipyardPanel::DrawDetails(const Point &center)
 
 bool ShipyardPanel::CanBuy() const
 {
-	if(!selectedShip)
+	return CanBuy(selectedShip);
+}
+
+
+
+bool ShipyardPanel::CanBuy(const Ship *ship) const
+{
+	if(!ship)
 		return false;
 	
-	int64_t cost = player.StockDepreciation().Value(*selectedShip, day);
+	int64_t cost = player.StockDepreciation().Value(*ship, day);
 	
 	// Check that the player has any necessary licenses.
-	int64_t licenseCost = LicenseCost(&selectedShip->Attributes());
+	int64_t licenseCost = LicenseCost(&ship->Attributes());
 	if(licenseCost < 0)
 		return false;
 	cost += licenseCost;

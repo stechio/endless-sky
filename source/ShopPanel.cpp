@@ -149,6 +149,13 @@ void ShopPanel::Draw()
 
 
 
+float ShopPanel::GetItemOpacity(bool isSelected, bool isEnabled)
+{
+	return isEnabled ? 1 : isSelected ? .7 : .25;
+}
+
+
+
 void ShopPanel::DrawSidebar()
 {
 	const Font &font = FontSet::Get(14);
@@ -240,7 +247,7 @@ void ShopPanel::DrawSidebar()
 	{
 		point.Y() += SHIP_SIZE / 2;
 		point.X() = Screen::Right() - SIDE_WIDTH / 2;
-		DrawShip(*playerShip, point, true);
+		DrawShip(*playerShip, point, true, true);
 		
 		Point offset(SIDE_WIDTH / -2, SHIP_SIZE / 2);
 		sideDetailHeight = DrawPlayerShipInfo(point + offset);
@@ -377,13 +384,15 @@ void ShopPanel::DrawMain()
 			if(isSelected)
 				selectedTopY = point.Y() - TILE_SIZE / 2;
 			
-			if(!HasItem(name))
+			ItemStatus itemStatus = GetItemStatus(name);
+			if(itemStatus == UNAVAILABLE)
 				continue;
+
 			isEmpty = false;
 			if(isCollapsed)
 				break;
 			
-			DrawItem(name, point, scrollY);
+			DrawItem(name, point, scrollY, itemStatus == ENABLED);
 			
 			if(isSelected)
 			{
@@ -458,7 +467,7 @@ void ShopPanel::DrawMain()
 
 
 
-void ShopPanel::DrawShip(const Ship &ship, const Point &center, bool isSelected)
+void ShopPanel::DrawShip(const Ship &ship, const Point &center, bool isSelected, bool isEnabled)
 {
 	const Sprite *back = SpriteSet::Get(
 		isSelected ? "ui/shipyard selected" : "ui/shipyard unselected");
@@ -474,7 +483,7 @@ void ShopPanel::DrawShip(const Ship &ship, const Point &center, bool isSelected)
 	const Sprite *sprite = ship.GetSprite();
 	int swizzle = ship.CustomSwizzle() >= 0 ? ship.CustomSwizzle() : GameData::PlayerGovernment()->GetSwizzle();
 	if(thumbnail)
-		SpriteShader::Draw(thumbnail, center + Point(0., 10.), 1., swizzle);
+		SpriteShader::Draw(thumbnail, center + Point(0., 10.), 1., swizzle, 0, GetItemOpacity(isSelected, isEnabled));
 	else if(sprite)
 	{
 		// Make sure the ship sprite leaves 10 pixels padding all around.
@@ -522,6 +531,12 @@ void ShopPanel::ToggleForSale()
 void ShopPanel::ToggleCargo()
 {
 	sameSelectedTopY = true;
+}
+
+
+void ShopPanel::SelectShip(Ship *ship)
+{
+	playerShip = ship;
 }
 
 
@@ -618,7 +633,7 @@ bool ShopPanel::KeyDown(SDL_Keycode key, Uint16 mod, const Command &command, boo
 					playerShips.insert(ship);
 			
 			if(!playerShips.count(playerShip))
-				playerShip = playerShips.empty() ? nullptr : *playerShips.begin();
+				SelectShip(playerShips.empty() ? nullptr : *playerShips.begin());
 		}
 		else
 		{
@@ -632,7 +647,7 @@ bool ShopPanel::KeyDown(SDL_Keycode key, Uint16 mod, const Command &command, boo
 					playerShips.insert(ship);
 			
 			if(!playerShips.count(playerShip))
-				playerShip = playerShips.empty() ? nullptr : *playerShips.begin();
+				SelectShip(playerShips.empty() ? nullptr : *playerShips.begin());
 		}
 	}
 	else
@@ -892,7 +907,7 @@ void ShopPanel::SideSelect(int count)
 	if(it == player.Ships().end())
 	{
 		playerShips.clear();
-		playerShip = player.Flagship();
+		SelectShip(player.Flagship());
 		if(playerShip)
 			playerShips.insert(playerShip);
 		
@@ -957,11 +972,11 @@ void ShopPanel::SideSelect(Ship *ship)
 	{
 		playerShips.erase(ship);
 		if(playerShip == ship)
-			playerShip = playerShips.empty() ? nullptr : *playerShips.begin();
+			SelectShip(playerShips.empty() ? nullptr : *playerShips.begin());
 		return;
 	}
 	
-	playerShip = ship;
+	SelectShip(ship);
 	playerShips.insert(playerShip);
 	sameSelectedTopY = true;
 }

@@ -42,17 +42,26 @@ public:
 	virtual void Draw() override;
 	
 protected:
+	enum ItemStatus
+	{
+		UNAVAILABLE,
+		ENABLED,
+		DISABLED
+	};
+
+	static float GetItemOpacity(bool isSelected, bool isEnabled);
+
 	void DrawSidebar();
 	void DrawButtons();
 	void DrawMain();
 	
-	void DrawShip(const Ship &ship, const Point &center, bool isSelected);
+	void DrawShip(const Ship &ship, const Point &center, bool isSelected, bool isEnabled);
 	
 	// These are for the individual shop panels to override.
 	virtual int TileSize() const = 0;
 	virtual int DrawPlayerShipInfo(const Point &point) = 0;
-	virtual bool HasItem(const std::string &name) const = 0;
-	virtual void DrawItem(const std::string &name, const Point &point, int scrollY) = 0;
+	virtual ItemStatus GetItemStatus(const std::string &name) const = 0;
+	virtual void DrawItem(const std::string &name, const Point &point, int scrollY, bool isEnabled) = 0;
 	virtual int DividerOffset() const = 0;
 	virtual int DetailWidth() const = 0;
 	virtual int DrawDetails(const Point &center) = 0;
@@ -67,6 +76,7 @@ protected:
 	virtual void DrawKey();
 	virtual void ToggleForSale();
 	virtual void ToggleCargo();
+	virtual void SelectShip(Ship *ship);
 	
 	// Only override the ones you need; the default action is to return false.
 	virtual bool KeyDown(SDL_Keycode key, Uint16 mod, const Command &command, bool isNewPress) override;
@@ -77,8 +87,8 @@ protected:
 	virtual bool Scroll(double dx, double dy) override;
 	
 	int64_t LicenseCost(const Outfit *outfit) const;
-	
-	
+
+
 protected:
 	class Zone : public ClickZone<const Ship *> {
 	public:

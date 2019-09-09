@@ -42,16 +42,24 @@ public:
 	
 	virtual void Step() override;
 	
-	
 protected:
+	enum ViewMode
+	{
+		INSTALLABLE,
+		PURCHASABLE,
+		CARGO,
+		INSTALLED
+	};
+
 	virtual int TileSize() const override;
 	virtual int DrawPlayerShipInfo(const Point &point) override;
-	virtual bool HasItem(const std::string &name) const override;
-	virtual void DrawItem(const std::string &name, const Point &point, int scrollY) override;
+	virtual ItemStatus GetItemStatus(const std::string &name) const override;
+	virtual void DrawItem(const std::string &name, const Point &point, int scrollY, bool isEnabled) override;
 	virtual int DividerOffset() const override;
 	virtual int DetailWidth() const override;
 	virtual int DrawDetails(const Point &center) override;
 	virtual bool CanBuy() const override;
+	virtual bool CanBuy(const Outfit *outfit) const;
 	virtual void Buy(bool fromCargo = false) override;
 	virtual void FailBuy() const override;
 	virtual bool CanSell(bool toCargo = false) const override;
@@ -59,14 +67,14 @@ protected:
 	virtual void FailSell(bool toCargo = false) const override;
 	virtual bool ShouldHighlight(const Ship *ship) override;
 	virtual void DrawKey() override;
-	virtual void ToggleForSale() override;
 	virtual void ToggleCargo() override;
-	
+	virtual void SelectShip(Ship *ship) override;
+	virtual void SetViewMode(ViewMode value);
 	
 private:
 	static bool ShipCanBuy(const Ship *ship, const Outfit *outfit);
 	static bool ShipCanSell(const Ship *ship, const Outfit *outfit);
-	static void DrawOutfit(const Outfit &outfit, const Point &center, bool isSelected, bool isOwned);
+	static void DrawOutfit(const Outfit &outfit, const Point &center, bool isSelected, bool isOwned, bool isEnabled);
 	bool HasMapped(int mapSize) const;
 	bool IsLicense(const std::string &name) const;
 	bool HasLicense(const std::string &name) const;
@@ -80,9 +88,7 @@ private:
 private:
 	// Record whether we've checked if the player needs ammo refilled.
 	bool checkedRefill = false;
-	// Allow toggling whether outfits that are for sale are shown. If turned
-	// off, only outfits in the currently selected ships are shown.
-	bool showForSale = true;
+	ViewMode viewMode;
 	// Remember what ships are selected if the player switches to cargo.
 	Ship *previousShip = nullptr;
 	std::set<Ship *> previousShips;
