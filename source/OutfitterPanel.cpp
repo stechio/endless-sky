@@ -133,7 +133,7 @@ void OutfitterPanel::DrawItem(const string &name, const Point &point, int scroll
 		return;
 	
 	bool isSelected = (outfit == selectedOutfit);
-	bool isOwned = playerShip && playerShip->OutfitCount(outfit);
+	bool isOwned = (playerShip && playerShip->OutfitCount(outfit)) || (!playerShip && player.Cargo().Get(outfit));
 	DrawOutfit(*outfit, point, isSelected, isOwned, isEnabled);
 	
 	// Check if this outfit is a "license".
@@ -498,7 +498,7 @@ bool OutfitterPanel::CanSell(bool toCargo) const
 	if(!planet || !selectedOutfit)
 		return false;
 	
-	if(!toCargo && player.Cargo().Get(selectedOutfit))
+	if(!toCargo && !playerShip && player.Cargo().Get(selectedOutfit))
 		return true;
 	
 	for(const Ship *ship : playerShips)
@@ -782,7 +782,7 @@ void OutfitterPanel::DrawOutfit(const Outfit &outfit, const Point &center, bool 
 	const Sprite *back = SpriteSet::Get(
 		isSelected ? "ui/outfitter selected" : "ui/outfitter unselected");
 	SpriteShader::Draw(back, center);
-	SpriteShader::Draw(thumbnail, center, 1, 0, 0, GetItemOpacity(isSelected, isEnabled));
+	SpriteShader::Draw(thumbnail, center, 1, 0, 0, GetItemOpacity(isSelected | isOwned, isEnabled || (isSelected && isOwned)));
 	
 	// Draw the outfit name.
 	const string &name = outfit.Name();
