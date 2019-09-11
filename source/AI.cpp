@@ -316,7 +316,7 @@ void AI::UpdateKeys(PlayerInfo &player, Command &clickCommands, bool isActive)
 	
 	// Toggle your secondary weapon.
 	if(keyDown.Has(Command::SELECT))
-		player.SelectNext();
+		player.SelectWeapon();
 	
 	// The commands below here only apply if you have escorts or fighters.
 	if(player.Ships().size() < 2)

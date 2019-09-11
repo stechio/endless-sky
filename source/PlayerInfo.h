@@ -205,7 +205,7 @@ public:
 	
 	// Toggle which secondary weapon the player has selected.
 	const Outfit *SelectedWeapon() const;
-	void SelectNext();
+	void SelectWeapon();
 	
 	// Escorts currently selected for giving orders.
 	const std::vector<std::weak_ptr<Ship>> &SelectedShips() const;

@@ -1304,7 +1304,7 @@ bool PlayerInfo::TakeOff(UI *ui)
 			out << ".";
 		Messages::Add(out.str());
 	}
-	
+
 	return true;
 }
 
@@ -1848,7 +1848,7 @@ const Outfit *PlayerInfo::SelectedWeapon() const
 
 
 // Cycle through all available secondary weapons.
-void PlayerInfo::SelectNext()
+void PlayerInfo::SelectWeapon()
 {
 	if(!flagship || flagship->Outfits().empty())
 		return;
@@ -1867,7 +1867,12 @@ void PlayerInfo::SelectNext()
 			selectedWeapon = it->first;
 			return;
 		}
-	selectedWeapon = nullptr;
+	if(selectedWeapon)
+	{
+		// Iteration finished: restart cycle!
+		selectedWeapon = nullptr;
+		SelectWeapon();
+	}
 }
 
 
