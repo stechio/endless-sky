@@ -878,6 +878,91 @@ int64_t AI::EnemyStrength(const Government *government)
 
 
 
+bool AI::CyclicTargetPredicate::operator() (const Ship &ship, const shared_ptr<Ship> &other)
+{
+	if(other.get() != &ship)
+	{
+		if(selectable == UNDEFINED)
+			selectable = !ship.GetTargetShip() || !ship.GetTargetShip()->IsTargetable() ? NEXT : SCAN;
+		if(selectable == NEXT)
+		{
+			if((other->IsYours() || (other->GetPersonality().IsEscort()
+					&& !other->GetGovernment()->IsEnemy())) == friendly && other->IsTargetable())
+				return true;
+		}
+		else if(other == ship.GetTargetShip())
+			selectable = NEXT;
+	}
+	return false;
+}
+
+
+
+bool AI::CloserTargetPredicate::operator() (const Ship &ship, const shared_ptr<Ship> &other)
+{
+	State state = GetState(ship, other);
+	if(state == INCOMPATIBLE)
+		return false;
+
+	double distance = GetDistance(ship, other);
+	if(state < closeState || (state == closeState && distance > closeDistance))
+		return false;
+
+	closeState = state;
+	closeDistance = distance;
+	return true;
+}
+
+
+
+double AI::CloserTargetPredicate::GetDistance(const Ship &ship, const std::shared_ptr<Ship> &other) const
+{
+	return other->Position().Distance(ship.Position());
+}
+
+
+
+AI::CloserTargetPredicate::State AI::CloserTargetPredicate::GetState(const Ship &ship, const std::shared_ptr<Ship> &other) const
+{
+	if(other.get() == &ship || !other->IsTargetable())
+		return INCOMPATIBLE;
+
+	State state = other->GetGovernment()->IsEnemy(ship.GetGovernment()) ?
+			(other->IsDisabled() ? ENEMY_DISABLED : ENEMY_ACTIVE) : FRIEND;
+	return (state == FRIEND && !friendly) || other->IsYours() ? INCOMPATIBLE : state;
+}
+
+
+
+bool AI::StrongerEnemyPredicate::operator() (const Ship &ship, const shared_ptr<Ship> &other)
+{
+	static const double PROXIMITY_RANGE = 1000;
+
+	State state = GetState(ship, other);
+	if(state == INCOMPATIBLE)
+		return false;
+
+	double distance = GetDistance(ship, other);
+	double shields = other->Attributes().Get("shields");
+	// NOTE: Short-range other ship is targeted by strength and (optionally) by engagement
+	// with main ship.
+	if(state < closeState || (state == closeState && ((distance < PROXIMITY_RANGE &&
+			attacking ? ((targetTarget != &ship && other->GetTargetShip().get() != &ship && shields < targetShields)
+						|| (targetTarget == &ship && (other->GetTargetShip().get() != &ship || shields < targetShields)))
+					: shields < targetShields)
+			|| (distance >= PROXIMITY_RANGE && distance > closeDistance))))
+		return false;
+
+	closeState = state;
+	closeDistance = distance;
+	targetShields = shields;
+	if(attacking)
+		targetTarget = other->GetTargetShip().get();
+	return true;
+}
+
+
+
 // Check if the given target can be pursued by this ship.
 bool AI::CanPursue(const Ship &ship, const Ship &target) const
 {
@@ -2535,6 +2620,23 @@ Point AI::StoppingPoint(const Ship &ship, const Point &targetVelocity, bool &sho
 
 
 
+std::shared_ptr<Ship> AI::FindTarget(const Ship &ship, TargetPredicate &&predicate, const bool &first) const
+{
+	std::shared_ptr<Ship> target = nullptr;
+	for(const shared_ptr<Ship> &other : ships)
+	{
+		if(predicate(ship, other))
+		{
+			target = other;
+			if(first)
+				break;
+		}
+	}
+	return target;
+}
+
+
+
 // Get a vector giving the direction this ship should aim in in order to do
 // maximum damaged to a target at the given position with its non-turret,
 // non-homing weapons. If the ship has no non-homing weapons, this just
@@ -3073,77 +3175,38 @@ void AI::MovePlayer(Ship &ship, const PlayerInfo &player)
 			ship.SetTargetStellar(system->FindStellar(bestDestination));
 	}
 	
-	if(keyDown.Has(Command::NEAREST))
+	if(keyDown.Has(Command::TARGET_NEAREST))
 	{
-		// Find the nearest ship to the flagship. If `Shift` is held, consider friendly ships too.
-		double closest = numeric_limits<double>::infinity();
-		int closeState = 0;
-		bool found = false;
-		for(const shared_ptr<Ship> &other : ships)
-			if(other.get() != &ship && other->IsTargetable())
-			{
-				// Sort ships into one of three priority states:
-				// 0 = friendly, 1 = disabled enemy, 2 = active enemy.
-				int state = other->GetGovernment()->IsEnemy(ship.GetGovernment());
-				// Do not let "target nearest" select a friendly ship, so that
-				// if the player is repeatedly targeting nearest to, say, target
-				// a bunch of fighters, they won't start firing on friendly
-				// ships as soon as the last one is gone.
-				if((!state && !shift) || other->IsYours())
-					continue;
-				
-				state += state * !other->IsDisabled();
-				
-				double d = other->Position().Distance(ship.Position());
-				
-				if(state > closeState || (state == closeState && d < closest))
-				{
-					ship.SetTargetShip(other);
-					closest = d;
-					closeState = state;
-					found = true;
-				}
-			}
-		// If no ship was found, look for nearby asteroids.
-		double asteroidRange = 100. * sqrt(ship.Attributes().Get("asteroid scan power"));
-		if(!found && asteroidRange)
+		std::shared_ptr<Ship> target = FindTarget(ship, CloserTargetPredicate(shift), false);
+		if(target)
+			ship.SetTargetShip(target);
+		else
 		{
-			for(const shared_ptr<Minable> &asteroid : minables)
+			// If no ship was found, look for nearby asteroids.
+			double asteroidRange = 100. * sqrt(ship.Attributes().Get("asteroid scan power"));
+			if(asteroidRange)
 			{
-				double range = ship.Position().Distance(asteroid->Position());
-				if(range < asteroidRange)
+				for(const shared_ptr<Minable> &asteroid : minables)
 				{
-					ship.SetTargetAsteroid(asteroid);
-					asteroidRange = range;
+					double range = ship.Position().Distance(asteroid->Position());
+					if(range < asteroidRange)
+					{
+						ship.SetTargetAsteroid(asteroid);
+						asteroidRange = range;
+					}
 				}
 			}
 		}
 	}
-	else if(keyDown.Has(Command::TARGET))
+	else if(keyDown.Has(Command::TARGET_STRONGEST))
 	{
-		// Find the "next" ship to target. Holding `Shift` will cycle through escorts.
-		shared_ptr<const Ship> target = ship.GetTargetShip();
-		// Whether the next eligible ship should be targeted.
-		bool selectNext = !target || !target->IsTargetable();
-		for(const shared_ptr<Ship> &other : ships)
-		{
-			// Do not target yourself.
-			if(other.get() == &ship)
-				continue;
-			// The default behavior is to ignore your fleet and any friendly escorts.
-			bool isPlayer = other->IsYours() || (other->GetPersonality().IsEscort()
-					&& !other->GetGovernment()->IsEnemy());
-			if(other == target)
-				selectNext = true;
-			else if(selectNext && isPlayer == shift && other->IsTargetable())
-			{
-				ship.SetTargetShip(other);
-				selectNext = false;
-				break;
-			}
-		}
-		if(selectNext)
-			ship.SetTargetShip(shared_ptr<Ship>());
+		std::shared_ptr<Ship> target = FindTarget(ship, StrongerEnemyPredicate(!shift), false);
+		ship.SetTargetShip(target ? target : shared_ptr<Ship>());
+	}
+	else if(keyDown.Has(Command::TARGET_CYCLIC))
+	{
+		std::shared_ptr<Ship> target = FindTarget(ship, CyclicTargetPredicate(shift), true);
+		ship.SetTargetShip(target ? target : shared_ptr<Ship>());
 	}
 	else if(keyDown.Has(Command::BOARD))
 	{

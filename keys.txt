@@ -8,10 +8,10 @@
 "Select secondary weapon" 119
 "Land on planet / station" 108
 "Board selected ship" 98
-"Talk to selected ship" 116
+"Talk to selected ship" 107
 "Scan selected ship" 115
 "Initiate hyperspace jump" 106
-"Select next ship" 110
+"Select next ship" 116
 "Select nearest hostile ship" 114
 "Deploy / recall fighters" 100
 "Fire afterburner" 97
@@ -23,3 +23,4 @@
 "Fleet: Gather around me" 103
 "Fleet: Hold position" 104
 "Fleet: Toggle ammo usage" 117
+"Select strongest hostile ship" 101

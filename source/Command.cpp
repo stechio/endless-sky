@@ -53,8 +53,8 @@ const Command Command::BOARD(1uL << 9, "Board selected ship");
 const Command Command::HAIL(1uL << 10, "Talk to selected ship");
 const Command Command::SCAN(1uL << 11, "Scan selected ship");
 const Command Command::JUMP(1uL << 12, "Initiate hyperspace jump");
-const Command Command::TARGET(1uL << 13, "Select next ship");
-const Command Command::NEAREST(1uL << 14, "Select nearest hostile ship");
+const Command Command::TARGET_CYCLIC(1uL << 13, "Select next ship");
+const Command Command::TARGET_NEAREST(1uL << 14, "Select nearest hostile ship");
 const Command Command::DEPLOY(1uL << 15, "Deploy / recall fighters");
 const Command Command::AFTERBURNER(1uL << 16, "Fire afterburner");
 const Command Command::CLOAK(1uL << 17, "Toggle cloaking device");
@@ -67,6 +67,7 @@ const Command Command::HOLD(1uL << 23, "Fleet: Hold position");
 const Command Command::AMMO(1uL << 24, "Fleet: Toggle ammo usage");
 const Command Command::WAIT(1uL << 25, "");
 const Command Command::STOP(1ul << 26, "");
+const Command Command::TARGET_STRONGEST(1uL << 27, "Select strongest hostile ship");
 
 
 

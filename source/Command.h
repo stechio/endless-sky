@@ -41,8 +41,9 @@ public:
 	static const Command HAIL;
 	static const Command SCAN;
 	static const Command JUMP;
-	static const Command TARGET;
-	static const Command NEAREST;
+	static const Command TARGET_CYCLIC;
+	static const Command TARGET_NEAREST;
+	static const Command TARGET_STRONGEST;
 	static const Command DEPLOY;
 	static const Command AFTERBURNER;
 	static const Command CLOAK;

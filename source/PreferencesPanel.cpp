@@ -291,8 +291,8 @@ void PreferencesPanel::DrawControls()
 	table.AddColumn(115, Table::RIGHT);
 	table.SetUnderline(-120, 120);
 	
-	int firstY = -248;
-	table.DrawAt(Point(-130, firstY));
+	int firstY = -264;
+	table.DrawAt(Point(-90, firstY));
 	
 	static const string CATEGORIES[] = {
 		"Navigation",
@@ -317,8 +317,9 @@ void PreferencesPanel::DrawControls()
 		Command::SECONDARY,
 		Command::CLOAK,
 		Command::NONE,
-		Command::NEAREST,
-		Command::TARGET,
+		Command::TARGET_NEAREST,
+		Command::TARGET_STRONGEST,
+		Command::TARGET_CYCLIC,
 		Command::HAIL,
 		Command::BOARD,
 		Command::SCAN,
@@ -334,12 +335,12 @@ void PreferencesPanel::DrawControls()
 		Command::HOLD,
 		Command::AMMO
 	};
-	static const Command *BREAK = &COMMANDS[19];
+	static const Command *BREAK = &COMMANDS[20];
 	for(const Command &command : COMMANDS)
 	{
 		// The "BREAK" line is where to go to the next column.
 		if(&command == BREAK)
-			table.DrawAt(Point(130, firstY));
+			table.DrawAt(Point(170, firstY));
 		
 		if(!command)
 		{
@@ -385,14 +386,15 @@ void PreferencesPanel::DrawControls()
 	}
 	
 	Table shiftTable;
-	shiftTable.AddColumn(125, Table::RIGHT);
-	shiftTable.SetUnderline(0, 130);
-	shiftTable.DrawAt(Point(-400, 52));
+	shiftTable.AddColumn(240, Table::RIGHT);
+	shiftTable.SetUnderline(9, 243);
+	shiftTable.DrawAt(Point(-476, 36));
 	
 	shiftTable.DrawUnderline(medium);
 	shiftTable.Draw("With <shift> key", bright);
 	shiftTable.DrawGap(5);
 	shiftTable.Draw("Select nearest ship", medium);
+	shiftTable.Draw("Select strongest attacking ship", medium);
 	shiftTable.Draw("Select next escort", medium);
 	shiftTable.Draw("Talk to planet", medium);
 	shiftTable.Draw("Board disabled escort", medium);
@@ -412,8 +414,8 @@ void PreferencesPanel::DrawSettings()
 	table.AddColumn(115, Table::RIGHT);
 	table.SetUnderline(-120, 120);
 	
-	int firstY = -248;
-	table.DrawAt(Point(-130, firstY));
+	int firstY = -264;
+	table.DrawAt(Point(-90, firstY));
 	
 	static const string SETTINGS[] = {
 		"Display",
@@ -456,7 +458,7 @@ void PreferencesPanel::DrawSettings()
 		{
 			isCategory = true;
 			if(!setting.empty())
-				table.DrawAt(Point(130, firstY));
+				table.DrawAt(Point(170, firstY));
 			continue;
 		}
 		
@@ -558,8 +560,8 @@ void PreferencesPanel::DrawPlugins()
 	table.AddColumn(-115, Table::LEFT);
 	table.SetUnderline(-120, 120);
 	
-	int firstY = -238;
-	table.DrawAt(Point(-130, firstY));
+	int firstY = -254;
+	table.DrawAt(Point(-90, firstY));
 	table.DrawUnderline(medium);
 	table.Draw("Installed plugins:", bright);
 	table.DrawGap(5);
@@ -578,10 +580,10 @@ void PreferencesPanel::DrawPlugins()
 		if(isSelected)
 		{
 			const Sprite *sprite = SpriteSet::Get(plugin.first);
-			Point top(15., firstY);
+			Point top(55., firstY);
 			if(sprite)
 			{
-				Point center(130., top.Y() + .5 * sprite->Height());
+				Point center(170., top.Y() + .5 * sprite->Height());
 				SpriteShader::Draw(sprite, center);
 				top.Y() += sprite->Height() + 10.;
 			}
