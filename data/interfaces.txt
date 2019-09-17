@@ -228,16 +228,16 @@ interface "controls"
 	sprite "ui/keys panel"
 		center -65 -20
 	button c "_Controls"
-		center -300 -230
+		center -263 -245
 		dimensions 90 30
 		color bright
 	button s "_Settings"
-		center -300 -190
+		center -263 -205
 		dimensions 90 30
 		color medium
 		hover bright
 	button p "_Plugins"
-		center -300 -150
+		center -263 -165
 		dimensions 90 30
 		color medium
 		hover bright
@@ -246,18 +246,18 @@ interface "controls"
 
 interface "settings"
 	sprite "ui/settings panel"
-		center -20 -20
+		center -65 -20
 	button c "_Controls"
-		center -300 -230
+		center -263 -245
 		dimensions 90 30
 		color medium
 		hover bright
 	button s "_Settings"
-		center -300 -190
+		center -263 -205
 		dimensions 90 30
 		color bright
 	button p "_Plugins"
-		center -300 -150
+		center -263 -165
 		dimensions 90 30
 		color medium
 		hover bright
@@ -266,19 +266,19 @@ interface "settings"
 
 interface "plugins"
 	sprite "ui/settings panel"
-		center -20 -20
+		center -65 -20
 	button c "_Controls"
-		center -300 -230
+		center -263 -245
 		dimensions 90 30
 		color medium
 		hover bright
 	button s "_Settings"
-		center -300 -190
+		center -263 -205
 		dimensions 90 30
 		color medium
 		hover bright
 	button p "_Plugins"
-		center -300 -150
+		center -263 -165
 		dimensions 90 30
 		color bright
 
@@ -286,10 +286,10 @@ interface "plugins"
 
 interface "preferences"
 	button b "_Back to Menu..."
-		center 195 210
+		center 235 210
 		dimensions 120 30
 	bar "volume"
-		from 280.5 15
+		from 320 5
 		dimensions 0 -200
 		color "energy"
 		size 3

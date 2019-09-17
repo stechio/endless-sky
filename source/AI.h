@@ -17,6 +17,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 #include "Point.h"
 
 #include <cstdint>
+#include <limits>
 #include <list>
 #include <map>
 #include <memory>
@@ -72,6 +73,63 @@ template <class Type>
 	
 	
 private:
+	class TargetPredicate {
+	public:
+		virtual bool operator() (const Ship &ship, const std::shared_ptr<Ship> &other) = 0;
+	};
+
+	class CyclicTargetPredicate : public TargetPredicate
+	{
+	public:
+		CyclicTargetPredicate(bool friendly) : friendly(friendly)
+		{}
+		virtual bool operator() (const Ship &ship, const std::shared_ptr<Ship> &other);
+	protected:
+		enum Selectable
+		{
+			UNDEFINED,
+			SCAN,
+			NEXT
+		};
+	protected:
+		bool friendly = false;
+		Selectable selectable = UNDEFINED;
+	};
+
+	class CloserTargetPredicate : public TargetPredicate
+	{
+	public:
+		CloserTargetPredicate(bool friendly) : friendly(friendly)
+		{}
+		virtual bool operator() (const Ship &ship, const std::shared_ptr<Ship> &other);
+	protected:
+		enum State
+		{
+			INCOMPATIBLE = -1,
+			FRIEND = 0,
+			ENEMY_DISABLED = 1,
+			ENEMY_ACTIVE = 2
+		};
+	protected:
+		double GetDistance(const Ship &ship, const std::shared_ptr<Ship> &other) const;
+		State GetState(const Ship &ship, const std::shared_ptr<Ship> &other) const;
+	protected:
+		double closeDistance = std::numeric_limits<double>::infinity();
+		State closeState = INCOMPATIBLE;
+		bool friendly = false;
+	};
+
+	class StrongerEnemyPredicate : public CloserTargetPredicate {
+	public:
+		StrongerEnemyPredicate(bool attacking) : CloserTargetPredicate(false), attacking(attacking)
+		{}
+		virtual bool operator() (const Ship &ship, const std::shared_ptr<Ship> &other);
+	protected:
+		bool attacking = false;
+		double targetShields = 0;
+		Ship *targetTarget = nullptr;
+	};
+
 	// Check if a ship can pursue its target (i.e. beyond the "fence").
 	bool CanPursue(const Ship &ship, const Ship &target) const;
 	// Disabled or stranded ships coordinate with other ships to get assistance.
@@ -115,6 +173,9 @@ private:
 	void DoScatter(Ship &ship, Command &command);
 	
 	static Point StoppingPoint(const Ship &ship, const Point &targetVelocity, bool &shouldReverse);
+
+	std::shared_ptr<Ship> FindTarget(const Ship &ship, TargetPredicate &&predicate, const bool &first) const;
+
 	// Get a vector giving the direction this ship should aim in in order to do
 	// maximum damage to a target at the given position with its non-turret,
 	// non-homing weapons. If the ship has no non-homing weapons, this just
